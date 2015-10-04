@@ -1,0 +1,506 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		FAEDBE9C1BC1722600FDBC15 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEDBE9B1BC1722600FDBC15 /* AppDelegate.swift */; };
+		FAEDBE9E1BC1722600FDBC15 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEDBE9D1BC1722600FDBC15 /* ViewController.swift */; };
+		FAEDBEA11BC1722600FDBC15 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAEDBE9F1BC1722600FDBC15 /* Main.storyboard */; };
+		FAEDBEA31BC1722600FDBC15 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FAEDBEA21BC1722600FDBC15 /* Assets.xcassets */; };
+		FAEDBEA61BC1722600FDBC15 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAEDBEA41BC1722600FDBC15 /* LaunchScreen.storyboard */; };
+		FAEDBEB11BC1722600FDBC15 /* GoldenTilerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEDBEB01BC1722600FDBC15 /* GoldenTilerTests.swift */; };
+		FAEDBEBC1BC1722600FDBC15 /* GoldenTilerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEDBEBB1BC1722600FDBC15 /* GoldenTilerUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		FAEDBEAD1BC1722600FDBC15 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FAEDBE901BC1722600FDBC15 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FAEDBE971BC1722600FDBC15;
+			remoteInfo = GoldenTiler;
+		};
+		FAEDBEB81BC1722600FDBC15 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FAEDBE901BC1722600FDBC15 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FAEDBE971BC1722600FDBC15;
+			remoteInfo = GoldenTiler;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		FAEDBE981BC1722600FDBC15 /* GoldenTiler.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GoldenTiler.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		FAEDBE9B1BC1722600FDBC15 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		FAEDBE9D1BC1722600FDBC15 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		FAEDBEA01BC1722600FDBC15 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		FAEDBEA21BC1722600FDBC15 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		FAEDBEA51BC1722600FDBC15 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		FAEDBEA71BC1722600FDBC15 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FAEDBEAC1BC1722600FDBC15 /* GoldenTilerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GoldenTilerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		FAEDBEB01BC1722600FDBC15 /* GoldenTilerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoldenTilerTests.swift; sourceTree = "<group>"; };
+		FAEDBEB21BC1722600FDBC15 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FAEDBEB71BC1722600FDBC15 /* GoldenTilerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GoldenTilerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		FAEDBEBB1BC1722600FDBC15 /* GoldenTilerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoldenTilerUITests.swift; sourceTree = "<group>"; };
+		FAEDBEBD1BC1722600FDBC15 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		FAEDBE951BC1722600FDBC15 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FAEDBEA91BC1722600FDBC15 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FAEDBEB41BC1722600FDBC15 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		FAEDBE8F1BC1722600FDBC15 = {
+			isa = PBXGroup;
+			children = (
+				FAEDBE9A1BC1722600FDBC15 /* GoldenTiler */,
+				FAEDBEAF1BC1722600FDBC15 /* GoldenTilerTests */,
+				FAEDBEBA1BC1722600FDBC15 /* GoldenTilerUITests */,
+				FAEDBE991BC1722600FDBC15 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		FAEDBE991BC1722600FDBC15 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				FAEDBE981BC1722600FDBC15 /* GoldenTiler.app */,
+				FAEDBEAC1BC1722600FDBC15 /* GoldenTilerTests.xctest */,
+				FAEDBEB71BC1722600FDBC15 /* GoldenTilerUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		FAEDBE9A1BC1722600FDBC15 /* GoldenTiler */ = {
+			isa = PBXGroup;
+			children = (
+				FAEDBE9B1BC1722600FDBC15 /* AppDelegate.swift */,
+				FAEDBE9D1BC1722600FDBC15 /* ViewController.swift */,
+				FAEDBE9F1BC1722600FDBC15 /* Main.storyboard */,
+				FAEDBEA21BC1722600FDBC15 /* Assets.xcassets */,
+				FAEDBEA41BC1722600FDBC15 /* LaunchScreen.storyboard */,
+				FAEDBEA71BC1722600FDBC15 /* Info.plist */,
+			);
+			path = GoldenTiler;
+			sourceTree = "<group>";
+		};
+		FAEDBEAF1BC1722600FDBC15 /* GoldenTilerTests */ = {
+			isa = PBXGroup;
+			children = (
+				FAEDBEB01BC1722600FDBC15 /* GoldenTilerTests.swift */,
+				FAEDBEB21BC1722600FDBC15 /* Info.plist */,
+			);
+			path = GoldenTilerTests;
+			sourceTree = "<group>";
+		};
+		FAEDBEBA1BC1722600FDBC15 /* GoldenTilerUITests */ = {
+			isa = PBXGroup;
+			children = (
+				FAEDBEBB1BC1722600FDBC15 /* GoldenTilerUITests.swift */,
+				FAEDBEBD1BC1722600FDBC15 /* Info.plist */,
+			);
+			path = GoldenTilerUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		FAEDBE971BC1722600FDBC15 /* GoldenTiler */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FAEDBEC01BC1722600FDBC15 /* Build configuration list for PBXNativeTarget "GoldenTiler" */;
+			buildPhases = (
+				FAEDBE941BC1722600FDBC15 /* Sources */,
+				FAEDBE951BC1722600FDBC15 /* Frameworks */,
+				FAEDBE961BC1722600FDBC15 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = GoldenTiler;
+			productName = GoldenTiler;
+			productReference = FAEDBE981BC1722600FDBC15 /* GoldenTiler.app */;
+			productType = "com.apple.product-type.application";
+		};
+		FAEDBEAB1BC1722600FDBC15 /* GoldenTilerTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FAEDBEC31BC1722600FDBC15 /* Build configuration list for PBXNativeTarget "GoldenTilerTests" */;
+			buildPhases = (
+				FAEDBEA81BC1722600FDBC15 /* Sources */,
+				FAEDBEA91BC1722600FDBC15 /* Frameworks */,
+				FAEDBEAA1BC1722600FDBC15 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				FAEDBEAE1BC1722600FDBC15 /* PBXTargetDependency */,
+			);
+			name = GoldenTilerTests;
+			productName = GoldenTilerTests;
+			productReference = FAEDBEAC1BC1722600FDBC15 /* GoldenTilerTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		FAEDBEB61BC1722600FDBC15 /* GoldenTilerUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FAEDBEC61BC1722600FDBC15 /* Build configuration list for PBXNativeTarget "GoldenTilerUITests" */;
+			buildPhases = (
+				FAEDBEB31BC1722600FDBC15 /* Sources */,
+				FAEDBEB41BC1722600FDBC15 /* Frameworks */,
+				FAEDBEB51BC1722600FDBC15 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				FAEDBEB91BC1722600FDBC15 /* PBXTargetDependency */,
+			);
+			name = GoldenTilerUITests;
+			productName = GoldenTilerUITests;
+			productReference = FAEDBEB71BC1722600FDBC15 /* GoldenTilerUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		FAEDBE901BC1722600FDBC15 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0700;
+				ORGANIZATIONNAME = "Alexander Kolov";
+				TargetAttributes = {
+					FAEDBE971BC1722600FDBC15 = {
+						CreatedOnToolsVersion = 7.0.1;
+					};
+					FAEDBEAB1BC1722600FDBC15 = {
+						CreatedOnToolsVersion = 7.0.1;
+						TestTargetID = FAEDBE971BC1722600FDBC15;
+					};
+					FAEDBEB61BC1722600FDBC15 = {
+						CreatedOnToolsVersion = 7.0.1;
+						TestTargetID = FAEDBE971BC1722600FDBC15;
+					};
+				};
+			};
+			buildConfigurationList = FAEDBE931BC1722600FDBC15 /* Build configuration list for PBXProject "GoldenTiler" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = FAEDBE8F1BC1722600FDBC15;
+			productRefGroup = FAEDBE991BC1722600FDBC15 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				FAEDBE971BC1722600FDBC15 /* GoldenTiler */,
+				FAEDBEAB1BC1722600FDBC15 /* GoldenTilerTests */,
+				FAEDBEB61BC1722600FDBC15 /* GoldenTilerUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		FAEDBE961BC1722600FDBC15 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FAEDBEA61BC1722600FDBC15 /* LaunchScreen.storyboard in Resources */,
+				FAEDBEA31BC1722600FDBC15 /* Assets.xcassets in Resources */,
+				FAEDBEA11BC1722600FDBC15 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FAEDBEAA1BC1722600FDBC15 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FAEDBEB51BC1722600FDBC15 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		FAEDBE941BC1722600FDBC15 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FAEDBE9E1BC1722600FDBC15 /* ViewController.swift in Sources */,
+				FAEDBE9C1BC1722600FDBC15 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FAEDBEA81BC1722600FDBC15 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FAEDBEB11BC1722600FDBC15 /* GoldenTilerTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FAEDBEB31BC1722600FDBC15 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FAEDBEBC1BC1722600FDBC15 /* GoldenTilerUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		FAEDBEAE1BC1722600FDBC15 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FAEDBE971BC1722600FDBC15 /* GoldenTiler */;
+			targetProxy = FAEDBEAD1BC1722600FDBC15 /* PBXContainerItemProxy */;
+		};
+		FAEDBEB91BC1722600FDBC15 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FAEDBE971BC1722600FDBC15 /* GoldenTiler */;
+			targetProxy = FAEDBEB81BC1722600FDBC15 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		FAEDBE9F1BC1722600FDBC15 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FAEDBEA01BC1722600FDBC15 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		FAEDBEA41BC1722600FDBC15 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FAEDBEA51BC1722600FDBC15 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		FAEDBEBE1BC1722600FDBC15 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		FAEDBEBF1BC1722600FDBC15 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		FAEDBEC11BC1722600FDBC15 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = GoldenTiler/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.alexkolov.GoldenTiler;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		FAEDBEC21BC1722600FDBC15 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = GoldenTiler/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.alexkolov.GoldenTiler;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		FAEDBEC41BC1722600FDBC15 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = GoldenTilerTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.alexkolov.GoldenTilerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GoldenTiler.app/GoldenTiler";
+			};
+			name = Debug;
+		};
+		FAEDBEC51BC1722600FDBC15 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = GoldenTilerTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.alexkolov.GoldenTilerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GoldenTiler.app/GoldenTiler";
+			};
+			name = Release;
+		};
+		FAEDBEC71BC1722600FDBC15 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = GoldenTilerUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.alexkolov.GoldenTilerUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = GoldenTiler;
+				USES_XCTRUNNER = YES;
+			};
+			name = Debug;
+		};
+		FAEDBEC81BC1722600FDBC15 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = GoldenTilerUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.alexkolov.GoldenTilerUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = GoldenTiler;
+				USES_XCTRUNNER = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		FAEDBE931BC1722600FDBC15 /* Build configuration list for PBXProject "GoldenTiler" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FAEDBEBE1BC1722600FDBC15 /* Debug */,
+				FAEDBEBF1BC1722600FDBC15 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FAEDBEC01BC1722600FDBC15 /* Build configuration list for PBXNativeTarget "GoldenTiler" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FAEDBEC11BC1722600FDBC15 /* Debug */,
+				FAEDBEC21BC1722600FDBC15 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		FAEDBEC31BC1722600FDBC15 /* Build configuration list for PBXNativeTarget "GoldenTilerTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FAEDBEC41BC1722600FDBC15 /* Debug */,
+				FAEDBEC51BC1722600FDBC15 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		FAEDBEC61BC1722600FDBC15 /* Build configuration list for PBXNativeTarget "GoldenTilerUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FAEDBEC71BC1722600FDBC15 /* Debug */,
+				FAEDBEC81BC1722600FDBC15 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = FAEDBE901BC1722600FDBC15 /* Project object */;
+}
