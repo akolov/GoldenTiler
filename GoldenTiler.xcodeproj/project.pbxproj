@@ -14,6 +14,8 @@
 		FAEDBEA61BC1722600FDBC15 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAEDBEA41BC1722600FDBC15 /* LaunchScreen.storyboard */; };
 		FAEDBEB11BC1722600FDBC15 /* GoldenTilerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEDBEB01BC1722600FDBC15 /* GoldenTilerTests.swift */; };
 		FAEDBEBC1BC1722600FDBC15 /* GoldenTilerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEDBEBB1BC1722600FDBC15 /* GoldenTilerUITests.swift */; };
+		FAEDBED31BC17D7100FDBC15 /* GoldenSpiralFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEDBED21BC17D7100FDBC15 /* GoldenSpiralFilter.swift */; settings = {ASSET_TAGS = (); }; };
+		FAEDBED41BC1961200FDBC15 /* MetalImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEDBEC91BC1729400FDBC15 /* MetalImageView.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +49,8 @@
 		FAEDBEB71BC1722600FDBC15 /* GoldenTilerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GoldenTilerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAEDBEBB1BC1722600FDBC15 /* GoldenTilerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoldenTilerUITests.swift; sourceTree = "<group>"; };
 		FAEDBEBD1BC1722600FDBC15 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FAEDBEC91BC1729400FDBC15 /* MetalImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MetalImageView.swift; sourceTree = "<group>"; };
+		FAEDBED21BC17D7100FDBC15 /* GoldenSpiralFilter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoldenSpiralFilter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,8 +101,11 @@
 		FAEDBE9A1BC1722600FDBC15 /* GoldenTiler */ = {
 			isa = PBXGroup;
 			children = (
+				FAEDBECF1BC17C0A00FDBC15 /* Extensions */,
 				FAEDBE9B1BC1722600FDBC15 /* AppDelegate.swift */,
 				FAEDBE9D1BC1722600FDBC15 /* ViewController.swift */,
+				FAEDBEC91BC1729400FDBC15 /* MetalImageView.swift */,
+				FAEDBED21BC17D7100FDBC15 /* GoldenSpiralFilter.swift */,
 				FAEDBE9F1BC1722600FDBC15 /* Main.storyboard */,
 				FAEDBEA21BC1722600FDBC15 /* Assets.xcassets */,
 				FAEDBEA41BC1722600FDBC15 /* LaunchScreen.storyboard */,
@@ -123,6 +130,13 @@
 				FAEDBEBD1BC1722600FDBC15 /* Info.plist */,
 			);
 			path = GoldenTilerUITests;
+			sourceTree = "<group>";
+		};
+		FAEDBECF1BC17C0A00FDBC15 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -255,7 +269,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FAEDBED41BC1961200FDBC15 /* MetalImageView.swift in Sources */,
 				FAEDBE9E1BC1722600FDBC15 /* ViewController.swift in Sources */,
+				FAEDBED31BC17D7100FDBC15 /* GoldenSpiralFilter.swift in Sources */,
 				FAEDBE9C1BC1722600FDBC15 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
