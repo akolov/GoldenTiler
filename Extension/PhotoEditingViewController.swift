@@ -68,40 +68,20 @@ class PhotoEditingViewController: ViewController, PHContentEditingController {
         return
       }
 
-      var inputImage = CIImage(image: sourceImage)
-
-      let filter = GoldenSpiralFilter()
-      switch sourceImage.imageOrientation {
-      case .Up:
-        inputImage = inputImage?.imageByApplyingOrientation(1)
-      case .Down:
-        inputImage = inputImage?.imageByApplyingOrientation(3)
-      case .Left:
-        inputImage = inputImage?.imageByApplyingOrientation(8)
-      case .Right:
-        inputImage = inputImage?.imageByApplyingOrientation(6)
-      case .UpMirrored:
-        inputImage = inputImage?.imageByApplyingOrientation(2)
-      case .DownMirrored:
-        inputImage = inputImage?.imageByApplyingOrientation(4)
-      case .LeftMirrored:
-        inputImage = inputImage?.imageByApplyingOrientation(5)
-      case .RightMirrored:
-        inputImage = inputImage?.imageByApplyingOrientation(7)
-      }
-
-      if inputImage == nil {
+      guard let inputImage = sourceImage.CIImageWithAppliedOrientation() else {
         completionHandler?(output)
         return
       }
 
-      let portrait = inputImage!.extent.height > inputImage!.extent.width
+      let filter = GoldenSpiralMetalFilter()
+
+      let portrait = inputImage.extent.height > inputImage.extent.width
 
       if portrait {
-        filter.inputImage = inputImage!.imageByApplyingOrientation(8)
+        filter.inputImage = inputImage.imageByApplyingOrientation(8)
       }
       else {
-        filter.inputImage = inputImage!.imageByApplyingOrientation(4)
+        filter.inputImage = inputImage.imageByApplyingOrientation(4)
       }
 
       guard let device = MTLCreateSystemDefaultDevice() else {
@@ -129,7 +109,7 @@ class PhotoEditingViewController: ViewController, PHContentEditingController {
         renderedJPEGData.writeToURL(output.renderedContentURL, atomically: true)
       }
 
-      let adjustments = ["GoldenSpiralFilterApplied": true]
+      let adjustments = ["GoldenSpiralMetalFilterApplied": true]
       let data = NSKeyedArchiver.archivedDataWithRootObject(adjustments)
       let adjustmentData = PHAdjustmentData(formatIdentifier: "com.alexkolov.GoldenTiler", formatVersion: "1.0", data: data)
       output.adjustmentData = adjustmentData

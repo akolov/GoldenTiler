@@ -53,8 +53,8 @@ class ViewController: UIViewController, UIScrollViewDelegate {
   }
 
   func applyFiltersAndDisplay(image sourceImage: UIImage) {
-    if let image = CIImage(image: sourceImage) {
-      let filter = GoldenSpiralFilter()
+    if let image = sourceImage.CIImageWithAppliedOrientation() {
+      let filter = GoldenSpiralMetalFilter()
 
       if image.extent.height > image.extent.width {
         filter.inputImage = image.imageByApplyingOrientation(8)
