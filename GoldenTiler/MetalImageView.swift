@@ -8,7 +8,6 @@
 
 import Metal
 import MetalKit
-import MetalPerformanceShaders
 import UIKit
 
 class MetalImageView: MTKView {
