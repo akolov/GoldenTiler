@@ -23,24 +23,6 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
     // Dispose of any resources that can be recreated.
   }
 
-  // MARK: Actions
-
-  func didSelectAddBarButton(sender: UIBarButtonItem) {
-    let sourceType = UIImagePickerControllerSourceType.PhotoLibrary
-
-    guard UIImagePickerController.isSourceTypeAvailable(sourceType) else {
-      return
-    }
-
-    let picker = UIImagePickerController()
-    picker.sourceType = sourceType
-    picker.mediaTypes = [String(kUTTypeImage)]
-    picker.allowsEditing = false
-    picker.delegate = self
-
-    presentViewController(picker, animated: true, completion: nil)
-  }
-
   // MARK: UIContentContainer
 
   override func viewWillTransitionToSize(size: CGSize, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator) {
@@ -77,6 +59,24 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
 
   func viewForZoomingInScrollView(scrollView: UIScrollView) -> UIView? {
     return imageView
+  }
+
+  // MARK: - Actions
+
+  func didSelectAddBarButton(sender: UIBarButtonItem) {
+    let sourceType = UIImagePickerControllerSourceType.PhotoLibrary
+
+    guard UIImagePickerController.isSourceTypeAvailable(sourceType) else {
+      return
+    }
+
+    let picker = UIImagePickerController()
+    picker.sourceType = sourceType
+    picker.mediaTypes = [String(kUTTypeImage)]
+    picker.allowsEditing = false
+    picker.delegate = self
+
+    presentViewController(picker, animated: true, completion: nil)
   }
 
   // MARK: -
