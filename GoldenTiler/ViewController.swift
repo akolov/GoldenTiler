@@ -6,6 +6,7 @@
 //  Copyright © 2015 Alexander Kolov. All rights reserved.
 //
 
+import Metal
 import MobileCoreServices
 import UIKit
 
@@ -79,8 +80,25 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
     presentViewController(picker, animated: true, completion: nil)
   }
 
+  @IBAction func didSelectSaveBarButton(sender: UIBarButtonItem) {
+    guard let image = imageView.image?.imageByApplyingOrientation(4) else {
+      return
+    }
+
+    guard let device = MTLCreateSystemDefaultDevice() else {
+      return
+    }
+
+    sender.enabled = false
+
+    let context = CIContext(MTLDevice: device)
+    let imageToSave = UIImage(CGImage: context.createCGImage(image, fromRect: image.extent))
+    UIImageWriteToSavedPhotosAlbum(imageToSave, self, Selector("image:didFinishSavingWithError:contextInfo:"), nil)
+  }
+
   // MARK: -
 
+  @IBOutlet weak var saveBarButton: UIBarButtonItem!
   @IBOutlet weak var scrollView: UIScrollView!
   @IBOutlet weak var imageView: MetalImageView!
   @IBOutlet weak var imageViewWidthConstraint: NSLayoutConstraint!
@@ -124,12 +142,27 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
     }
 
     if let image = imageView.image {
+      saveBarButton.enabled = true
       scrollView.minimumZoomScale = minimumImageZoomScale
       scrollView.zoomScale = scrollView.minimumZoomScale
       imageViewWidthConstraint.constant = image.extent.width
       imageViewHeightConstraint.constant = image.extent.height
     }
   }
+
+  func image(image: UIImage, didFinishSavingWithError error: NSError?, contextInfo:UnsafePointer<Void>) {
+    if error == nil {
+      let ac = UIAlertController(title: "Saved!", message: "Your altered image has been saved to your photos.", preferredStyle: .Alert)
+      ac.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
+      presentViewController(ac, animated: true, completion: nil)
+    }
+    else {
+      let ac = UIAlertController(title: "Save error", message: error?.localizedDescription, preferredStyle: .Alert)
+      ac.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
+      presentViewController(ac, animated: true, completion: nil)
+    }
+  }
+
 
 }
 

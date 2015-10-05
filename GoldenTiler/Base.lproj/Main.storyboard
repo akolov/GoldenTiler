@@ -51,11 +51,18 @@
                             <constraint firstAttribute="bottomMargin" secondItem="aMV-aS-szt" secondAttribute="bottom" id="bYy-Jl-d5C"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="T3i-R2-eNS"/>
+                    <navigationItem key="navigationItem" id="T3i-R2-eNS">
+                        <barButtonItem key="rightBarButtonItem" enabled="NO" systemItem="save" id="cFX-Ms-cLQ">
+                            <connections>
+                                <action selector="didSelectSaveBarButton:" destination="BYZ-38-t0r" id="EfB-Nn-ugO"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="imageView" destination="yAE-cZ-l5s" id="bBD-Ub-uPa"/>
                         <outlet property="imageViewHeightConstraint" destination="6WI-Y6-m4Y" id="yDL-Vk-1Tq"/>
                         <outlet property="imageViewWidthConstraint" destination="54l-Ej-0d7" id="drh-Ld-C7o"/>
+                        <outlet property="saveBarButton" destination="cFX-Ms-cLQ" id="iNW-hS-rPz"/>
                         <outlet property="scrollView" destination="aMV-aS-szt" id="cRE-Ga-r0T"/>
                     </connections>
                 </viewController>
