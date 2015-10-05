@@ -7,22 +7,9 @@
 //
 
 import Metal
-import MobileCoreServices
 import UIKit
 
-class ViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate, UIScrollViewDelegate {
-
-  override func viewDidLoad() {
-    super.viewDidLoad()
-    toolbarItems = [
-      UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: Selector("didSelectAddBarButton:"))
-    ]
-  }
-
-  override func didReceiveMemoryWarning() {
-    super.didReceiveMemoryWarning()
-    // Dispose of any resources that can be recreated.
-  }
+class ViewController: UIViewController, UIScrollViewDelegate {
 
   // MARK: UIContentContainer
 
@@ -44,61 +31,14 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
 
   // MARK: -
 
-  // MARK: UIImagePickerControllerDelegate
-
-  func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
-    dismissViewControllerAnimated(true) { [weak self] in
-      self?.applyMediaFiltersAndDisplay(info)
-    }
-  }
-
-  func imagePickerControllerDidCancel(picker: UIImagePickerController) {
-    dismissViewControllerAnimated(true, completion: nil)
-  }
-
   // MARK: UIScrollViewDelegate
 
   func viewForZoomingInScrollView(scrollView: UIScrollView) -> UIView? {
     return imageView
   }
 
-  // MARK: - Actions
-
-  func didSelectAddBarButton(sender: UIBarButtonItem) {
-    let sourceType = UIImagePickerControllerSourceType.PhotoLibrary
-
-    guard UIImagePickerController.isSourceTypeAvailable(sourceType) else {
-      return
-    }
-
-    let picker = UIImagePickerController()
-    picker.sourceType = sourceType
-    picker.mediaTypes = [String(kUTTypeImage)]
-    picker.allowsEditing = false
-    picker.delegate = self
-
-    presentViewController(picker, animated: true, completion: nil)
-  }
-
-  @IBAction func didSelectSaveBarButton(sender: UIBarButtonItem) {
-    guard let image = imageView.image?.imageByApplyingOrientation(4) else {
-      return
-    }
-
-    guard let device = MTLCreateSystemDefaultDevice() else {
-      return
-    }
-
-    sender.enabled = false
-
-    let context = CIContext(MTLDevice: device)
-    let imageToSave = UIImage(CGImage: context.createCGImage(image, fromRect: image.extent))
-    UIImageWriteToSavedPhotosAlbum(imageToSave, self, Selector("image:didFinishSavingWithError:contextInfo:"), nil)
-  }
-
   // MARK: -
 
-  @IBOutlet weak var saveBarButton: UIBarButtonItem!
   @IBOutlet weak var scrollView: UIScrollView!
   @IBOutlet weak var imageView: MetalImageView!
   @IBOutlet weak var imageViewWidthConstraint: NSLayoutConstraint!
@@ -112,23 +52,8 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
     return scrollView.bounds.width / image.extent.width
   }
 
-  private func applyMediaFiltersAndDisplay(media: [String : AnyObject]) {
-    let mediaType = media[UIImagePickerControllerMediaType] as? String
-
-    guard mediaType == String(kUTTypeImage) else {
-      return
-    }
-
-    var image: CIImage?
-
-    if let editedImage = media[UIImagePickerControllerEditedImage] as? UIImage {
-      image = CIImage(image: editedImage)
-    }
-    else if let originalImage = media[UIImagePickerControllerOriginalImage] as? UIImage {
-      image = CIImage(image: originalImage)
-    }
-
-    if let image = image {
+  func applyFiltersAndDisplay(image sourceImage: UIImage) {
+    if let image = CIImage(image: sourceImage) {
       let filter = GoldenSpiralFilter()
 
       if image.extent.height > image.extent.width {
@@ -142,7 +67,6 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
     }
 
     if let image = imageView.image {
-      saveBarButton.enabled = true
       scrollView.minimumZoomScale = minimumImageZoomScale
       scrollView.zoomScale = scrollView.minimumZoomScale
       imageViewWidthConstraint.constant = image.extent.width
@@ -162,7 +86,6 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
       presentViewController(ac, animated: true, completion: nil)
     }
   }
-
 
 }
 

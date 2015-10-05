@@ -40,10 +40,6 @@ class GoldenSpiralFilter: CIFilter {
     return self.device.newCommandQueue()
   }()
 
-  lazy var commandBuffer: MTLCommandBuffer = {
-    return self.commandQueue.commandBuffer()
-  }()
-
   private func tileImage(image: CIImage) -> CIImage? {
     guard let colorSpace = colorSpace else {
       return nil
@@ -65,9 +61,11 @@ class GoldenSpiralFilter: CIFilter {
     let sourceRect = CGRect(x: 0, y: 0, width: dimension, height: dimension)
     var sourceTexture = createTexture(width: Int(dimension), height: Int(dimension))
 
-    context.render(cropped, toMTLTexture: sourceTexture, commandBuffer: commandBuffer, bounds: sourceRect, colorSpace: colorSpace)
+    context.render(cropped, toMTLTexture: sourceTexture, commandBuffer: nil, bounds: sourceRect, colorSpace: colorSpace)
 
     var x = 0, y = 0, counter = 0
+
+    let commandBuffer = commandQueue.commandBuffer()
 
     while true {
       let a = ceil(CGFloat(sourceRect.width) / pow(φ, CGFloat(counter)))
@@ -78,7 +76,7 @@ class GoldenSpiralFilter: CIFilter {
         break
       }
 
-      let texture = createScaledTexture(sourceTexture, dimension: Int(a))
+      let texture = createScaledTexture(sourceTexture, dimension: Int(a), commandBuffer: commandBuffer)
 
       var origin: MTLOrigin!
 
@@ -155,9 +153,14 @@ class GoldenSpiralFilter: CIFilter {
     return device.newTextureWithDescriptor(descriptor)
   }
 
-  private func createScaledTexture(sourceTexture: MTLTexture, dimension: Int) -> MTLTexture {
+  private func createScaledTexture(sourceTexture: MTLTexture, dimension: Int, commandBuffer: MTLCommandBuffer) -> MTLTexture {
     let scale = MPSImageLanczosScale(device: device)
     let factor = Double(dimension) / Double(sourceTexture.width)
+
+    if factor == 1 {
+      return sourceTexture
+    }
+
     var scaleTransform = MPSScaleTransform(scaleX: factor, scaleY: factor, translateX: 0, translateY: 0)
 
     withUnsafePointer(&scaleTransform) { ptr in
@@ -166,15 +169,6 @@ class GoldenSpiralFilter: CIFilter {
 
     let texture = createTexture(width: dimension, height: dimension)
     scale.encodeToCommandBuffer(commandBuffer, sourceTexture: sourceTexture, destinationTexture: texture)
-    return texture
-  }
-
-  private func transposeTexture(sourceTexture: MTLTexture) -> MTLTexture {
-    let texture = createTexture(width: sourceTexture.height, height: sourceTexture.width)
-
-    let transpose = MPSImageTranspose(device: device)
-    transpose.encodeToCommandBuffer(commandBuffer, sourceTexture: sourceTexture, destinationTexture: texture)
-
     return texture
   }
 

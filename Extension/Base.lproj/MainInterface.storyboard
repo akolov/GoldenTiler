@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="ObA-dk-sSI">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+    </dependencies>
+    <scenes>
+        <!--Photo Editing View Controller-->
+        <scene sceneID="7MM-of-jgj">
+            <objects>
+                <viewController id="ObA-dk-sSI" customClass="PhotoEditingViewController" customModule="Extension" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="qkL-Od-lgU"/>
+                        <viewControllerLayoutGuide type="bottom" id="n38-gi-rB5"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="zMn-AG-sqS">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="528"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" alwaysBounceHorizontal="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uTY-Jr-ycS">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="528"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hUl-wW-xII" customClass="MetalImageView" customModule="Extension" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="528"/>
+                                        <animations/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="528" id="H93-Wx-ASi"/>
+                                            <constraint firstAttribute="width" constant="320" id="PcJ-h7-Gfp"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstItem="hUl-wW-xII" firstAttribute="leading" secondItem="uTY-Jr-ycS" secondAttribute="leading" id="Hrx-vo-PWA"/>
+                                    <constraint firstItem="hUl-wW-xII" firstAttribute="top" secondItem="uTY-Jr-ycS" secondAttribute="top" id="MnQ-0R-LnI"/>
+                                    <constraint firstAttribute="bottom" secondItem="hUl-wW-xII" secondAttribute="bottom" id="hby-3s-Jme"/>
+                                    <constraint firstAttribute="trailing" secondItem="hUl-wW-xII" secondAttribute="trailing" id="niA-yg-RLb"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="delegate" destination="ObA-dk-sSI" id="fN8-pZ-yX1"/>
+                                </connections>
+                            </scrollView>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="uTY-Jr-ycS" firstAttribute="top" secondItem="zMn-AG-sqS" secondAttribute="top" id="39v-D5-M2g"/>
+                            <constraint firstAttribute="trailing" secondItem="uTY-Jr-ycS" secondAttribute="trailing" id="I5n-gA-kd8"/>
+                            <constraint firstItem="uTY-Jr-ycS" firstAttribute="leading" secondItem="zMn-AG-sqS" secondAttribute="leading" id="JcQ-wC-hgY"/>
+                            <constraint firstItem="n38-gi-rB5" firstAttribute="top" secondItem="uTY-Jr-ycS" secondAttribute="bottom" id="dGZ-xZ-kC3"/>
+                        </constraints>
+                    </view>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="320" height="528"/>
+                    <connections>
+                        <outlet property="imageView" destination="hUl-wW-xII" id="M6D-Y7-B8e"/>
+                        <outlet property="imageViewHeightConstraint" destination="H93-Wx-ASi" id="beF-jn-38Y"/>
+                        <outlet property="imageViewWidthConstraint" destination="PcJ-h7-Gfp" id="HaR-BH-MLl"/>
+                        <outlet property="scrollView" destination="uTY-Jr-ycS" id="5dh-ZY-qW0"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="X47-rx-isc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="326" y="-128"/>
+        </scene>
+    </scenes>
+</document>
