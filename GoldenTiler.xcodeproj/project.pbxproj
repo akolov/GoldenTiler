@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		FA597ECE1BC4797F0061F9B1 /* UIImage+Metal.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA597ECD1BC4797F0061F9B1 /* UIImage+Metal.swift */; settings = {ASSET_TAGS = (); }; };
 		FA597ECF1BC4797F0061F9B1 /* UIImage+Metal.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA597ECD1BC4797F0061F9B1 /* UIImage+Metal.swift */; settings = {ASSET_TAGS = (); }; };
+		FA597ED01BC47F170061F9B1 /* Localizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACCBC3A1BC42E8800C074B9 /* Localizable.swift */; settings = {ASSET_TAGS = (); }; };
 		FACCBC321BC42D5D00C074B9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FACCBC2D1BC42D5D00C074B9 /* Assets.xcassets */; settings = {ASSET_TAGS = (); }; };
 		FACCBC331BC42D5D00C074B9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FACCBC2E1BC42D5D00C074B9 /* LaunchScreen.storyboard */; settings = {ASSET_TAGS = (); }; };
 		FACCBC341BC42D5D00C074B9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FACCBC301BC42D5D00C074B9 /* Main.storyboard */; settings = {ASSET_TAGS = (); }; };
@@ -502,6 +503,7 @@
 				FACFD8DB1BC4668900FF4249 /* BusyView.swift in Sources */,
 				FACCBC621BC44CE100C074B9 /* ImageView.swift in Sources */,
 				FACCBC4D1BC444E900C074B9 /* TimerFormatter.swift in Sources */,
+				FA597ED01BC47F170061F9B1 /* Localizable.swift in Sources */,
 				FACCBC5E1BC44B8A00C074B9 /* UIImage+Transformations.swift in Sources */,
 				FACCBC5A1BC44B7400C074B9 /* GoldenSpiralMetalFilter.swift in Sources */,
 				FACCBC501BC4450700C074B9 /* TimerFormatterLocalizable.swift in Sources */,

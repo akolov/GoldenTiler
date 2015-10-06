@@ -108,17 +108,33 @@ class ViewController: UIViewController, UIScrollViewDelegate {
     }
   }
 
+  func showCannotBeProcessedByMetalAlert() {
+    let actionTitle = Localizable.Button.OK
+    let controller = UIAlertController(title: Localizable.MetalError.Title, message: Localizable.MetalError.Message, preferredStyle: .Alert)
+    controller.addAction(UIAlertAction(title: actionTitle, style: .Default, handler: nil))
+    presentViewController(controller, animated: true, completion: nil)
+  }
+
   func applyFiltersAndDisplay<T: GoldenSpiralFilter, V: ImageView where V: UIView>(image sourceImage: UIImage, filterClass: T.Type, viewClass: V.Type) {
     toggleInterface(enabled: false)
 
     dispatch_async(dispatch_get_global_queue(CLong(DISPATCH_QUEUE_PRIORITY_DEFAULT), 0)) { [weak self] in
       let duration = Timer.run {
         var filter = filterClass.init()
-        filter.inputImage = sourceImage.imageByFixingOrientation()
-        self?.processedImage = filter.outputImage
+        if filter.canProcessImage {
+          filter.inputImage = sourceImage.imageByFixingOrientation()
+          self?.processedImage = filter.outputImage
+        }
+        else {
+          dispatch_async(dispatch_get_main_queue()) {
+            self?.showCannotBeProcessedByMetalAlert()
+          }
+        }
       }
 
       dispatch_async(dispatch_get_main_queue()) {
+        self?.toggleInterface(enabled: true)
+
         guard let scrollView = self?.scrollView else {
           return
         }
@@ -151,8 +167,6 @@ class ViewController: UIViewController, UIScrollViewDelegate {
         if let duration = duration {
           self?.timerButton.title = self?.timerFormatter.stringFromTimer(duration, unit: .Millisecond)
         }
-
-        self?.toggleInterface(enabled: true)
       }
     }
   }

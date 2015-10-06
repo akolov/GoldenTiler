@@ -83,13 +83,20 @@ class PhotoEditingViewController: ViewController, PHContentEditingController {
         return
       }
 
-      let outputImage: UIImage!
+      var outputImage: UIImage!
 
       switch selectedImageProcessingFilter {
       case .Metal:
         let filter = GoldenSpiralMetalFilter()
-        filter.inputImage = sourceImage
-        outputImage = filter.outputImage?.imageByConvertingFromCIImage(device: filter.device, context: filter.context)
+        if filter.canProcessImage {
+          filter.inputImage = sourceImage
+          outputImage = filter.outputImage?.imageByConvertingFromCIImage(device: filter.device, context: filter.context)
+        }
+        else {
+          dispatch_async(dispatch_get_main_queue()) {
+            self?.showCannotBeProcessedByMetalAlert()
+          }
+        }
       case .CoreGraphics:
         let filter = GoldenSpiralCGFilter()
         filter.inputImage = sourceImage

@@ -28,6 +28,11 @@ final class Localizable {
 
   }
 
+  final class MetalError {
+    static var Title: String { return NSLocalizedString("metal.error.title", comment: "Title of the metal error message") }
+    static var Message: String { return NSLocalizedString("metal.error.message", comment: "Text of the metal error message") }
+  }
+
   final class Button {
 
     static var OK: String { return NSLocalizedString("button.OK", comment: "OK button title") }
