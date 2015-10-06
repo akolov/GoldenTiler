@@ -1,5 +1,5 @@
 //
-//  TimerFormatterLocalized.swift
+//  TimerFormatterLocalizable.swift
 //  GoldenTiler
 //
 //  Created by Alexander Kolov on 10/6/15.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-final class TimerLocalized {
+final class TimerLocalizable {
 
   private static var TableName = "TimerFormatter"
 

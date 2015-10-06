@@ -113,15 +113,15 @@ class ApplicationViewController: ViewController, UINavigationControllerDelegate,
     let title: String, message: String
 
     if error == nil {
-      title = Localized.Save.Success.Title
-      message = Localized.Save.Success.Message
+      title = Localizable.Save.Success.Title
+      message = Localizable.Save.Success.Message
     }
     else {
-      title = Localized.Save.Error.Title
-      message = error?.localizedDescription ?? Localized.Save.Error.Title
+      title = Localizable.Save.Error.Title
+      message = error?.localizedDescription ?? Localizable.Save.Error.Title
     }
 
-    let actionTitle = Localized.Button.OK
+    let actionTitle = Localizable.Button.OK
     let controller = UIAlertController(title: title, message: message, preferredStyle: .Alert)
     controller.addAction(UIAlertAction(title: actionTitle, style: .Default, handler: nil))
     presentViewController(controller, animated: true, completion: nil)

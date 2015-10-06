@@ -1,5 +1,5 @@
 //
-//  Localized.swift
+//  Localizable.swift
 //  GoldenTiler
 //
 //  Created by Alexander Kolov on 10/6/15.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-final class Localized {
+final class Localizable {
 
   final class Save {
 

@@ -27,13 +27,13 @@ class TimerFormatter: NSFormatter {
   func stringFromTimer(timer: Timer, unit: Unit) -> String? {
     switch unit {
     case .Nanosecond:
-      return String.localizedStringWithFormat(TimerLocalized.UnitNanosecond, timer.nanoseconds)
+      return String.localizedStringWithFormat(TimerLocalizable.UnitNanosecond, timer.nanoseconds)
     case .Microsecond:
-      return String.localizedStringWithFormat(TimerLocalized.UnitMicrosecond, timer.microseconds)
+      return String.localizedStringWithFormat(TimerLocalizable.UnitMicrosecond, timer.microseconds)
     case .Millisecond:
-      return String.localizedStringWithFormat(TimerLocalized.UnitMillisecond, timer.milliseconds)
+      return String.localizedStringWithFormat(TimerLocalizable.UnitMillisecond, timer.milliseconds)
     case .Second:
-      return String.localizedStringWithFormat(TimerLocalized.UnitSecond, timer.seconds)
+      return String.localizedStringWithFormat(TimerLocalizable.UnitSecond, timer.seconds)
     }
   }
 
