@@ -37,15 +37,11 @@ class GoldenSpiralCGFilter: GoldenSpiralFilter {
   private(set) var outputImageSize: CGSize = CGSizeZero
 
   var outputImage: UIImage? {
-    guard let sourceImage = inputImage?.CGImage else {
+    guard let inputImage = inputImage else {
       return nil
     }
 
-    guard let tiledImage = tileImage(sourceImage) else {
-      return nil
-    }
-
-    return UIImage(CGImage: tiledImage)
+    return tileImage(image: inputImage)
   }
 
   var canProcessImage: Bool {
@@ -56,7 +52,11 @@ class GoldenSpiralCGFilter: GoldenSpiralFilter {
     return CIContext()
   }()
 
-  private func tileImage(image: CGImageRef) -> CGImageRef? {
+  private func tileImage(image sourceImage: UIImage) -> UIImage? {
+    guard let image = sourceImage.CGImage else {
+      return nil
+    }
+
     let width = CGFloat(CGImageGetWidth(image))
     let height = CGFloat(CGImageGetHeight(image))
     let dimension = ceil(min(width, height))
@@ -100,7 +100,11 @@ class GoldenSpiralCGFilter: GoldenSpiralFilter {
       CGContextDrawImage(bitmapContext, tile, flipped)
     }
 
-    return CGBitmapContextCreateImage(bitmapContext)
+    guard let cgImage = CGBitmapContextCreateImage(bitmapContext) else {
+      return nil
+    }
+
+    return UIImage(CGImage: cgImage)
   }
 
 }

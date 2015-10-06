@@ -1,0 +1,22 @@
+/* 
+  Localized.strings
+  GoldenTiler
+
+  Created by Alexander Kolov on 10/6/15.
+  Copyright © 2015 Alexander Kolov. All rights reserved.
+*/
+
+/* Title of the save success message */
+"saved.success.title" = "Saved!";
+
+/* Text of the save success message */
+"saved.success.message" = "Your altered image has been saved to your photos.";
+
+/* "Title of the save error message" */
+"saved.error.title" = "Save error";
+
+/* Text of the save error message, when localized description is not available */
+"saved.error.message" = "Something unexpected happened, please check if you have permissions to access Photos app.";
+
+/* OK button title */
+"button.OK" = "OK";

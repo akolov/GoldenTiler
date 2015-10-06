@@ -47,18 +47,28 @@ class PhotoEditingViewController: ViewController, PHContentEditingController {
       return
     }
 
-    applyFiltersAndDisplay(image: image, filterClass: GoldenSpiralMetalFilter.self)
+    displayImage = image
+
+    switch selectedImageProcessingFilter {
+    case .Metal:
+      applyFiltersAndDisplay(image: image, filterClass: GoldenSpiralMetalFilter.self, viewClass: MetalImageView.self)
+    case .CoreGraphics:
+      applyFiltersAndDisplay(image: image, filterClass: GoldenSpiralCGFilter.self, viewClass: UIImageView.self)
+    }
   }
 
   func finishContentEditingWithCompletionHandler(completionHandler: ((PHContentEditingOutput!) -> Void)!) {
     // Update UI to reflect that editing has finished and output is being rendered.
 
-    // Render and provide output on a background queue.
-    dispatch_async(dispatch_get_global_queue(CLong(DISPATCH_QUEUE_PRIORITY_DEFAULT), 0)) {
-      // Create editing output from the editing input.
-      let output = PHContentEditingOutput(contentEditingInput: self.input!)
+    dispatch_async(dispatch_get_global_queue(CLong(DISPATCH_QUEUE_PRIORITY_DEFAULT), 0)) { [weak self] in
+      guard let input = self?.input else {
+        completionHandler?(nil)
+        return
+      }
 
-      guard let path = self.input?.fullSizeImageURL?.path else {
+      let output = PHContentEditingOutput(contentEditingInput: input)
+
+      guard let path = self?.input?.fullSizeImageURL?.path else {
         completionHandler?(output)
         return
       }
@@ -68,7 +78,20 @@ class PhotoEditingViewController: ViewController, PHContentEditingController {
         return
       }
 
-      let filter = GoldenSpiralCGFilter()
+      guard let selectedImageProcessingFilter = self?.selectedImageProcessingFilter else {
+        completionHandler?(output)
+        return
+      }
+
+      let filter: GoldenSpiralFilter
+
+      switch selectedImageProcessingFilter {
+      case .Metal:
+        filter = GoldenSpiralMetalFilter()
+      case .CoreGraphics:
+        filter = GoldenSpiralCGFilter()
+      }
+
       filter.inputImage = sourceImage
 
       guard let outputImage = filter.outputImage else {
@@ -98,6 +121,21 @@ class PhotoEditingViewController: ViewController, PHContentEditingController {
   func cancelContentEditing() {
     // Clean up temporary files, etc.
     // May be called after finishContentEditingWithCompletionHandler: while you prepare output.
+  }
+
+  // MARK: -
+
+  @IBOutlet weak var toolbar: UIToolbar! {
+    didSet {
+      toolbarItems = [
+        UIBarButtonItem(barButtonSystemItem: .FlexibleSpace, target: nil, action: nil),
+        UIBarButtonItem(customView: segmentedControl),
+        UIBarButtonItem(barButtonSystemItem: .FlexibleSpace, target: nil, action: nil),
+        timerButton
+      ]
+
+      toolbar.items = toolbarItems
+    }
   }
 
 }

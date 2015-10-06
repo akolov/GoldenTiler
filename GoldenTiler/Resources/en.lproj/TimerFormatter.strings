@@ -1,0 +1,19 @@
+/* 
+  TimerFormatter.strings
+  GoldenTiler
+
+  Created by Alexander Kolov on 10/6/15.
+  Copyright © 2015 Alexander Kolov. All rights reserved.
+*/
+
+/* Nanoseconds format */
+"unit.nanosecond" = "%llu ns";
+
+/* Microseconds format */
+"unit.microsecond" = "%.2f μs";
+
+/* Milliseconds format */
+"unit.millisecond" = "%.2f ms";
+
+/* Seconds format */
+"unit.second" = "%.2f s";

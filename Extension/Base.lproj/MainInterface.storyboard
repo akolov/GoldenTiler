@@ -2,6 +2,8 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="ObA-dk-sSI">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Photo Editing View Controller-->
@@ -18,44 +20,48 @@
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" alwaysBounceHorizontal="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uTY-Jr-ycS">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="528"/>
-                                <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="F7j-It-bOf">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="528"/>
-                                        <animations/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="528" id="8s9-p1-yiy"/>
-                                            <constraint firstAttribute="width" constant="320" id="m7Z-ba-gnV"/>
-                                        </constraints>
-                                    </imageView>
-                                </subviews>
                                 <animations/>
-                                <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="F7j-It-bOf" secondAttribute="bottom" id="Has-cX-9bN"/>
-                                    <constraint firstItem="F7j-It-bOf" firstAttribute="leading" secondItem="uTY-Jr-ycS" secondAttribute="leading" id="jKG-9G-Uyh"/>
-                                    <constraint firstAttribute="trailing" secondItem="F7j-It-bOf" secondAttribute="trailing" id="n5S-F9-YFf"/>
-                                    <constraint firstItem="F7j-It-bOf" firstAttribute="top" secondItem="uTY-Jr-ycS" secondAttribute="top" id="t7W-e5-HLv"/>
-                                </constraints>
+                                <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                                 <connections>
                                     <outlet property="delegate" destination="ObA-dk-sSI" id="fN8-pZ-yX1"/>
                                 </connections>
                             </scrollView>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2WB-US-kpa" customClass="BusyView" customModule="Extension" customModuleProvider="target">
+                                <rect key="frame" x="110" y="214" width="100" height="100"/>
+                                <animations/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="y4w-eQ-jeR"/>
+                                </constraints>
+                            </view>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" barStyle="black" translatesAutoresizingMaskIntoConstraints="NO" id="Qvj-ZL-65Q">
+                                <rect key="frame" x="0.0" y="484" width="320" height="44"/>
+                                <animations/>
+                                <items/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </toolbar>
                         </subviews>
                         <animations/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="uTY-Jr-ycS" firstAttribute="top" secondItem="zMn-AG-sqS" secondAttribute="top" id="39v-D5-M2g"/>
                             <constraint firstAttribute="trailing" secondItem="uTY-Jr-ycS" secondAttribute="trailing" id="I5n-gA-kd8"/>
                             <constraint firstItem="uTY-Jr-ycS" firstAttribute="leading" secondItem="zMn-AG-sqS" secondAttribute="leading" id="JcQ-wC-hgY"/>
-                            <constraint firstItem="n38-gi-rB5" firstAttribute="top" secondItem="uTY-Jr-ycS" secondAttribute="bottom" id="dGZ-xZ-kC3"/>
+                            <constraint firstItem="uTY-Jr-ycS" firstAttribute="bottom" secondItem="zMn-AG-sqS" secondAttribute="bottomMargin" id="Obm-cH-C4y"/>
+                            <constraint firstItem="2WB-US-kpa" firstAttribute="centerX" secondItem="zMn-AG-sqS" secondAttribute="centerX" id="RTp-PZ-Rbm"/>
+                            <constraint firstAttribute="trailing" secondItem="Qvj-ZL-65Q" secondAttribute="trailing" id="aDg-iB-YhC"/>
+                            <constraint firstItem="Qvj-ZL-65Q" firstAttribute="leading" secondItem="zMn-AG-sqS" secondAttribute="leading" id="bSx-bJ-TJU"/>
+                            <constraint firstItem="2WB-US-kpa" firstAttribute="centerY" secondItem="zMn-AG-sqS" secondAttribute="centerY" id="mfK-48-7FQ"/>
+                            <constraint firstItem="2WB-US-kpa" firstAttribute="width" secondItem="2WB-US-kpa" secondAttribute="height" multiplier="1:1" id="u9m-rS-pc7"/>
+                            <constraint firstItem="n38-gi-rB5" firstAttribute="top" secondItem="Qvj-ZL-65Q" secondAttribute="bottom" id="yww-JF-McD"/>
                         </constraints>
                     </view>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="320" height="528"/>
                     <connections>
-                        <outlet property="imageView" destination="F7j-It-bOf" id="X9A-NN-0aT"/>
-                        <outlet property="imageViewHeightConstraint" destination="8s9-p1-yiy" id="JIv-fL-KLb"/>
-                        <outlet property="imageViewWidthConstraint" destination="m7Z-ba-gnV" id="DJi-mw-NVX"/>
+                        <outlet property="busyView" destination="2WB-US-kpa" id="dZH-iY-HQQ"/>
                         <outlet property="scrollView" destination="uTY-Jr-ycS" id="5dh-ZY-qW0"/>
+                        <outlet property="toolbar" destination="Qvj-ZL-65Q" id="7u5-iB-lNO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="X47-rx-isc" userLabel="First Responder" sceneMemberID="firstResponder"/>

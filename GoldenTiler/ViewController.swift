@@ -37,6 +37,21 @@ class ViewController: UIViewController, UIScrollViewDelegate {
     return imageView
   }
 
+  // MARK: - Actions
+
+  func segmentedControlDidChangeValue(sender: UISegmentedControl) {
+    guard let displayImage = displayImage else {
+      return
+    }
+
+    switch selectedImageProcessingFilter {
+    case .Metal:
+      applyFiltersAndDisplay(image: displayImage, filterClass: GoldenSpiralMetalFilter.self, viewClass: MetalImageView.self)
+    case .CoreGraphics:
+      applyFiltersAndDisplay(image: displayImage, filterClass: GoldenSpiralCGFilter.self, viewClass: UIImageView.self)
+    }
+  }
+
   // MARK: -
 
   enum ImageProcessingFilter: Int {
@@ -47,21 +62,28 @@ class ViewController: UIViewController, UIScrollViewDelegate {
   lazy var segmentedControl: UISegmentedControl = {
     let control = UISegmentedControl(items: ["Metal", "CoreGraphics"])
     control.selectedSegmentIndex = 0
+    control.addTarget(self, action: Selector("segmentedControlDidChangeValue:"), forControlEvents: .ValueChanged)
     return control
   }()
 
   let timerButton = UIBarButtonItem(title: "", style: .Plain, target: nil, action: nil)
 
   @IBOutlet weak var scrollView: UIScrollView!
-  @IBOutlet weak var imageView: UIImageView!
-  @IBOutlet weak var imageViewWidthConstraint: NSLayoutConstraint!
-  @IBOutlet weak var imageViewHeightConstraint: NSLayoutConstraint!
+  @IBOutlet weak var busyView: BusyView!
+
+  var imageView: UIView?
+  var displayImage: UIImage?
+  var processedImage: UIImage?
 
   var selectedImageProcessingFilter: ImageProcessingFilter {
     return ImageProcessingFilter.init(rawValue: segmentedControl.selectedSegmentIndex)!
   }
 
   private var minimumImageZoomScale: CGFloat {
+    guard let imageView = imageView as? ImageView else {
+      return 1.0
+    }
+
     guard let image = imageView.image else {
       return 1.0
     }
@@ -69,36 +91,69 @@ class ViewController: UIViewController, UIScrollViewDelegate {
     return scrollView.bounds.width / image.size.width
   }
 
-  func applyFiltersAndDisplay<T: GoldenSpiralFilter>(image sourceImage: UIImage, filterClass: T.Type) {
-    let duration = Timer.run {
-      var filter = filterClass.init()
-      filter.inputImage = sourceImage.imageByFixingOrientation()
+  private lazy var timerFormatter: TimerFormatter = {
+    return TimerFormatter()
+  }()
 
-      imageView.image = filter.outputImage
-    }
+  func toggleInterface(enabled enabled: Bool) {
+    busyView.hidden = enabled
+    scrollView.userInteractionEnabled = enabled
 
-    if let duration = duration {
-      timerButton.title = String(format: "%.2f ms", duration.milliseconds)
-    }
+    navigationItem.rightBarButtonItem?.enabled = enabled
 
-    if let image = imageView.image {
-      scrollView.minimumZoomScale = minimumImageZoomScale
-      scrollView.zoomScale = scrollView.minimumZoomScale
-      imageViewWidthConstraint.constant = image.size.width
-      imageViewHeightConstraint.constant = image.size.height
+    if let toolbarItems = toolbarItems {
+      for item in toolbarItems {
+        item.enabled = enabled
+      }
     }
   }
 
-  func image(image: UIImage, didFinishSavingWithError error: NSError?, contextInfo:UnsafePointer<Void>) {
-    if error == nil {
-      let ac = UIAlertController(title: "Saved!", message: "Your altered image has been saved to your photos.", preferredStyle: .Alert)
-      ac.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
-      presentViewController(ac, animated: true, completion: nil)
-    }
-    else {
-      let ac = UIAlertController(title: "Save error", message: error?.localizedDescription, preferredStyle: .Alert)
-      ac.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
-      presentViewController(ac, animated: true, completion: nil)
+  func applyFiltersAndDisplay<T: GoldenSpiralFilter, V: ImageView where V: UIView>(image sourceImage: UIImage, filterClass: T.Type, viewClass: V.Type) {
+    toggleInterface(enabled: false)
+
+    dispatch_async(dispatch_get_global_queue(CLong(DISPATCH_QUEUE_PRIORITY_DEFAULT), 0)) { [weak self] in
+      let duration = Timer.run {
+        var filter = filterClass.init()
+        filter.inputImage = sourceImage.imageByFixingOrientation()
+        self?.processedImage = filter.outputImage
+      }
+
+      dispatch_async(dispatch_get_main_queue()) {
+        guard let scrollView = self?.scrollView else {
+          return
+        }
+
+        guard let processedImage = self?.processedImage else {
+          return
+        }
+
+        let myView: V
+        if let aView = self?.imageView as? V {
+          myView = aView
+        }
+        else {
+          self?.imageView?.removeFromSuperview()
+          myView = viewClass.init()
+          myView.translatesAutoresizingMaskIntoConstraints = false
+          scrollView.addSubview(myView)
+          self?.imageView = myView
+
+          var constraints = [NSLayoutConstraint]()
+          constraints += NSLayoutConstraint.constraintsWithVisualFormat("H:|[myView(width)]|", options: NSLayoutFormatOptions(rawValue: 0), metrics: ["width": processedImage.size.width], views: ["myView": myView])
+          constraints += NSLayoutConstraint.constraintsWithVisualFormat("V:|[myView(height)]|", options: NSLayoutFormatOptions(rawValue: 0), metrics: ["height": processedImage.size.height], views: ["myView": myView])
+          scrollView.addConstraints(constraints)
+        }
+
+        myView.image = processedImage
+        scrollView.minimumZoomScale = self?.minimumImageZoomScale ?? 1.0
+        scrollView.zoomScale = scrollView.minimumZoomScale
+
+        if let duration = duration {
+          self?.timerButton.title = self?.timerFormatter.stringFromTimer(duration, unit: .Millisecond)
+        }
+
+        self?.toggleInterface(enabled: true)
+      }
     }
   }
 

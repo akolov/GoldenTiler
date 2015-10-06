@@ -27,8 +27,13 @@ class ApplicationViewController: ViewController, UINavigationControllerDelegate,
   // MARK: UIImagePickerControllerDelegate
 
   func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
-    imageView.image = nil
+    displayImage = nil
+    processedImage = nil
     timerButton.title = nil
+
+    if let imageView = imageView as? ImageView {
+      imageView.image = nil
+    }
 
     dismissViewControllerAnimated(true) { [weak self] in
       let mediaType = info[UIImagePickerControllerMediaType] as? String
@@ -41,23 +46,22 @@ class ApplicationViewController: ViewController, UINavigationControllerDelegate,
         return
       }
 
-      let imageToEdit: UIImage!
-
       if let editedImage = info[UIImagePickerControllerEditedImage] as? UIImage {
-        imageToEdit = editedImage
+        self?.displayImage = editedImage
       }
       else if let originalImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
-        imageToEdit = originalImage
+        self?.displayImage = originalImage
       }
-      else {
+
+      guard let displayImage = self?.displayImage else {
         return
       }
 
       switch selectedImageProcessingFilter {
       case .Metal:
-        self?.applyFiltersAndDisplay(image: imageToEdit, filterClass: GoldenSpiralMetalFilter.self)
+        self?.applyFiltersAndDisplay(image: displayImage, filterClass: GoldenSpiralMetalFilter.self, viewClass: MetalImageView.self)
       case .CoreGraphics:
-        self?.applyFiltersAndDisplay(image: imageToEdit, filterClass: GoldenSpiralCGFilter.self)
+        self?.applyFiltersAndDisplay(image: displayImage, filterClass: GoldenSpiralCGFilter.self, viewClass: UIImageView.self)
       }
     }
   }
@@ -85,24 +89,42 @@ class ApplicationViewController: ViewController, UINavigationControllerDelegate,
   }
 
   @IBAction func didSelectSaveBarButton(sender: UIBarButtonItem) {
-    guard let image = imageView.image else {
+    guard let processedImage = processedImage else {
       return
     }
 
     sender.enabled = false
 
-    UIImageWriteToSavedPhotosAlbum(image, self, Selector("image:didFinishSavingWithError:contextInfo:"), nil)
+    UIImageWriteToSavedPhotosAlbum(processedImage, self, Selector("image:didFinishSavingWithError:contextInfo:"), nil)
   }
 
   // MARK: -
 
   @IBOutlet weak var saveBarButton: UIBarButtonItem!
 
-  override func applyFiltersAndDisplay<T: GoldenSpiralFilter>(image sourceImage: UIImage, filterClass: T.Type) {
-    super.applyFiltersAndDisplay(image: sourceImage, filterClass: filterClass)
-    if imageView.image != nil {
+  override func applyFiltersAndDisplay<T: GoldenSpiralFilter, V: ImageView where V: UIView>(image sourceImage: UIImage, filterClass: T.Type, viewClass: V.Type) {
+    super.applyFiltersAndDisplay(image: sourceImage, filterClass: filterClass, viewClass: viewClass)
+    if processedImage != nil {
       saveBarButton.enabled = true
     }
+  }
+
+  func image(image: UIImage, didFinishSavingWithError error: NSError?, contextInfo:UnsafePointer<Void>) {
+    let title: String, message: String
+
+    if error == nil {
+      title = Localized.Save.Success.Title
+      message = Localized.Save.Success.Message
+    }
+    else {
+      title = Localized.Save.Error.Title
+      message = error?.localizedDescription ?? Localized.Save.Error.Title
+    }
+
+    let actionTitle = Localized.Button.OK
+    let controller = UIAlertController(title: title, message: message, preferredStyle: .Alert)
+    controller.addAction(UIAlertAction(title: actionTitle, style: .Default, handler: nil))
+    presentViewController(controller, animated: true, completion: nil)
   }
 
 }

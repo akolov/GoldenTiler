@@ -39,15 +39,11 @@ class GoldenSpiralMetalFilter: GoldenSpiralFilter {
   var colorSpace: CGColorSpaceRef?
 
   var outputImage: UIImage? {
-    guard let sourceImage = inputImage?.CGImage else {
+    guard let inputImage = inputImage else {
       return nil
     }
 
-    guard let tiledImage = tileImage(sourceImage) else {
-      return nil
-    }
-
-    return UIImage(CGImage: tiledImage)
+    return tileImage(image: inputImage)
   }
 
   var canProcessImage: Bool {
@@ -76,8 +72,12 @@ class GoldenSpiralMetalFilter: GoldenSpiralFilter {
     return CIContext(MTLDevice: self.device)
   }()
 
-  private func tileImage(image: CGImageRef) -> CGImageRef? {
+  private func tileImage(image sourceImage: UIImage) -> UIImage? {
     guard let colorSpace = colorSpace else {
+      return nil
+    }
+
+    guard let image = sourceImage.CGImage else {
       return nil
     }
 
@@ -145,7 +145,8 @@ class GoldenSpiralMetalFilter: GoldenSpiralFilter {
     else {
       tiledImage = tiledImage.imageByApplyingOrientation(4)
     }
-    return context.createCGImage(tiledImage, fromRect: tiledImage.extent)
+
+    return UIImage(CIImage: tiledImage)
   }
 
   private func createTexture(width width: Int, height: Int) -> MTLTexture {

@@ -10,11 +10,17 @@ import Metal
 import MetalKit
 import UIKit
 
-class MetalImageView: MTKView {
+class MetalImageView: MTKView, ImageView {
 
   required init(coder aDecoder: NSCoder) {
     super.init(coder: aDecoder)
     device = MTLCreateSystemDefaultDevice()
+    commonInit()
+  }
+
+  required init() {
+    let device = MTLCreateSystemDefaultDevice()
+    super.init(frame: CGRectZero, device: device)
     commonInit()
   }
 
@@ -24,7 +30,8 @@ class MetalImageView: MTKView {
   }
 
   override func drawRect(rect: CGRect) {
-    guard let image = image else {
+    // Metal context origin is bottom left, so let's flip image to display it correctly
+    guard let ciImage = image?.CIImage?.imageByApplyingOrientation(4) else {
       return
     }
 
@@ -34,7 +41,7 @@ class MetalImageView: MTKView {
       return
     }
 
-    context.render(image, toMTLTexture: currentDrawable.texture, commandBuffer: commandBuffer, bounds: image.extent, colorSpace: colorSpace)
+    context.render(ciImage, toMTLTexture: currentDrawable.texture, commandBuffer: commandBuffer, bounds: ciImage.extent, colorSpace: colorSpace)
 
     commandBuffer.presentDrawable(currentDrawable)
     commandBuffer.commit()
@@ -42,16 +49,16 @@ class MetalImageView: MTKView {
 
   // MARK: -
 
-  var image: CIImage? {
+  var image: UIImage? {
     didSet {
-      guard let image = image else {
+      guard let ciImage = image?.CIImage else {
         return
       }
 
-      frame = image.extent
-      drawableSize = image.extent.size
+      frame = ciImage.extent
+      drawableSize = ciImage.extent.size
 
-      colorSpace = image.colorSpace ?? CGColorSpaceCreateDeviceRGB()
+      colorSpace = ciImage.colorSpace ?? CGColorSpaceCreateDeviceRGB()
       draw()
     }
   }

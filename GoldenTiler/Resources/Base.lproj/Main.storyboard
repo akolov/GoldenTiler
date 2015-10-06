@@ -2,10 +2,11 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="ezl-pK-oD2">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--Application View Controller-->
+        <!--GoldenTiler-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ApplicationViewController" customModule="GoldenTiler" customModuleProvider="target" sceneMemberID="viewController">
@@ -19,38 +20,33 @@
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" alwaysBounceHorizontal="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aMV-aS-szt">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                                <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="gdU-QI-yvM">
-                                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                                        <animations/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="600" id="vTa-sb-LIU"/>
-                                            <constraint firstAttribute="width" constant="600" id="zo6-js-d5g"/>
-                                        </constraints>
-                                    </imageView>
-                                </subviews>
                                 <animations/>
-                                <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="gdU-QI-yvM" secondAttribute="bottom" id="48K-X0-N4o"/>
-                                    <constraint firstItem="gdU-QI-yvM" firstAttribute="leading" secondItem="aMV-aS-szt" secondAttribute="leading" id="DGj-is-x8d"/>
-                                    <constraint firstItem="gdU-QI-yvM" firstAttribute="top" secondItem="aMV-aS-szt" secondAttribute="top" id="bHw-nf-sec"/>
-                                    <constraint firstAttribute="trailing" secondItem="gdU-QI-yvM" secondAttribute="trailing" id="lnz-BB-Zzn"/>
-                                </constraints>
                                 <connections>
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="zw6-ZX-GyP"/>
                                 </connections>
                             </scrollView>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2sU-YH-C2C" customClass="BusyView" customModule="GoldenTiler" customModuleProvider="target">
+                                <rect key="frame" x="250" y="250" width="100" height="100"/>
+                                <animations/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="Dzx-ie-mRQ"/>
+                                    <constraint firstAttribute="width" secondItem="2sU-YH-C2C" secondAttribute="height" multiplier="1:1" id="k1P-qv-uMA"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="2sU-YH-C2C" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="KWU-lH-Vwi"/>
                             <constraint firstItem="aMV-aS-szt" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="N1e-JT-LDV"/>
                             <constraint firstItem="aMV-aS-szt" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" id="WAA-lJ-gNe"/>
                             <constraint firstAttribute="trailing" secondItem="aMV-aS-szt" secondAttribute="trailing" id="Yzh-35-TfJ"/>
                             <constraint firstAttribute="bottomMargin" secondItem="aMV-aS-szt" secondAttribute="bottom" id="bYy-Jl-d5C"/>
+                            <constraint firstItem="2sU-YH-C2C" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="eIK-0H-aM1"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="T3i-R2-eNS">
+                    <navigationItem key="navigationItem" title="GoldenTiler" id="T3i-R2-eNS">
                         <barButtonItem key="rightBarButtonItem" enabled="NO" systemItem="save" id="cFX-Ms-cLQ">
                             <connections>
                                 <action selector="didSelectSaveBarButton:" destination="BYZ-38-t0r" id="EfB-Nn-ugO"/>
@@ -58,9 +54,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="imageView" destination="gdU-QI-yvM" id="sVp-PK-wfT"/>
-                        <outlet property="imageViewHeightConstraint" destination="vTa-sb-LIU" id="9Uo-FC-8Lq"/>
-                        <outlet property="imageViewWidthConstraint" destination="zo6-js-d5g" id="ijH-Z6-clr"/>
+                        <outlet property="busyView" destination="2sU-YH-C2C" id="5LL-pD-0ty"/>
                         <outlet property="saveBarButton" destination="cFX-Ms-cLQ" id="iNW-hS-rPz"/>
                         <outlet property="scrollView" destination="aMV-aS-szt" id="cRE-Ga-r0T"/>
                     </connections>
