@@ -2,132 +2,81 @@
 //  GoldenSpiralFilter.swift
 //  GoldenTiler
 //
-//  Created by Alexander Kolov on 10/4/15.
+//  Created by Alexander Kolov on 10/5/15.
 //  Copyright © 2015 Alexander Kolov. All rights reserved.
 //
 
 import Foundation
-import CoreImage
 import ImageIO
-import Metal
-import MetalPerformanceShaders
+import UIKit
 
-class GoldenSpiralFilter: CIFilter {
+let φ: CGFloat = (1 + sqrt(5.0)) / 2.0
 
-  override var outputImage: CIImage? {
-    guard let inputImage = inputImage else {
-      return nil
-    }
+protocol GoldenSpiralFilter {
 
-    return tileImage(inputImage)
-  }
+  init()
 
-  // MARK: -
+  var inputImage: UIImage? { get set }
+  var colorSpace: CGColorSpaceRef? { get }
+  var outputImage: UIImage? { get }
+  var outputImageSize: CGSize { get }
+  var canProcessImage: Bool { get }
+  var context: CIContext { get }
 
-  var steps = 16
+  func tiles() -> AnyGenerator<CGRect>
+  func imageCropRect(image sourceImage: CGImageRef, toDimension dimension: CGFloat) -> CGRect
+  func imageByFixingOrientation(image sourceImage: CGImageRef) -> CGImageRef?
 
-  var inputImage: CIImage? {
-    didSet {
-      colorSpace = inputImage?.colorSpace ?? CGColorSpaceCreateDeviceRGB()
-    }
-  }
+}
 
-  private var colorSpace: CGColorSpaceRef?
+extension GoldenSpiralFilter {
 
-  private let device: MTLDevice! = MTLCreateSystemDefaultDevice()
+  func tiles() -> AnyGenerator<CGRect> {
+    let dimension = outputImageSize.height
+    var x: CGFloat = 0, y: CGFloat = 0, counter = 0
 
-  lazy var commandQueue: MTLCommandQueue = {
-    return self.device.newCommandQueue()
-  }()
-
-  private func tileImage(image: CIImage) -> CIImage? {
-    guard let colorSpace = colorSpace else {
-      return nil
-    }
-
-    let context = CIContext(MTLDevice: device)
-    let dimension = min(image.extent.width, image.extent.height)
-
-    guard let cropped = squareCropImage(image, toDimension: dimension) else {
-      return nil
-    }
-
-    let φ: CGFloat = (1 + sqrt(5.0)) / 2.0
-
-    let canvasRect = CGRect(x: 0, y: 0, width: ceil(dimension * φ), height: dimension)
-    let canvasTexture = createTexture(width: Int(canvasRect.width), height: Int(canvasRect.height))
-
-    let sourceOrigin = MTLOrigin(x: 0, y: 0, z: 0)
-    let sourceRect = CGRect(x: 0, y: 0, width: dimension, height: dimension)
-    var sourceTexture = createTexture(width: Int(dimension), height: Int(dimension))
-
-    context.render(cropped, toMTLTexture: sourceTexture, commandBuffer: nil, bounds: sourceRect, colorSpace: colorSpace)
-
-    var x = 0, y = 0, counter = 0
-
-    let commandBuffer = commandQueue.commandBuffer()
-
-    while true {
-      let a = ceil(CGFloat(sourceRect.width) / pow(φ, CGFloat(counter)))
-      let b = ceil(CGFloat(sourceRect.width) / pow(φ, CGFloat(counter) + 1))
+    return anyGenerator {
+      let a = ceil(CGFloat(dimension) / pow(φ, CGFloat(counter)))
+      let b = ceil(CGFloat(dimension) / pow(φ, CGFloat(counter) + 1))
 
       // Bail out when significant part is less than 2 pixels
       if a < 2 {
-        break
+        return .None
       }
 
-      let texture = createScaledTexture(sourceTexture, dimension: Int(a), commandBuffer: commandBuffer)
-
-      var origin: MTLOrigin!
+      var origin: CGPoint!
 
       switch counter % 4 {
       case 0:
-        origin = MTLOrigin(x: x, y: y, z: 0)
-        x += Int(ceil(a + b))
+        origin = CGPoint(x: x, y: y)
+        x += ceil(a + b)
 
       case 1:
-        origin = MTLOrigin(x: x - Int(a), y: y, z: 0)
-        y += Int(ceil(a + b))
+        origin = CGPoint(x: x - a, y: y)
+        y += ceil(a + b)
 
       case 2:
-        origin = MTLOrigin(x: x - Int(a), y: y - Int(a), z: 0)
-        x -= Int(ceil(a + b))
+        origin = CGPoint(x: x - a, y: y - a)
+        x -= ceil(a + b)
 
       case 3:
-        origin = MTLOrigin(x: x, y: y - Int(a), z: 0)
-        y -= Int(ceil(a + b))
+        origin = CGPoint(x: x, y: y - a)
+        y -= ceil(a + b)
 
       default:
         break
       }
 
-      var sourceSize = MTLSize(width: texture.width, height: texture.height, depth: 1)
-
-      if sourceSize.width + origin.x > Int(canvasRect.width) {
-        sourceSize.width = Int(canvasRect.width) - origin.x
-      }
-
-      if sourceSize.height + origin.y > Int(canvasRect.height) {
-        sourceSize.height = Int(canvasRect.height) - origin.y
-      }
-
-      let encoder = commandBuffer.blitCommandEncoder()
-      encoder.copyFromTexture(texture, sourceSlice: 0, sourceLevel: 0, sourceOrigin: sourceOrigin, sourceSize: sourceSize, toTexture: canvasTexture, destinationSlice: 0, destinationLevel: 0, destinationOrigin: origin)
-      encoder.endEncoding()
-
-      sourceTexture = texture
       counter++
+
+      return CGRect(origin: origin, size: CGSize(width: a, height: a))
     }
-
-    commandBuffer.commit()
-
-    return CIImage(MTLTexture: canvasTexture, options: [kCIImageColorSpace: colorSpace])
   }
 
-  private func squareCropImage(image: CIImage, toDimension dimension: CGFloat) -> CIImage? {
-    let context = CIContext()
+  func imageCropRect(image sourceImage: CGImageRef, toDimension dimension: CGFloat) -> CGRect {
+    let image = CIImage(CGImage: sourceImage)
     let detector = CIDetector(ofType: CIDetectorTypeFace, context: context, options: [CIDetectorAccuracy: CIDetectorAccuracyHigh])
-    let orientation: AnyObject = image.properties[kCGImagePropertyOrientation as String] ?? 1
+    let orientation: AnyObject = image.properties[String(kCGImagePropertyOrientation)] ?? 1
     let features = detector.featuresInImage(image, options: [CIDetectorImageOrientation: orientation])
 
     let cropRect: CGRect
@@ -141,35 +90,20 @@ class GoldenSpiralFilter: CIFilter {
       facesRect.offsetInPlace(dx: facesRect.minX < 0 ? -facesRect.minX : 0, dy: facesRect.minY < 0 ? -facesRect.minY : 0)
       cropRect = facesRect
     }
-    
-    let cropped = image.imageByCroppingToRect(cropRect)
-    let transform = CGAffineTransformMakeTranslation(-cropped.extent.minX, -cropped.extent.minY)
-    return cropped.imageByApplyingTransform(transform)
+
+    return cropRect
   }
 
-  private func createTexture(width width: Int, height: Int) -> MTLTexture {
-    let descriptor = MTLTextureDescriptor.texture2DDescriptorWithPixelFormat(.BGRA8Unorm, width: width, height: height, mipmapped: false)
-    descriptor.usage = [.ShaderRead, .ShaderWrite]
-    return device.newTextureWithDescriptor(descriptor)
-  }
-
-  private func createScaledTexture(sourceTexture: MTLTexture, dimension: Int, commandBuffer: MTLCommandBuffer) -> MTLTexture {
-    let scale = MPSImageLanczosScale(device: device)
-    let factor = Double(dimension) / Double(sourceTexture.width)
-
-    if factor == 1 {
-      return sourceTexture
-    }
-
-    var scaleTransform = MPSScaleTransform(scaleX: factor, scaleY: factor, translateX: 0, translateY: 0)
-
-    withUnsafePointer(&scaleTransform) { ptr in
-      scale.scaleTransform = ptr
-    }
-
-    let texture = createTexture(width: dimension, height: dimension)
-    scale.encodeToCommandBuffer(commandBuffer, sourceTexture: sourceTexture, destinationTexture: texture)
-    return texture
+  func imageByFixingOrientation(image sourceImage: CGImageRef) -> CGImageRef? {
+    let width = CGImageGetWidth(sourceImage)
+    let height = CGImageGetHeight(sourceImage)
+    let bitsPerComponent = CGImageGetBitsPerComponent(sourceImage)
+    let bitmapInfo = CGImageGetBitmapInfo(sourceImage)
+    let bitmapContext = CGBitmapContextCreate(nil, width, height, bitsPerComponent, 0, colorSpace, bitmapInfo.rawValue)
+    let transform = CGAffineTransformMake(1, 0, 0, -1, 0, CGFloat(height))
+    CGContextConcatCTM(bitmapContext, transform)
+    CGContextDrawImage(bitmapContext, CGRectMake(0, 0, CGFloat(width), CGFloat(height)), sourceImage)
+    return CGBitmapContextCreateImage(bitmapContext)
   }
 
 }

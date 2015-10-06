@@ -39,38 +39,53 @@ class ViewController: UIViewController, UIScrollViewDelegate {
 
   // MARK: -
 
+  enum ImageProcessingFilter: Int {
+    case Metal = 0
+    case CoreGraphics = 1
+  }
+
+  lazy var segmentedControl: UISegmentedControl = {
+    let control = UISegmentedControl(items: ["Metal", "CoreGraphics"])
+    control.selectedSegmentIndex = 0
+    return control
+  }()
+
+  let timerButton = UIBarButtonItem(title: "", style: .Plain, target: nil, action: nil)
+
   @IBOutlet weak var scrollView: UIScrollView!
-  @IBOutlet weak var imageView: MetalImageView!
+  @IBOutlet weak var imageView: UIImageView!
   @IBOutlet weak var imageViewWidthConstraint: NSLayoutConstraint!
   @IBOutlet weak var imageViewHeightConstraint: NSLayoutConstraint!
+
+  var selectedImageProcessingFilter: ImageProcessingFilter {
+    return ImageProcessingFilter.init(rawValue: segmentedControl.selectedSegmentIndex)!
+  }
 
   private var minimumImageZoomScale: CGFloat {
     guard let image = imageView.image else {
       return 1.0
     }
 
-    return scrollView.bounds.width / image.extent.width
+    return scrollView.bounds.width / image.size.width
   }
 
-  func applyFiltersAndDisplay(image sourceImage: UIImage) {
-    if let image = sourceImage.CIImageWithAppliedOrientation() {
-      let filter = GoldenSpiralMetalFilter()
+  func applyFiltersAndDisplay<T: GoldenSpiralFilter>(image sourceImage: UIImage, filterClass: T.Type) {
+    let duration = Timer.run {
+      var filter = filterClass.init()
+      filter.inputImage = sourceImage.imageByFixingOrientation()
 
-      if image.extent.height > image.extent.width {
-        filter.inputImage = image.imageByApplyingOrientation(8)
-        imageView.image = filter.outputImage?.imageByApplyingOrientation(7)
-      }
-      else {
-        filter.inputImage = image.imageByApplyingOrientation(4)
-        imageView.image = filter.outputImage
-      }
+      imageView.image = filter.outputImage
+    }
+
+    if let duration = duration {
+      timerButton.title = String(format: "%.2f ms", duration.milliseconds)
     }
 
     if let image = imageView.image {
       scrollView.minimumZoomScale = minimumImageZoomScale
       scrollView.zoomScale = scrollView.minimumZoomScale
-      imageViewWidthConstraint.constant = image.extent.width
-      imageViewHeightConstraint.constant = image.extent.height
+      imageViewWidthConstraint.constant = image.size.width
+      imageViewHeightConstraint.constant = image.size.height
     }
   }
 

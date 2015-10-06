@@ -20,22 +20,21 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" alwaysBounceHorizontal="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aMV-aS-szt">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yAE-cZ-l5s" customClass="MetalImageView" customModule="GoldenTiler" customModuleProvider="target">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="gdU-QI-yvM">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                         <animations/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="600" id="54l-Ej-0d7"/>
-                                            <constraint firstAttribute="height" constant="600" id="6WI-Y6-m4Y"/>
+                                            <constraint firstAttribute="height" constant="600" id="vTa-sb-LIU"/>
+                                            <constraint firstAttribute="width" constant="600" id="zo6-js-d5g"/>
                                         </constraints>
-                                    </view>
+                                    </imageView>
                                 </subviews>
                                 <animations/>
                                 <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="yAE-cZ-l5s" secondAttribute="bottom" id="P7r-RB-SqQ"/>
-                                    <constraint firstAttribute="trailing" secondItem="yAE-cZ-l5s" secondAttribute="trailing" id="YjG-tb-bx4"/>
-                                    <constraint firstItem="yAE-cZ-l5s" firstAttribute="leading" secondItem="aMV-aS-szt" secondAttribute="leading" id="hVo-lb-gaI"/>
-                                    <constraint firstItem="yAE-cZ-l5s" firstAttribute="top" secondItem="aMV-aS-szt" secondAttribute="top" id="lWg-EV-8Bg"/>
+                                    <constraint firstAttribute="bottom" secondItem="gdU-QI-yvM" secondAttribute="bottom" id="48K-X0-N4o"/>
+                                    <constraint firstItem="gdU-QI-yvM" firstAttribute="leading" secondItem="aMV-aS-szt" secondAttribute="leading" id="DGj-is-x8d"/>
+                                    <constraint firstItem="gdU-QI-yvM" firstAttribute="top" secondItem="aMV-aS-szt" secondAttribute="top" id="bHw-nf-sec"/>
+                                    <constraint firstAttribute="trailing" secondItem="gdU-QI-yvM" secondAttribute="trailing" id="lnz-BB-Zzn"/>
                                 </constraints>
                                 <connections>
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="zw6-ZX-GyP"/>
@@ -59,9 +58,9 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="imageView" destination="yAE-cZ-l5s" id="bBD-Ub-uPa"/>
-                        <outlet property="imageViewHeightConstraint" destination="6WI-Y6-m4Y" id="yDL-Vk-1Tq"/>
-                        <outlet property="imageViewWidthConstraint" destination="54l-Ej-0d7" id="drh-Ld-C7o"/>
+                        <outlet property="imageView" destination="gdU-QI-yvM" id="sVp-PK-wfT"/>
+                        <outlet property="imageViewHeightConstraint" destination="vTa-sb-LIU" id="9Uo-FC-8Lq"/>
+                        <outlet property="imageViewWidthConstraint" destination="zo6-js-d5g" id="ijH-Z6-clr"/>
                         <outlet property="saveBarButton" destination="cFX-Ms-cLQ" id="iNW-hS-rPz"/>
                         <outlet property="scrollView" destination="aMV-aS-szt" id="cRE-Ga-r0T"/>
                     </connections>

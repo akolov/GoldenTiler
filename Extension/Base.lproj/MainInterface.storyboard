@@ -19,22 +19,21 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" alwaysBounceHorizontal="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uTY-Jr-ycS">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="528"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hUl-wW-xII" customClass="MetalImageView" customModule="Extension" customModuleProvider="target">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="F7j-It-bOf">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="528"/>
                                         <animations/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="528" id="H93-Wx-ASi"/>
-                                            <constraint firstAttribute="width" constant="320" id="PcJ-h7-Gfp"/>
+                                            <constraint firstAttribute="height" constant="528" id="8s9-p1-yiy"/>
+                                            <constraint firstAttribute="width" constant="320" id="m7Z-ba-gnV"/>
                                         </constraints>
-                                    </view>
+                                    </imageView>
                                 </subviews>
                                 <animations/>
                                 <constraints>
-                                    <constraint firstItem="hUl-wW-xII" firstAttribute="leading" secondItem="uTY-Jr-ycS" secondAttribute="leading" id="Hrx-vo-PWA"/>
-                                    <constraint firstItem="hUl-wW-xII" firstAttribute="top" secondItem="uTY-Jr-ycS" secondAttribute="top" id="MnQ-0R-LnI"/>
-                                    <constraint firstAttribute="bottom" secondItem="hUl-wW-xII" secondAttribute="bottom" id="hby-3s-Jme"/>
-                                    <constraint firstAttribute="trailing" secondItem="hUl-wW-xII" secondAttribute="trailing" id="niA-yg-RLb"/>
+                                    <constraint firstAttribute="bottom" secondItem="F7j-It-bOf" secondAttribute="bottom" id="Has-cX-9bN"/>
+                                    <constraint firstItem="F7j-It-bOf" firstAttribute="leading" secondItem="uTY-Jr-ycS" secondAttribute="leading" id="jKG-9G-Uyh"/>
+                                    <constraint firstAttribute="trailing" secondItem="F7j-It-bOf" secondAttribute="trailing" id="n5S-F9-YFf"/>
+                                    <constraint firstItem="F7j-It-bOf" firstAttribute="top" secondItem="uTY-Jr-ycS" secondAttribute="top" id="t7W-e5-HLv"/>
                                 </constraints>
                                 <connections>
                                     <outlet property="delegate" destination="ObA-dk-sSI" id="fN8-pZ-yX1"/>
@@ -53,9 +52,9 @@
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="320" height="528"/>
                     <connections>
-                        <outlet property="imageView" destination="hUl-wW-xII" id="M6D-Y7-B8e"/>
-                        <outlet property="imageViewHeightConstraint" destination="H93-Wx-ASi" id="beF-jn-38Y"/>
-                        <outlet property="imageViewWidthConstraint" destination="PcJ-h7-Gfp" id="HaR-BH-MLl"/>
+                        <outlet property="imageView" destination="F7j-It-bOf" id="X9A-NN-0aT"/>
+                        <outlet property="imageViewHeightConstraint" destination="8s9-p1-yiy" id="JIv-fL-KLb"/>
+                        <outlet property="imageViewWidthConstraint" destination="m7Z-ba-gnV" id="DJi-mw-NVX"/>
                         <outlet property="scrollView" destination="uTY-Jr-ycS" id="5dh-ZY-qW0"/>
                     </connections>
                 </viewController>

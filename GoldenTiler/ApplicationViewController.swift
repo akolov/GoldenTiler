@@ -14,7 +14,11 @@ class ApplicationViewController: ViewController, UINavigationControllerDelegate,
   override func viewDidLoad() {
     super.viewDidLoad()
     toolbarItems = [
-      UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: Selector("didSelectAddBarButton:"))
+      UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: Selector("didSelectAddBarButton:")),
+      UIBarButtonItem(barButtonSystemItem: .FlexibleSpace, target: nil, action: nil),
+      UIBarButtonItem(customView: segmentedControl),
+      UIBarButtonItem(barButtonSystemItem: .FlexibleSpace, target: nil, action: nil),
+      timerButton
     ]
   }
 
@@ -23,6 +27,9 @@ class ApplicationViewController: ViewController, UINavigationControllerDelegate,
   // MARK: UIImagePickerControllerDelegate
 
   func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
+    imageView.image = nil
+    timerButton.title = nil
+
     dismissViewControllerAnimated(true) { [weak self] in
       let mediaType = info[UIImagePickerControllerMediaType] as? String
 
@@ -30,11 +37,27 @@ class ApplicationViewController: ViewController, UINavigationControllerDelegate,
         return
       }
 
+      guard let selectedImageProcessingFilter = self?.selectedImageProcessingFilter else {
+        return
+      }
+
+      let imageToEdit: UIImage!
+
       if let editedImage = info[UIImagePickerControllerEditedImage] as? UIImage {
-        self?.applyFiltersAndDisplay(image: editedImage)
+        imageToEdit = editedImage
       }
       else if let originalImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
-        self?.applyFiltersAndDisplay(image: originalImage)
+        imageToEdit = originalImage
+      }
+      else {
+        return
+      }
+
+      switch selectedImageProcessingFilter {
+      case .Metal:
+        self?.applyFiltersAndDisplay(image: imageToEdit, filterClass: GoldenSpiralMetalFilter.self)
+      case .CoreGraphics:
+        self?.applyFiltersAndDisplay(image: imageToEdit, filterClass: GoldenSpiralCGFilter.self)
       }
     }
   }
@@ -62,27 +85,21 @@ class ApplicationViewController: ViewController, UINavigationControllerDelegate,
   }
 
   @IBAction func didSelectSaveBarButton(sender: UIBarButtonItem) {
-    guard let image = imageView.image?.imageByApplyingOrientation(4) else {
-      return
-    }
-
-    guard let device = MTLCreateSystemDefaultDevice() else {
+    guard let image = imageView.image else {
       return
     }
 
     sender.enabled = false
 
-    let context = CIContext(MTLDevice: device)
-    let imageToSave = UIImage(CGImage: context.createCGImage(image, fromRect: image.extent))
-    UIImageWriteToSavedPhotosAlbum(imageToSave, self, Selector("image:didFinishSavingWithError:contextInfo:"), nil)
+    UIImageWriteToSavedPhotosAlbum(image, self, Selector("image:didFinishSavingWithError:contextInfo:"), nil)
   }
 
   // MARK: -
 
   @IBOutlet weak var saveBarButton: UIBarButtonItem!
 
-  override func applyFiltersAndDisplay(image sourceImage: UIImage) {
-    super.applyFiltersAndDisplay(image: sourceImage)
+  override func applyFiltersAndDisplay<T: GoldenSpiralFilter>(image sourceImage: UIImage, filterClass: T.Type) {
+    super.applyFiltersAndDisplay(image: sourceImage, filterClass: filterClass)
     if imageView.image != nil {
       saveBarButton.enabled = true
     }

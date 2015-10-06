@@ -7,10 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		FA748BFD1BC2F56C0079DF83 /* UIImage+CIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA748BFC1BC2F56C0079DF83 /* UIImage+CIImage.swift */; settings = {ASSET_TAGS = (); }; };
-		FA748BFE1BC2F56C0079DF83 /* UIImage+CIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA748BFC1BC2F56C0079DF83 /* UIImage+CIImage.swift */; settings = {ASSET_TAGS = (); }; };
+		FA353FD11BC3015100BD6CE2 /* GoldenSpiralCGFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA353FD01BC3015100BD6CE2 /* GoldenSpiralCGFilter.swift */; settings = {ASSET_TAGS = (); }; };
+		FA353FD21BC30B7300BD6CE2 /* GoldenSpiralCGFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA353FD01BC3015100BD6CE2 /* GoldenSpiralCGFilter.swift */; settings = {ASSET_TAGS = (); }; };
+		FA353FD41BC3139A00BD6CE2 /* GoldenSpiralFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA353FD31BC3139A00BD6CE2 /* GoldenSpiralFilter.swift */; settings = {ASSET_TAGS = (); }; };
+		FA353FD51BC3139E00BD6CE2 /* GoldenSpiralFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA353FD31BC3139A00BD6CE2 /* GoldenSpiralFilter.swift */; settings = {ASSET_TAGS = (); }; };
 		FA353FD71BC31AE800BD6CE2 /* Timer.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA353FD61BC31AE800BD6CE2 /* Timer.swift */; settings = {ASSET_TAGS = (); }; };
 		FA353FD81BC31D3700BD6CE2 /* Timer.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA353FD61BC31AE800BD6CE2 /* Timer.swift */; settings = {ASSET_TAGS = (); }; };
+		FA353FDB1BC3590700BD6CE2 /* UIImage+Transformations.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA353FDA1BC3590700BD6CE2 /* UIImage+Transformations.swift */; settings = {ASSET_TAGS = (); }; };
+		FA353FDC1BC3590700BD6CE2 /* UIImage+Transformations.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA353FDA1BC3590700BD6CE2 /* UIImage+Transformations.swift */; settings = {ASSET_TAGS = (); }; };
 		FAEDBE9C1BC1722600FDBC15 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEDBE9B1BC1722600FDBC15 /* AppDelegate.swift */; };
 		FAEDBE9E1BC1722600FDBC15 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEDBE9D1BC1722600FDBC15 /* ViewController.swift */; };
 		FAEDBEA11BC1722600FDBC15 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAEDBE9F1BC1722600FDBC15 /* Main.storyboard */; };
@@ -18,7 +22,7 @@
 		FAEDBEA61BC1722600FDBC15 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAEDBEA41BC1722600FDBC15 /* LaunchScreen.storyboard */; };
 		FAEDBEB11BC1722600FDBC15 /* GoldenTilerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEDBEB01BC1722600FDBC15 /* GoldenTilerTests.swift */; };
 		FAEDBEBC1BC1722600FDBC15 /* GoldenTilerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEDBEBB1BC1722600FDBC15 /* GoldenTilerUITests.swift */; };
-		FAEDBED31BC17D7100FDBC15 /* GoldenSpiralFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEDBED21BC17D7100FDBC15 /* GoldenSpiralFilter.swift */; settings = {ASSET_TAGS = (); }; };
+		FAEDBED31BC17D7100FDBC15 /* GoldenSpiralMetalFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEDBED21BC17D7100FDBC15 /* GoldenSpiralMetalFilter.swift */; settings = {ASSET_TAGS = (); }; };
 		FAEDBED41BC1961200FDBC15 /* MetalImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEDBEC91BC1729400FDBC15 /* MetalImageView.swift */; settings = {ASSET_TAGS = (); }; };
 		FAEDBEDE1BC1FCC400FDBC15 /* PhotosUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAEDBEDD1BC1FCC400FDBC15 /* PhotosUI.framework */; settings = {ASSET_TAGS = (); }; };
 		FAEDBEE01BC1FCC400FDBC15 /* Photos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAEDBEDF1BC1FCC400FDBC15 /* Photos.framework */; settings = {ASSET_TAGS = (); }; };
@@ -26,7 +30,7 @@
 		FAEDBEE61BC1FCC400FDBC15 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAEDBEE41BC1FCC400FDBC15 /* MainInterface.storyboard */; };
 		FAEDBEEA1BC1FCC400FDBC15 /* Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = FAEDBEDB1BC1FCC400FDBC15 /* Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		FAEDBEEF1BC1FE0400FDBC15 /* MetalImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEDBEC91BC1729400FDBC15 /* MetalImageView.swift */; settings = {ASSET_TAGS = (); }; };
-		FAEDBEF01BC1FE0800FDBC15 /* GoldenSpiralFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEDBED21BC17D7100FDBC15 /* GoldenSpiralFilter.swift */; settings = {ASSET_TAGS = (); }; };
+		FAEDBEF01BC1FE0800FDBC15 /* GoldenSpiralMetalFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEDBED21BC17D7100FDBC15 /* GoldenSpiralMetalFilter.swift */; settings = {ASSET_TAGS = (); }; };
 		FAEDBEF21BC1FE5C00FDBC15 /* ApplicationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEDBEF11BC1FE5C00FDBC15 /* ApplicationViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		FAEDBEF31BC1FFFB00FDBC15 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEDBE9D1BC1722600FDBC15 /* ViewController.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
@@ -70,8 +74,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		FA748BFC1BC2F56C0079DF83 /* UIImage+CIImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+CIImage.swift"; sourceTree = "<group>"; };
+		FA353FD01BC3015100BD6CE2 /* GoldenSpiralCGFilter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoldenSpiralCGFilter.swift; sourceTree = "<group>"; };
+		FA353FD31BC3139A00BD6CE2 /* GoldenSpiralFilter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoldenSpiralFilter.swift; sourceTree = "<group>"; };
 		FA353FD61BC31AE800BD6CE2 /* Timer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Timer.swift; sourceTree = "<group>"; };
+		FA353FDA1BC3590700BD6CE2 /* UIImage+Transformations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Transformations.swift"; sourceTree = "<group>"; };
 		FAEDBE981BC1722600FDBC15 /* GoldenTiler.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GoldenTiler.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAEDBE9B1BC1722600FDBC15 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FAEDBE9D1BC1722600FDBC15 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -86,7 +92,7 @@
 		FAEDBEBB1BC1722600FDBC15 /* GoldenTilerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoldenTilerUITests.swift; sourceTree = "<group>"; };
 		FAEDBEBD1BC1722600FDBC15 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FAEDBEC91BC1729400FDBC15 /* MetalImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MetalImageView.swift; sourceTree = "<group>"; };
-		FAEDBED21BC17D7100FDBC15 /* GoldenSpiralFilter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoldenSpiralFilter.swift; sourceTree = "<group>"; };
+		FAEDBED21BC17D7100FDBC15 /* GoldenSpiralMetalFilter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoldenSpiralMetalFilter.swift; sourceTree = "<group>"; };
 		FAEDBEDB1BC1FCC400FDBC15 /* Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = Extension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAEDBEDD1BC1FCC400FDBC15 /* PhotosUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PhotosUI.framework; path = System/Library/Frameworks/PhotosUI.framework; sourceTree = SDKROOT; };
 		FAEDBEDF1BC1FCC400FDBC15 /* Photos.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Photos.framework; path = System/Library/Frameworks/Photos.framework; sourceTree = SDKROOT; };
@@ -130,6 +136,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		FA353FD91BC358F900BD6CE2 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				FA353FDA1BC3590700BD6CE2 /* UIImage+Transformations.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		FAEDBE8F1BC1722600FDBC15 = {
 			isa = PBXGroup;
 			children = (
@@ -156,12 +170,14 @@
 		FAEDBE9A1BC1722600FDBC15 /* GoldenTiler */ = {
 			isa = PBXGroup;
 			children = (
-				FAEDBECF1BC17C0A00FDBC15 /* Extensions */,
+				FA353FD91BC358F900BD6CE2 /* Extensions */,
 				FAEDBE9B1BC1722600FDBC15 /* AppDelegate.swift */,
 				FAEDBE9D1BC1722600FDBC15 /* ViewController.swift */,
 				FAEDBEF11BC1FE5C00FDBC15 /* ApplicationViewController.swift */,
 				FAEDBEC91BC1729400FDBC15 /* MetalImageView.swift */,
-				FAEDBED21BC17D7100FDBC15 /* GoldenSpiralFilter.swift */,
+				FA353FD31BC3139A00BD6CE2 /* GoldenSpiralFilter.swift */,
+				FAEDBED21BC17D7100FDBC15 /* GoldenSpiralMetalFilter.swift */,
+				FA353FD01BC3015100BD6CE2 /* GoldenSpiralCGFilter.swift */,
 				FA353FD61BC31AE800BD6CE2 /* Timer.swift */,
 				FAEDBE9F1BC1722600FDBC15 /* Main.storyboard */,
 				FAEDBEA21BC1722600FDBC15 /* Assets.xcassets */,
@@ -187,14 +203,6 @@
 				FAEDBEBD1BC1722600FDBC15 /* Info.plist */,
 			);
 			path = GoldenTilerUITests;
-			sourceTree = "<group>";
-		};
-		FAEDBECF1BC17C0A00FDBC15 /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-				FA748BFC1BC2F56C0079DF83 /* UIImage+CIImage.swift */,
-			);
-			path = Extensions;
 			sourceTree = "<group>";
 		};
 		FAEDBEDC1BC1FCC400FDBC15 /* Frameworks */ = {
@@ -380,10 +388,12 @@
 				FAEDBEF21BC1FE5C00FDBC15 /* ApplicationViewController.swift in Sources */,
 				FAEDBED41BC1961200FDBC15 /* MetalImageView.swift in Sources */,
 				FAEDBE9E1BC1722600FDBC15 /* ViewController.swift in Sources */,
-				FAEDBED31BC17D7100FDBC15 /* GoldenSpiralFilter.swift in Sources */,
+				FA353FDB1BC3590700BD6CE2 /* UIImage+Transformations.swift in Sources */,
+				FA353FD11BC3015100BD6CE2 /* GoldenSpiralCGFilter.swift in Sources */,
+				FAEDBED31BC17D7100FDBC15 /* GoldenSpiralMetalFilter.swift in Sources */,
+				FA353FD41BC3139A00BD6CE2 /* GoldenSpiralFilter.swift in Sources */,
 				FA353FD71BC31AE800BD6CE2 /* Timer.swift in Sources */,
 				FAEDBE9C1BC1722600FDBC15 /* AppDelegate.swift in Sources */,
-				FA748BFD1BC2F56C0079DF83 /* UIImage+CIImage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -408,10 +418,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				FAEDBEEF1BC1FE0400FDBC15 /* MetalImageView.swift in Sources */,
-				FAEDBEF01BC1FE0800FDBC15 /* GoldenSpiralFilter.swift in Sources */,
+				FAEDBEF01BC1FE0800FDBC15 /* GoldenSpiralMetalFilter.swift in Sources */,
 				FAEDBEF31BC1FFFB00FDBC15 /* ViewController.swift in Sources */,
 				FAEDBEE31BC1FCC400FDBC15 /* PhotoEditingViewController.swift in Sources */,
-				FA748BFE1BC2F56C0079DF83 /* UIImage+CIImage.swift in Sources */,
+				FA353FD51BC3139E00BD6CE2 /* GoldenSpiralFilter.swift in Sources */,
+				FA353FD21BC30B7300BD6CE2 /* GoldenSpiralCGFilter.swift in Sources */,
+				FA353FDC1BC3590700BD6CE2 /* UIImage+Transformations.swift in Sources */,
 				FA353FD81BC31D3700BD6CE2 /* Timer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -47,7 +47,7 @@ class PhotoEditingViewController: ViewController, PHContentEditingController {
       return
     }
 
-    applyFiltersAndDisplay(image: image)
+    applyFiltersAndDisplay(image: image, filterClass: GoldenSpiralMetalFilter.self)
   }
 
   func finishContentEditingWithCompletionHandler(completionHandler: ((PHContentEditingOutput!) -> Void)!) {
@@ -68,44 +68,15 @@ class PhotoEditingViewController: ViewController, PHContentEditingController {
         return
       }
 
-      guard let inputImage = sourceImage.CIImageWithAppliedOrientation() else {
+      let filter = GoldenSpiralCGFilter()
+      filter.inputImage = sourceImage
+
+      guard let outputImage = filter.outputImage else {
         completionHandler?(output)
         return
       }
 
-      let filter = GoldenSpiralMetalFilter()
-
-      let portrait = inputImage.extent.height > inputImage.extent.width
-
-      if portrait {
-        filter.inputImage = inputImage.imageByApplyingOrientation(8)
-      }
-      else {
-        filter.inputImage = inputImage.imageByApplyingOrientation(4)
-      }
-
-      guard let device = MTLCreateSystemDefaultDevice() else {
-        completionHandler?(output)
-        return
-      }
-
-      var outputImage = filter.outputImage
-
-      if portrait {
-        outputImage = outputImage?.imageByApplyingOrientation(6)
-      }
-      else {
-        outputImage = outputImage?.imageByApplyingOrientation(4)
-      }
-
-      if outputImage == nil {
-        completionHandler?(output)
-        return
-      }
-
-      let context = CIContext(MTLDevice: device)
-      let finalImage = UIImage(CGImage: context.createCGImage(outputImage!, fromRect: outputImage!.extent))
-      if let renderedJPEGData = UIImageJPEGRepresentation(finalImage, 0.9) {
+      if let renderedJPEGData = UIImageJPEGRepresentation(outputImage, 0.9) {
         renderedJPEGData.writeToURL(output.renderedContentURL, atomically: true)
       }
 
