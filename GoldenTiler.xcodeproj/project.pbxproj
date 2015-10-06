@@ -10,6 +10,7 @@
 		FA597ECE1BC4797F0061F9B1 /* UIImage+Metal.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA597ECD1BC4797F0061F9B1 /* UIImage+Metal.swift */; settings = {ASSET_TAGS = (); }; };
 		FA597ECF1BC4797F0061F9B1 /* UIImage+Metal.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA597ECD1BC4797F0061F9B1 /* UIImage+Metal.swift */; settings = {ASSET_TAGS = (); }; };
 		FA597ED01BC47F170061F9B1 /* Localizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACCBC3A1BC42E8800C074B9 /* Localizable.swift */; settings = {ASSET_TAGS = (); }; };
+		FA597ED11BC47FC20061F9B1 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = FACCBC391BC42D8800C074B9 /* Localizable.strings */; settings = {ASSET_TAGS = (); }; };
 		FACCBC321BC42D5D00C074B9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FACCBC2D1BC42D5D00C074B9 /* Assets.xcassets */; settings = {ASSET_TAGS = (); }; };
 		FACCBC331BC42D5D00C074B9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FACCBC2E1BC42D5D00C074B9 /* LaunchScreen.storyboard */; settings = {ASSET_TAGS = (); }; };
 		FACCBC341BC42D5D00C074B9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FACCBC301BC42D5D00C074B9 /* Main.storyboard */; settings = {ASSET_TAGS = (); }; };
@@ -446,6 +447,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FAEDBEE61BC1FCC400FDBC15 /* MainInterface.storyboard in Resources */,
+				FA597ED11BC47FC20061F9B1 /* Localizable.strings in Resources */,
 				FACCBC441BC4441D00C074B9 /* TimerFormatter.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -88,8 +88,8 @@ class PhotoEditingViewController: ViewController, PHContentEditingController {
       switch selectedImageProcessingFilter {
       case .Metal:
         let filter = GoldenSpiralMetalFilter()
+        filter.inputImage = sourceImage
         if filter.canProcessImage {
-          filter.inputImage = sourceImage
           outputImage = filter.outputImage?.imageByConvertingFromCIImage(device: filter.device, context: filter.context)
         }
         else {

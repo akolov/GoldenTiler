@@ -65,7 +65,7 @@ class GoldenSpiralMetalFilter: GoldenSpiralFilter {
   let device: MTLDevice! = MTLCreateSystemDefaultDevice()
 
   private lazy var commandQueue: MTLCommandQueue = {
-    return self.device.newCommandQueue()
+    return self.device.newCommandQueueWithMaxCommandBufferCount(5)
   }()
 
   private(set) lazy var context: CIContext = {
