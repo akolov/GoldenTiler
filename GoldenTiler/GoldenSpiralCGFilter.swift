@@ -27,9 +27,12 @@ class GoldenSpiralCGFilter: GoldenSpiralFilter {
 
       let dimension = ceil(min(inputImage.size.width, inputImage.size.height))
       outputImageSize = CGSize(width: dimension * φ, height: dimension)
+
+      portrait = inputImage.size.height > inputImage.size.width
     }
   }
 
+  private(set) var portrait: Bool = false
   var colorSpace: CGColorSpaceRef?
   private(set) var outputImageSize: CGSize = CGSizeZero
 
@@ -67,8 +70,29 @@ class GoldenSpiralCGFilter: GoldenSpiralFilter {
 
     // Tile images
 
-    let bitmapContext = CGBitmapContextCreate(nil, Int(outputImageSize.width), Int(outputImageSize.height), 8, 0, colorSpace, CGImageAlphaInfo.PremultipliedLast.rawValue)
-    let transform = CGAffineTransformMake(1, 0, 0, -1, 0, outputImageSize.height)
+    let bitmapContext: CGContextRef?
+
+    var transform = CGAffineTransformIdentity
+
+    if portrait {
+      bitmapContext = CGBitmapContextCreate(nil, Int(outputImageSize.height), Int(outputImageSize.width), 8, 0, colorSpace, CGImageAlphaInfo.PremultipliedLast.rawValue)
+
+      transform = CGAffineTransformTranslate(transform, 0, outputImageSize.height)
+      transform = CGAffineTransformRotate(transform, CGFloat(-M_PI_2))
+
+      transform = CGAffineTransformTranslate(transform, outputImageSize.height, 0)
+      transform = CGAffineTransformScale(transform, -1, 1)
+
+      transform = CGAffineTransformTranslate(transform, outputImageSize.width, outputImageSize.height)
+      transform = CGAffineTransformRotate(transform, CGFloat(M_PI))
+    }
+    else {
+      bitmapContext = CGBitmapContextCreate(nil, Int(outputImageSize.width), Int(outputImageSize.height), 8, 0, colorSpace, CGImageAlphaInfo.PremultipliedLast.rawValue)
+
+      transform = CGAffineTransformTranslate(transform, 0, outputImageSize.height)
+      transform = CGAffineTransformScale(transform, 1, -1)
+    }
+
     CGContextConcatCTM(bitmapContext, transform)
     CGContextSetInterpolationQuality(bitmapContext, .High)
 

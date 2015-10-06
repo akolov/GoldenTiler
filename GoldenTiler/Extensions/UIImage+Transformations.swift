@@ -19,16 +19,16 @@ extension UIImage {
 
     switch imageOrientation {
     case .Down, .DownMirrored:
-      transform = CGAffineTransformTranslate(transform, size.width, size.height);
-      transform = CGAffineTransformRotate(transform, CGFloat(M_PI));
+      transform = CGAffineTransformTranslate(transform, size.width, size.height)
+      transform = CGAffineTransformRotate(transform, CGFloat(M_PI))
 
     case .Left, .LeftMirrored:
-      transform = CGAffineTransformTranslate(transform, size.width, 0);
-      transform = CGAffineTransformRotate(transform, CGFloat(M_PI_2));
+      transform = CGAffineTransformTranslate(transform, size.width, 0)
+      transform = CGAffineTransformRotate(transform, CGFloat(M_PI_2))
 
     case .Right, .RightMirrored:
-      transform = CGAffineTransformTranslate(transform, 0, size.height);
-      transform = CGAffineTransformRotate(transform, CGFloat(-M_PI_2));
+      transform = CGAffineTransformTranslate(transform, 0, size.height)
+      transform = CGAffineTransformRotate(transform, CGFloat(-M_PI_2))
 
     default:
       break
@@ -36,12 +36,12 @@ extension UIImage {
 
     switch imageOrientation {
     case .UpMirrored, .DownMirrored:
-      transform = CGAffineTransformTranslate(transform, size.width, 0);
-      transform = CGAffineTransformScale(transform, -1, 1);
+      transform = CGAffineTransformTranslate(transform, size.width, 0)
+      transform = CGAffineTransformScale(transform, -1, 1)
 
     case .LeftMirrored,.RightMirrored:
-      transform = CGAffineTransformTranslate(transform, size.height, 0);
-      transform = CGAffineTransformScale(transform, -1, 1);
+      transform = CGAffineTransformTranslate(transform, size.height, 0)
+      transform = CGAffineTransformScale(transform, -1, 1)
 
     default:
       break

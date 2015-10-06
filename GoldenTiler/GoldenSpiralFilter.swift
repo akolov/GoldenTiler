@@ -17,6 +17,7 @@ protocol GoldenSpiralFilter {
   init()
 
   var inputImage: UIImage? { get set }
+  var portrait: Bool { get }
   var colorSpace: CGColorSpaceRef? { get }
   var outputImage: UIImage? { get }
   var outputImageSize: CGSize { get }
@@ -100,7 +101,16 @@ extension GoldenSpiralFilter {
     let bitsPerComponent = CGImageGetBitsPerComponent(sourceImage)
     let bitmapInfo = CGImageGetBitmapInfo(sourceImage)
     let bitmapContext = CGBitmapContextCreate(nil, width, height, bitsPerComponent, 0, colorSpace, bitmapInfo.rawValue)
-    let transform = CGAffineTransformMake(1, 0, 0, -1, 0, CGFloat(height))
+    var transform = CGAffineTransformIdentity
+
+    if portrait {
+      transform = CGAffineTransformRotate(transform, CGFloat(-M_PI_2))
+      transform = CGAffineTransformTranslate(transform, -CGFloat(width), 0)
+    }
+
+    transform = CGAffineTransformTranslate(transform, 0, CGFloat(height))
+    transform = CGAffineTransformScale(transform, 1, -1)
+
     CGContextConcatCTM(bitmapContext, transform)
     CGContextDrawImage(bitmapContext, CGRectMake(0, 0, CGFloat(width), CGFloat(height)), sourceImage)
     return CGBitmapContextCreateImage(bitmapContext)

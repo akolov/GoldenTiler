@@ -30,9 +30,12 @@ class GoldenSpiralMetalFilter: GoldenSpiralFilter {
 
       let dimension = ceil(min(inputImage.size.width, inputImage.size.height))
       outputImageSize = CGSize(width: dimension * φ, height: dimension)
+
+      portrait = inputImage.size.height > inputImage.size.width
     }
   }
 
+  private(set) var portrait: Bool = false
   var colorSpace: CGColorSpaceRef?
 
   var outputImage: UIImage? {
@@ -135,8 +138,14 @@ class GoldenSpiralMetalFilter: GoldenSpiralFilter {
 
     commandBuffer.commit()
 
-    let tiledImage = CIImage(MTLTexture: canvasTexture, options: [kCIImageColorSpace: colorSpace])
-    return context.createCGImage(tiledImage.imageByApplyingOrientation(4), fromRect: tiledImage.extent)
+    var tiledImage = CIImage(MTLTexture: canvasTexture, options: [kCIImageColorSpace: colorSpace])
+    if portrait {
+      tiledImage = tiledImage.imageByApplyingOrientation(5)
+    }
+    else {
+      tiledImage = tiledImage.imageByApplyingOrientation(4)
+    }
+    return context.createCGImage(tiledImage, fromRect: tiledImage.extent)
   }
 
   private func createTexture(width width: Int, height: Int) -> MTLTexture {
