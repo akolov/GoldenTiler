@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		FA748BFD1BC2F56C0079DF83 /* UIImage+CIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA748BFC1BC2F56C0079DF83 /* UIImage+CIImage.swift */; settings = {ASSET_TAGS = (); }; };
 		FA748BFE1BC2F56C0079DF83 /* UIImage+CIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA748BFC1BC2F56C0079DF83 /* UIImage+CIImage.swift */; settings = {ASSET_TAGS = (); }; };
+		FA353FD71BC31AE800BD6CE2 /* Timer.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA353FD61BC31AE800BD6CE2 /* Timer.swift */; settings = {ASSET_TAGS = (); }; };
+		FA353FD81BC31D3700BD6CE2 /* Timer.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA353FD61BC31AE800BD6CE2 /* Timer.swift */; settings = {ASSET_TAGS = (); }; };
 		FAEDBE9C1BC1722600FDBC15 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEDBE9B1BC1722600FDBC15 /* AppDelegate.swift */; };
 		FAEDBE9E1BC1722600FDBC15 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEDBE9D1BC1722600FDBC15 /* ViewController.swift */; };
 		FAEDBEA11BC1722600FDBC15 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAEDBE9F1BC1722600FDBC15 /* Main.storyboard */; };
@@ -69,6 +71,7 @@
 
 /* Begin PBXFileReference section */
 		FA748BFC1BC2F56C0079DF83 /* UIImage+CIImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+CIImage.swift"; sourceTree = "<group>"; };
+		FA353FD61BC31AE800BD6CE2 /* Timer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Timer.swift; sourceTree = "<group>"; };
 		FAEDBE981BC1722600FDBC15 /* GoldenTiler.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GoldenTiler.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAEDBE9B1BC1722600FDBC15 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FAEDBE9D1BC1722600FDBC15 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -159,6 +162,7 @@
 				FAEDBEF11BC1FE5C00FDBC15 /* ApplicationViewController.swift */,
 				FAEDBEC91BC1729400FDBC15 /* MetalImageView.swift */,
 				FAEDBED21BC17D7100FDBC15 /* GoldenSpiralFilter.swift */,
+				FA353FD61BC31AE800BD6CE2 /* Timer.swift */,
 				FAEDBE9F1BC1722600FDBC15 /* Main.storyboard */,
 				FAEDBEA21BC1722600FDBC15 /* Assets.xcassets */,
 				FAEDBEA41BC1722600FDBC15 /* LaunchScreen.storyboard */,
@@ -377,6 +381,7 @@
 				FAEDBED41BC1961200FDBC15 /* MetalImageView.swift in Sources */,
 				FAEDBE9E1BC1722600FDBC15 /* ViewController.swift in Sources */,
 				FAEDBED31BC17D7100FDBC15 /* GoldenSpiralFilter.swift in Sources */,
+				FA353FD71BC31AE800BD6CE2 /* Timer.swift in Sources */,
 				FAEDBE9C1BC1722600FDBC15 /* AppDelegate.swift in Sources */,
 				FA748BFD1BC2F56C0079DF83 /* UIImage+CIImage.swift in Sources */,
 			);
@@ -407,6 +412,7 @@
 				FAEDBEF31BC1FFFB00FDBC15 /* ViewController.swift in Sources */,
 				FAEDBEE31BC1FCC400FDBC15 /* PhotoEditingViewController.swift in Sources */,
 				FA748BFE1BC2F56C0079DF83 /* UIImage+CIImage.swift in Sources */,
+				FA353FD81BC31D3700BD6CE2 /* Timer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
