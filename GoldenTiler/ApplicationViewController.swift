@@ -89,7 +89,7 @@ class ApplicationViewController: ViewController, UINavigationControllerDelegate,
   }
 
   @IBAction func didSelectSaveBarButton(sender: UIBarButtonItem) {
-    guard let processedImage = processedImage else {
+    guard let processedImage = processedImage?.imageByConvertingFromCIImage() else {
       return
     }
 

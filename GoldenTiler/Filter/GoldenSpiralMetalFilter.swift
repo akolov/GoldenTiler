@@ -62,7 +62,7 @@ class GoldenSpiralMetalFilter: GoldenSpiralFilter {
 
   private(set) var outputImageSize = CGSizeZero
 
-  private let device: MTLDevice! = MTLCreateSystemDefaultDevice()
+  let device: MTLDevice! = MTLCreateSystemDefaultDevice()
 
   private lazy var commandQueue: MTLCommandQueue = {
     return self.device.newCommandQueue()

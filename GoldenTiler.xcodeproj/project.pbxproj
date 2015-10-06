@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FA597ECE1BC4797F0061F9B1 /* UIImage+Metal.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA597ECD1BC4797F0061F9B1 /* UIImage+Metal.swift */; settings = {ASSET_TAGS = (); }; };
+		FA597ECF1BC4797F0061F9B1 /* UIImage+Metal.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA597ECD1BC4797F0061F9B1 /* UIImage+Metal.swift */; settings = {ASSET_TAGS = (); }; };
 		FACCBC321BC42D5D00C074B9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FACCBC2D1BC42D5D00C074B9 /* Assets.xcassets */; settings = {ASSET_TAGS = (); }; };
 		FACCBC331BC42D5D00C074B9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FACCBC2E1BC42D5D00C074B9 /* LaunchScreen.storyboard */; settings = {ASSET_TAGS = (); }; };
 		FACCBC341BC42D5D00C074B9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FACCBC301BC42D5D00C074B9 /* Main.storyboard */; settings = {ASSET_TAGS = (); }; };
@@ -88,6 +90,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		FA597ECD1BC4797F0061F9B1 /* UIImage+Metal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Metal.swift"; sourceTree = "<group>"; };
 		FACCBC2D1BC42D5D00C074B9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FACCBC2F1BC42D5D00C074B9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FACCBC311BC42D5D00C074B9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -195,6 +198,7 @@
 			isa = PBXGroup;
 			children = (
 				FACCBC5C1BC44B8A00C074B9 /* UIImage+Transformations.swift */,
+				FA597ECD1BC4797F0061F9B1 /* UIImage+Metal.swift */,
 			);
 			path = "Class Extensions";
 			sourceTree = "<group>";
@@ -465,6 +469,7 @@
 				FACCBC641BC44D2F00C074B9 /* MetalImageView.swift in Sources */,
 				FACCBC4F1BC4450700C074B9 /* TimerFormatterLocalizable.swift in Sources */,
 				FACCBC4C1BC444E900C074B9 /* TimerFormatter.swift in Sources */,
+				FA597ECE1BC4797F0061F9B1 /* UIImage+Metal.swift in Sources */,
 				FACCBC5D1BC44B8A00C074B9 /* UIImage+Transformations.swift in Sources */,
 				FAEDBE9C1BC1722600FDBC15 /* AppDelegate.swift in Sources */,
 			);
@@ -503,6 +508,7 @@
 				FACCBC651BC44D2F00C074B9 /* MetalImageView.swift in Sources */,
 				FACCBC561BC44B7400C074B9 /* GoldenSpiralCGFilter.swift in Sources */,
 				FACCBC4B1BC444E900C074B9 /* Timer.swift in Sources */,
+				FA597ECF1BC4797F0061F9B1 /* UIImage+Metal.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
