@@ -11,6 +11,8 @@
 		FA597ECF1BC4797F0061F9B1 /* UIImage+Metal.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA597ECD1BC4797F0061F9B1 /* UIImage+Metal.swift */; settings = {ASSET_TAGS = (); }; };
 		FA597ED01BC47F170061F9B1 /* Localizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACCBC3A1BC42E8800C074B9 /* Localizable.swift */; settings = {ASSET_TAGS = (); }; };
 		FA597ED11BC47FC20061F9B1 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = FACCBC391BC42D8800C074B9 /* Localizable.strings */; settings = {ASSET_TAGS = (); }; };
+		FA597ED31BC580610061F9B1 /* Rdar23011575Checker.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA597ED21BC580610061F9B1 /* Rdar23011575Checker.swift */; settings = {ASSET_TAGS = (); }; };
+		FA597ED41BC580610061F9B1 /* Rdar23011575Checker.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA597ED21BC580610061F9B1 /* Rdar23011575Checker.swift */; settings = {ASSET_TAGS = (); }; };
 		FACCBC321BC42D5D00C074B9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FACCBC2D1BC42D5D00C074B9 /* Assets.xcassets */; settings = {ASSET_TAGS = (); }; };
 		FACCBC331BC42D5D00C074B9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FACCBC2E1BC42D5D00C074B9 /* LaunchScreen.storyboard */; settings = {ASSET_TAGS = (); }; };
 		FACCBC341BC42D5D00C074B9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FACCBC301BC42D5D00C074B9 /* Main.storyboard */; settings = {ASSET_TAGS = (); }; };
@@ -93,6 +95,7 @@
 
 /* Begin PBXFileReference section */
 		FA597ECD1BC4797F0061F9B1 /* UIImage+Metal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Metal.swift"; sourceTree = "<group>"; };
+		FA597ED21BC580610061F9B1 /* Rdar23011575Checker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Rdar23011575Checker.swift; sourceTree = "<group>"; };
 		FACCBC2D1BC42D5D00C074B9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FACCBC2F1BC42D5D00C074B9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FACCBC311BC42D5D00C074B9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -248,6 +251,7 @@
 				FACCBC2C1BC42D5D00C074B9 /* Resources */,
 				FAEDBE9B1BC1722600FDBC15 /* AppDelegate.swift */,
 				FAEDBE9D1BC1722600FDBC15 /* ViewController.swift */,
+				FA597ED21BC580610061F9B1 /* Rdar23011575Checker.swift */,
 				FACFD8D91BC4668900FF4249 /* BusyView.swift */,
 				FAEDBEF11BC1FE5C00FDBC15 /* ApplicationViewController.swift */,
 				FACCBC3A1BC42E8800C074B9 /* Localizable.swift */,
@@ -460,6 +464,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FAEDBEF21BC1FE5C00FDBC15 /* ApplicationViewController.swift in Sources */,
+				FA597ED31BC580610061F9B1 /* Rdar23011575Checker.swift in Sources */,
 				FAEDBE9E1BC1722600FDBC15 /* ViewController.swift in Sources */,
 				FACCBC4A1BC444E900C074B9 /* Timer.swift in Sources */,
 				FACCBC611BC44CE100C074B9 /* ImageView.swift in Sources */,
@@ -508,6 +513,7 @@
 				FA597ED01BC47F170061F9B1 /* Localizable.swift in Sources */,
 				FACCBC5E1BC44B8A00C074B9 /* UIImage+Transformations.swift in Sources */,
 				FACCBC5A1BC44B7400C074B9 /* GoldenSpiralMetalFilter.swift in Sources */,
+				FA597ED41BC580610061F9B1 /* Rdar23011575Checker.swift in Sources */,
 				FACCBC501BC4450700C074B9 /* TimerFormatterLocalizable.swift in Sources */,
 				FACCBC651BC44D2F00C074B9 /* MetalImageView.swift in Sources */,
 				FACCBC561BC44B7400C074B9 /* GoldenSpiralCGFilter.swift in Sources */,

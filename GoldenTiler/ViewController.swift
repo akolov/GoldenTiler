@@ -9,7 +9,7 @@
 import Metal
 import UIKit
 
-class ViewController: UIViewController, UIScrollViewDelegate {
+class ViewController: UIViewController, UIScrollViewDelegate, Rdar23011575CheckerProtocol {
 
   // MARK: UIContentContainer
 
@@ -35,6 +35,18 @@ class ViewController: UIViewController, UIScrollViewDelegate {
 
   func viewForZoomingInScrollView(scrollView: UIScrollView) -> UIView? {
     return imageView
+  }
+
+  // MARK: Rdar23011575CheckerProtocol
+
+  func rdar23011575Checker(checker: Rdar23011575Checker, didHitThresholdValue threshold: NSTimeInterval) {
+    let actionTitle = Localizable.Button.OK
+    let controller = UIAlertController(title: "Oh no!", message: "Looks like you've hit a bug described in rdar://23011575. Please restart the app or extension and try again. Alternatively use GoreGraphics processing.", preferredStyle: .Alert)
+    controller.addAction(UIAlertAction(title: actionTitle, style: .Cancel, handler: nil))
+    controller.addAction(UIAlertAction(title: "Copy", style: UIAlertActionStyle.Default) { action in
+      UIPasteboard.generalPasteboard().string = "rdar://23011575"
+    })
+    presentViewController(controller, animated: true, completion: nil)
   }
 
   // MARK: - Actions
@@ -118,6 +130,10 @@ class ViewController: UIViewController, UIScrollViewDelegate {
   func applyFiltersAndDisplay<T: GoldenSpiralFilter, V: ImageView where V: UIView>(image sourceImage: UIImage, filterClass: T.Type, viewClass: V.Type) {
     toggleInterface(enabled: false)
 
+    let rdar23011575Checker = Rdar23011575Checker()
+    rdar23011575Checker.delegate = self
+    rdar23011575Checker.start()
+
     dispatch_async(dispatch_get_global_queue(CLong(DISPATCH_QUEUE_PRIORITY_DEFAULT), 0)) { [weak self] in
       let duration = Timer.run {
         var filter = filterClass.init()
@@ -131,6 +147,8 @@ class ViewController: UIViewController, UIScrollViewDelegate {
           }
         }
       }
+
+      rdar23011575Checker.stop()
 
       dispatch_async(dispatch_get_main_queue()) {
         self?.toggleInterface(enabled: true)
