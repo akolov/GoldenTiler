@@ -130,9 +130,12 @@ class ViewController: UIViewController, UIScrollViewDelegate, Rdar23011575Checke
   func applyFiltersAndDisplay<T: GoldenSpiralFilter, V: ImageView where V: UIView>(image sourceImage: UIImage, filterClass: T.Type, viewClass: V.Type) {
     toggleInterface(enabled: false)
 
-    let rdar23011575Checker = Rdar23011575Checker()
-    rdar23011575Checker.delegate = self
-    rdar23011575Checker.start()
+    var rdar23011575Checker: Rdar23011575Checker?
+    if filterClass is GoldenSpiralMetalFilter.Type {
+      rdar23011575Checker = Rdar23011575Checker()
+      rdar23011575Checker!.delegate = self
+      rdar23011575Checker!.start()
+    }
 
     dispatch_async(dispatch_get_global_queue(CLong(DISPATCH_QUEUE_PRIORITY_DEFAULT), 0)) { [weak self] in
       let duration = Timer.run {
@@ -148,7 +151,7 @@ class ViewController: UIViewController, UIScrollViewDelegate, Rdar23011575Checke
         }
       }
 
-      rdar23011575Checker.stop()
+      rdar23011575Checker?.stop()
 
       dispatch_async(dispatch_get_main_queue()) {
         self?.toggleInterface(enabled: true)
