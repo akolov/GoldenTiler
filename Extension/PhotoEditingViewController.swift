@@ -85,22 +85,29 @@ class PhotoEditingViewController: ViewController, PHContentEditingController {
 
       var outputImage: UIImage!
 
-      switch selectedImageProcessingFilter {
-      case .Metal:
-        let filter = GoldenSpiralMetalFilter()
-        filter.inputImage = sourceImage
-        if filter.canProcessImage {
-          outputImage = filter.outputImage?.imageByConvertingFromCIImage(device: filter.device, context: filter.context)
-        }
-        else {
-          dispatch_async(dispatch_get_main_queue()) {
-            self?.showCannotBeProcessedByMetalAlert()
+      let duration = Timer.run {
+        switch selectedImageProcessingFilter {
+        case .Metal:
+          let filter = GoldenSpiralMetalFilter()
+          filter.inputImage = sourceImage.imageByFixingOrientation()
+          if filter.canProcessImage {
+            outputImage = filter.outputImage?.imageByConvertingFromCIImage(device: filter.device, context: filter.context)
           }
+          else {
+            dispatch_async(dispatch_get_main_queue()) {
+              self?.showCannotBeProcessedByMetalAlert()
+            }
+          }
+        case .CoreGraphics:
+          let filter = GoldenSpiralCGFilter()
+          filter.inputImage = sourceImage.imageByFixingOrientation()
+          outputImage = filter.outputImage
         }
-      case .CoreGraphics:
-        let filter = GoldenSpiralCGFilter()
-        filter.inputImage = sourceImage
-        outputImage = filter.outputImage
+      }
+
+      if let duration = duration {
+        let durationString = self?.timerFormatter.stringFromTimer(duration)
+        Logger.log("Filter executed in \(durationString)")
       }
 
       guard outputImage != nil else {
