@@ -58,7 +58,12 @@ class PhotoEditingViewController: ViewController, PHContentEditingController {
   }
 
   func finishContentEditingWithCompletionHandler(completionHandler: ((PHContentEditingOutput!) -> Void)!) {
-    // Update UI to reflect that editing has finished and output is being rendered.
+    var rdar23011575Checker: Rdar23011575Checker?
+    if selectedImageProcessingFilter == .Metal {
+      rdar23011575Checker = Rdar23011575Checker()
+      rdar23011575Checker!.delegate = self
+      rdar23011575Checker!.start()
+    }
 
     dispatch_async(dispatch_get_global_queue(CLong(DISPATCH_QUEUE_PRIORITY_DEFAULT), 0)) { [weak self] in
       guard let input = self?.input else {
@@ -104,6 +109,8 @@ class PhotoEditingViewController: ViewController, PHContentEditingController {
           outputImage = filter.outputImage
         }
       }
+
+      rdar23011575Checker?.stop()
 
       if let duration = duration {
         let durationString = self?.timerFormatter.stringFromTimer(duration)
