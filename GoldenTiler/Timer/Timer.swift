@@ -32,7 +32,7 @@ struct Timer {
     return Timer(nanoseconds: (end - start) * UInt64(timebaseInfo.numer / timebaseInfo.denom))
   }
 
-  var nanoseconds: UInt64 = 0
+  private(set) var nanoseconds: UInt64 = 0
 
   var microseconds: Double {
     return Double(nanoseconds) / Double(NSEC_PER_USEC)
