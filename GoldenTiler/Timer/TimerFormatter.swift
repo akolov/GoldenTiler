@@ -37,6 +37,21 @@ class TimerFormatter: NSFormatter {
     }
   }
 
+  /// Returns timer string with the best human readable unit
+  func stringFromTimer(timer: Timer) -> String? {
+    if timer.seconds >= 1.0 {
+      return stringFromTimer(timer, unit: .Second)
+    }
+    else if timer.milliseconds >= 1.0 {
+      return stringFromTimer(timer, unit: .Millisecond)
+    }
+    else if timer.microseconds >= 1.0 {
+      return stringFromTimer(timer, unit: .Microsecond)
+    }
+
+    return stringFromTimer(timer, unit: .Nanosecond)
+  }
+
   /// This method is not supported for TimerFormatter class
   override func getObjectValue(obj: AutoreleasingUnsafeMutablePointer<AnyObject?>, forString string: String, errorDescription error: AutoreleasingUnsafeMutablePointer<NSString?>) -> Bool {
     return false
