@@ -103,7 +103,7 @@ class ViewController: UIViewController, UIScrollViewDelegate, Rdar23011575Checke
     return scrollView.bounds.width / image.size.width
   }
 
-  private lazy var timerFormatter: TimerFormatter = {
+  private(set) lazy var timerFormatter: TimerFormatter = {
     return TimerFormatter()
   }()
 
