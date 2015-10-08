@@ -167,6 +167,7 @@ class ViewController: UIViewController, UIScrollViewDelegate, Rdar23011575Checke
         let myView: V
         if let aView = self?.imageView as? V {
           myView = aView
+          myView.removeConstraints(myView.constraints)
         }
         else {
           self?.imageView?.removeFromSuperview()
@@ -176,10 +177,14 @@ class ViewController: UIViewController, UIScrollViewDelegate, Rdar23011575Checke
           self?.imageView = myView
 
           var constraints = [NSLayoutConstraint]()
-          constraints += NSLayoutConstraint.constraintsWithVisualFormat("H:|[myView(width)]|", options: NSLayoutFormatOptions(rawValue: 0), metrics: ["width": processedImage.size.width], views: ["myView": myView])
-          constraints += NSLayoutConstraint.constraintsWithVisualFormat("V:|[myView(height)]|", options: NSLayoutFormatOptions(rawValue: 0), metrics: ["height": processedImage.size.height], views: ["myView": myView])
+          constraints += NSLayoutConstraint.constraintsWithVisualFormat("H:|[myView]|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: ["myView": myView])
+          constraints += NSLayoutConstraint.constraintsWithVisualFormat("V:|[myView]|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: ["myView": myView])
+
           scrollView.addConstraints(constraints)
         }
+
+        myView.addConstraint(NSLayoutConstraint(item: myView, attribute: .Width, relatedBy: .Equal, toItem: nil, attribute: .NotAnAttribute, multiplier: 1.0, constant: processedImage.size.width))
+        myView.addConstraint(NSLayoutConstraint(item: myView, attribute: .Height, relatedBy: .Equal, toItem: nil, attribute: .NotAnAttribute, multiplier: 1.0, constant: processedImage.size.height))
 
         myView.image = processedImage
         scrollView.minimumZoomScale = self?.minimumImageZoomScale ?? 1.0
