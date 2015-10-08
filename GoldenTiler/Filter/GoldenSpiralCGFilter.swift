@@ -11,14 +11,16 @@ import CoreGraphics
 import CoreImage
 import UIKit
 
-class GoldenSpiralCGFilter: GoldenSpiralFilter {
+class GoldenSpiralCGFilter: NSObject, GoldenSpiralFilter {
 
-  required init() {
-    // noop
+  required override init() {
+    super.init()
   }
 
   var inputImage: UIImage? {
     didSet {
+      _outputImage = nil
+
       guard let inputImage = inputImage else {
         return
       }
@@ -33,12 +35,18 @@ class GoldenSpiralCGFilter: GoldenSpiralFilter {
   var colorSpace: CGColorSpaceRef?
   private(set) var outputImageSize: CGSize = CGSizeZero
 
+  private var _outputImage: UIImage?
   var outputImage: UIImage? {
+    if _outputImage != nil {
+      return _outputImage
+    }
+
     guard let inputImage = inputImage else {
       return nil
     }
 
-    return tileImage(image: inputImage)
+    _outputImage = tileImage(image: inputImage)
+    return _outputImage
   }
 
   var canProcessImage: Bool {
@@ -126,6 +134,12 @@ class GoldenSpiralCGFilter: GoldenSpiralFilter {
     }
 
     return (preparedImage, portrait)
+  }
+
+  // MARK: - Debugging support
+
+  func debugQuickLookObject() -> AnyObject? {
+    return nil
   }
 
 }

@@ -14,14 +14,16 @@ import MetalKit
 import MetalPerformanceShaders
 import UIKit
 
-class GoldenSpiralMetalFilter: GoldenSpiralFilter {
+class GoldenSpiralMetalFilter: NSObject, GoldenSpiralFilter {
 
-  required init() {
-    // noop
+  required override init() {
+    super.init()
   }
 
   var inputImage: UIImage? {
     didSet {
+      _outputImage = nil
+
       guard let inputImage = inputImage else {
         return
       }
@@ -35,12 +37,18 @@ class GoldenSpiralMetalFilter: GoldenSpiralFilter {
 
   var colorSpace: CGColorSpaceRef?
 
+  private var _outputImage: UIImage?
   var outputImage: UIImage? {
+    if _outputImage != nil {
+      return _outputImage
+    }
+
     guard let inputImage = inputImage else {
       return nil
     }
 
-    return tileImage(image: inputImage)
+    _outputImage = tileImage(image: inputImage)
+    return _outputImage
   }
 
   var canProcessImage: Bool {
@@ -166,6 +174,90 @@ class GoldenSpiralMetalFilter: GoldenSpiralFilter {
     else {
       return (preparedImage.imageByApplyingOrientation(4), portrait)
     }
+  }
+
+  // MARK: - Debugging support
+
+  func debugQuickLookObject() -> AnyObject? {
+    guard let inputImage = inputImage else {
+      return "GoldenSpiralMetalFilter with no images set"
+    }
+
+    let spacing: CGFloat = 30
+    var inputRect = CGRectZero
+    let portrait = inputImage.size.height > inputImage.size.width
+
+    if portrait {
+      inputRect.size.height = 400
+      inputRect.size.width = inputImage.size.width / inputImage.size.height * inputRect.height
+    }
+    else {
+      inputRect.size.width = 400
+      inputRect.size.height = inputImage.size.height / inputImage.size.width * inputRect.width
+    }
+
+    var outputRect = CGRectZero
+    outputRect.origin.x = inputRect.maxX + spacing
+    if portrait {
+      outputRect.size.width = inputRect.width
+      outputRect.size.height = ceil(inputRect.height / φ)
+    }
+    else {
+      outputRect.size.height = inputRect.height
+      outputRect.size.width = ceil(inputRect.height * φ)
+    }
+
+    let canvasRect = CGRectUnion(inputRect, outputRect)
+    UIGraphicsBeginImageContextWithOptions(canvasRect.size, false, 0)
+    inputImage.drawInRect(inputRect)
+
+    if let _outputImage = _outputImage {
+      _outputImage.imageByConvertingFromCIImage(device: device, context: context)?.drawInRect(outputRect)
+    }
+    else {
+      var paths = [UIBezierPath]()
+      for rect in tiles() {
+        let path = UIBezierPath(rect: rect)
+        paths.append(path)
+      }
+
+      let bitmapContext = UIGraphicsGetCurrentContext()
+
+      if portrait {
+        CGContextSaveGState(bitmapContext)
+
+        let dt = outputRect.height / outputImageSize.height
+        var contextTransform = CGAffineTransformIdentity
+        contextTransform = CGAffineTransformScale(contextTransform, dt, dt)
+
+        contextTransform = CGAffineTransformRotate(contextTransform, CGFloat(M_PI_2))
+        contextTransform = CGAffineTransformTranslate(contextTransform, 0, -outputImageSize.width * CGFloat(M_PI_2))
+        CGContextConcatCTM(bitmapContext, contextTransform)
+      }
+
+      let colorShift = 0.7 / CGFloat(paths.count)
+      for (index, path) in paths.enumerate() {
+        UIColor(white: 0.2 + colorShift * CGFloat(index), alpha: 1).setFill()
+        path.fill()
+      }
+
+      if portrait {
+        CGContextRestoreGState(bitmapContext)
+      }
+
+      let string: NSString = "Output image has not been processed yet"
+      let paragraph = NSMutableParagraphStyle()
+      paragraph.alignment = .Center
+      paragraph.lineBreakMode = .ByWordWrapping
+      let attributes = [NSParagraphStyleAttributeName: paragraph, NSForegroundColorAttributeName: UIColor.whiteColor()]
+      let textBoxSize = outputRect.insetBy(dx: 10, dy: 10).size
+      var textRect = string.boundingRectWithSize(textBoxSize, options: .UsesLineFragmentOrigin, attributes: attributes, context: nil)
+      textRect.origin.x = outputRect.minX + (outputRect.width - textRect.width) / 2.0
+      textRect.origin.y = outputRect.minY + (outputRect.height - textRect.height) / 2.0
+      string.drawInRect(textRect, withAttributes: attributes)
+    }
+
+    return UIGraphicsGetImageFromCurrentImageContext()
   }
 
 }
