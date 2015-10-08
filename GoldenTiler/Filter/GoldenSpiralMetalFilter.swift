@@ -30,12 +30,9 @@ class GoldenSpiralMetalFilter: GoldenSpiralFilter {
 
       let dimension = ceil(min(inputImage.size.width, inputImage.size.height))
       outputImageSize = CGSize(width: dimension * φ, height: dimension)
-
-      portrait = inputImage.size.height > inputImage.size.width
     }
   }
 
-  private(set) var portrait: Bool = false
   var colorSpace: CGColorSpaceRef?
 
   var outputImage: UIImage? {
@@ -77,43 +74,18 @@ class GoldenSpiralMetalFilter: GoldenSpiralFilter {
       return nil
     }
 
-    guard let image = sourceImage.CGImage else {
+    guard let (image, portrait) = imagedPreparedForTiling(image: sourceImage) else {
       return nil
     }
 
-    let width = CGFloat(CGImageGetWidth(image))
-    let height = CGFloat(CGImageGetHeight(image))
-    let dimension = ceil(min(width, height))
-    let cropRect = imageCropRect(image: image, toDimension: dimension)
-
-    guard let cropped = CGImageCreateWithImageInRect(image, cropRect) else {
-      return nil
-    }
-
-    guard let flipped = imageByFixingOrientation(image: cropped) else {
-      return nil
-    }
-
-    let canvasRect = CGRect(x: 0, y: 0, width: outputImageSize.width, height: dimension)
+    let canvasRect = CGRect(x: 0, y: 0, width: ceil(outputImageSize.width), height: image.extent.height)
     let canvasTexture = createTexture(width: Int(canvasRect.width), height: Int(canvasRect.height))
 
     let sourceOrigin = MTLOrigin(x: 0, y: 0, z: 0)
-    let textureLoader = MTKTextureLoader(device: device)
-    var sourceTexture: MTLTexture!
-
-    do {
-      sourceTexture = try textureLoader.newTextureWithCGImage(flipped, options: [MTKTextureLoaderOptionTextureUsage: MTLTextureUsage.ShaderRead.rawValue])
-    }
-    catch let error as NSError {
-      print("\(error.localizedDescription): \(error.localizedFailureReason)")
-      return nil
-    }
-
-    guard sourceTexture != nil else {
-      return nil
-    }
-
+    var sourceTexture = createTexture(width: Int(image.extent.width), height: Int(image.extent.height))
     let commandBuffer = commandQueue.commandBuffer()
+
+    context.render(image, toMTLTexture: sourceTexture, commandBuffer: commandBuffer, bounds: image.extent, colorSpace: colorSpace)
 
     for tile in tiles() {
       let origin = MTLOrigin(x: Int(tile.origin.x), y: Int(tile.origin.y), z: 0)
@@ -172,6 +144,28 @@ class GoldenSpiralMetalFilter: GoldenSpiralFilter {
     let texture = createTexture(width: dimension, height: dimension)
     scale.encodeToCommandBuffer(commandBuffer, sourceTexture: sourceTexture, destinationTexture: texture)
     return texture
+  }
+
+  private func imagedPreparedForTiling(image sourceImage: UIImage) -> (image: CIImage, portrait: Bool)? {
+    let sourceOrientation = sourceImage.EXIFOrientation
+    guard let image = CIImage(image: sourceImage)?.imageByApplyingOrientation(sourceOrientation) else {
+      return nil
+    }
+
+    let portrait = image.extent.height > image.extent.width
+    let width = image.extent.width
+    let height = image.extent.height
+    let dimension = ceil(min(width, height))
+    let cropRect = imageCropRect(image: image, toDimension: dimension)
+
+    let preparedImage = image.imageByCroppingToRect(cropRect)
+
+    if portrait {
+      return (preparedImage.imageByApplyingOrientation(5), portrait)
+    }
+    else {
+      return (preparedImage.imageByApplyingOrientation(4), portrait)
+    }
   }
 
 }

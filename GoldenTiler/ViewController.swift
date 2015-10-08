@@ -140,7 +140,7 @@ class ViewController: UIViewController, UIScrollViewDelegate, Rdar23011575Checke
     dispatch_async(dispatch_get_global_queue(CLong(DISPATCH_QUEUE_PRIORITY_DEFAULT), 0)) { [weak self] in
       let duration = Timer.run {
         var filter = filterClass.init()
-        filter.inputImage = sourceImage.imageByFixingOrientation()
+        filter.inputImage = sourceImage
         if filter.canProcessImage {
           self?.processedImage = filter.outputImage
         }

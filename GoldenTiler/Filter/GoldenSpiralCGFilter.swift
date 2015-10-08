@@ -27,12 +27,9 @@ class GoldenSpiralCGFilter: GoldenSpiralFilter {
 
       let dimension = ceil(min(inputImage.size.width, inputImage.size.height))
       outputImageSize = CGSize(width: dimension * φ, height: dimension)
-
-      portrait = inputImage.size.height > inputImage.size.width
     }
   }
 
-  private(set) var portrait: Bool = false
   var colorSpace: CGColorSpaceRef?
   private(set) var outputImageSize: CGSize = CGSizeZero
 
@@ -53,20 +50,9 @@ class GoldenSpiralCGFilter: GoldenSpiralFilter {
   }()
 
   private func tileImage(image sourceImage: UIImage) -> UIImage? {
-    guard let image = sourceImage.CGImage else {
+    guard let (image, portrait) = imagedPreparedForTiling(image: sourceImage) else {
       return nil
     }
-
-    let width = CGFloat(CGImageGetWidth(image))
-    let height = CGFloat(CGImageGetHeight(image))
-    let dimension = ceil(min(width, height))
-    let cropRect = imageCropRect(image: image, toDimension: dimension)
-
-    guard let cropped = CGImageCreateWithImageInRect(image, cropRect) else {
-      return nil
-    }
-
-    let flipped = imageByFixingOrientation(image: cropped)
 
     // Tile images
 
@@ -97,7 +83,7 @@ class GoldenSpiralCGFilter: GoldenSpiralFilter {
     CGContextSetInterpolationQuality(bitmapContext, .High)
 
     for tile in tiles() {
-      CGContextDrawImage(bitmapContext, tile, flipped)
+      CGContextDrawImage(bitmapContext, tile, image)
     }
 
     guard let cgImage = CGBitmapContextCreateImage(bitmapContext) else {
@@ -105,6 +91,41 @@ class GoldenSpiralCGFilter: GoldenSpiralFilter {
     }
 
     return UIImage(CGImage: cgImage)
+  }
+
+  private func imagedPreparedForTiling(image sourceImage: UIImage) -> (image: CGImageRef, portrait: Bool)? {
+    guard let image = sourceImage.imageByFixingOrientation()?.CGImage else {
+      return nil
+    }
+
+    let width = CGImageGetWidth(image)
+    let height = CGImageGetHeight(image)
+    let dimension = min(width, height)
+
+    let portrait = height > width
+    let cropRect = imageCropRect(image: CIImage(CGImage: image), toDimension: CGFloat(dimension))
+
+    let bitsPerComponent = CGImageGetBitsPerComponent(image)
+    let bitmapInfo = CGImageGetBitmapInfo(image)
+    let bitmapContext = CGBitmapContextCreate(nil, dimension, dimension, bitsPerComponent, 0, colorSpace, bitmapInfo.rawValue)
+    var transform = CGAffineTransformIdentity
+
+    if portrait {
+      transform = CGAffineTransformRotate(transform, CGFloat(-M_PI_2))
+      transform = CGAffineTransformTranslate(transform, -CGFloat(dimension), 0)
+    }
+
+    transform = CGAffineTransformTranslate(transform, 0, CGFloat(dimension))
+    transform = CGAffineTransformScale(transform, 1, -1)
+
+    CGContextConcatCTM(bitmapContext, transform)
+    CGContextDrawImage(bitmapContext, CGRectMake(-cropRect.origin.x, -cropRect.origin.y, CGFloat(width), CGFloat(height)), image)
+
+    guard let preparedImage = CGBitmapContextCreateImage(bitmapContext) else {
+      return nil
+    }
+
+    return (preparedImage, portrait)
   }
 
 }

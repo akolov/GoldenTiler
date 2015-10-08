@@ -89,7 +89,7 @@ class PhotoEditingViewController: ViewController, PHContentEditingController {
         switch selectedImageProcessingFilter {
         case .Metal:
           let filter = GoldenSpiralMetalFilter()
-          filter.inputImage = sourceImage.imageByFixingOrientation()
+          filter.inputImage = sourceImage
           if filter.canProcessImage {
             outputImage = filter.outputImage?.imageByConvertingFromCIImage(device: filter.device, context: filter.context)
           }
@@ -100,7 +100,7 @@ class PhotoEditingViewController: ViewController, PHContentEditingController {
           }
         case .CoreGraphics:
           let filter = GoldenSpiralCGFilter()
-          filter.inputImage = sourceImage.imageByFixingOrientation()
+          filter.inputImage = sourceImage
           outputImage = filter.outputImage
         }
       }
