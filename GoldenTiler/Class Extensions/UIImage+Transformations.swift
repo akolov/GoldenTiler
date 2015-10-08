@@ -68,4 +68,25 @@ extension UIImage {
     return UIImage(CGImage: image)
   }
 
+  var EXIFOrientation: Int32 {
+    switch imageOrientation {
+    case .Up:
+      return 1
+    case .Down:
+      return 3
+    case .Left:
+      return 8
+    case .Right:
+      return 6
+    case .UpMirrored:
+      return 2
+    case .DownMirrored:
+      return 4
+    case .LeftMirrored:
+      return 5
+    case .RightMirrored:
+      return 7
+    }
+  }
+
 }
