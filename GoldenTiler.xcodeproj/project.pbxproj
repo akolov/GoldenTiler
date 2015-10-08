@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FA475B151BC6720000DBB478 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA475B141BC6720000DBB478 /* Logger.swift */; settings = {ASSET_TAGS = (); }; };
+		FA475B161BC6720000DBB478 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA475B141BC6720000DBB478 /* Logger.swift */; settings = {ASSET_TAGS = (); }; };
 		FA597ECE1BC4797F0061F9B1 /* UIImage+Metal.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA597ECD1BC4797F0061F9B1 /* UIImage+Metal.swift */; settings = {ASSET_TAGS = (); }; };
 		FA597ECF1BC4797F0061F9B1 /* UIImage+Metal.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA597ECD1BC4797F0061F9B1 /* UIImage+Metal.swift */; settings = {ASSET_TAGS = (); }; };
 		FA597ED01BC47F170061F9B1 /* Localizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACCBC3A1BC42E8800C074B9 /* Localizable.swift */; settings = {ASSET_TAGS = (); }; };
@@ -94,6 +96,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		FA475B141BC6720000DBB478 /* Logger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		FA597ECD1BC4797F0061F9B1 /* UIImage+Metal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Metal.swift"; sourceTree = "<group>"; };
 		FA597ED21BC580610061F9B1 /* Rdar23011575Checker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Rdar23011575Checker.swift; sourceTree = "<group>"; };
 		FACCBC2D1BC42D5D00C074B9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -254,6 +257,7 @@
 				FA597ED21BC580610061F9B1 /* Rdar23011575Checker.swift */,
 				FACFD8D91BC4668900FF4249 /* BusyView.swift */,
 				FAEDBEF11BC1FE5C00FDBC15 /* ApplicationViewController.swift */,
+				FA475B141BC6720000DBB478 /* Logger.swift */,
 				FACCBC3A1BC42E8800C074B9 /* Localizable.swift */,
 				FACCBC3F1BC4422900C074B9 /* MyPlayground.playground */,
 				FAEDBEA71BC1722600FDBC15 /* Info.plist */,
@@ -476,6 +480,7 @@
 				FACCBC551BC44B7400C074B9 /* GoldenSpiralCGFilter.swift in Sources */,
 				FACCBC641BC44D2F00C074B9 /* MetalImageView.swift in Sources */,
 				FACCBC4F1BC4450700C074B9 /* TimerFormatterLocalizable.swift in Sources */,
+				FA475B151BC6720000DBB478 /* Logger.swift in Sources */,
 				FACCBC4C1BC444E900C074B9 /* TimerFormatter.swift in Sources */,
 				FA597ECE1BC4797F0061F9B1 /* UIImage+Metal.swift in Sources */,
 				FACCBC5D1BC44B8A00C074B9 /* UIImage+Transformations.swift in Sources */,
@@ -511,6 +516,7 @@
 				FACCBC621BC44CE100C074B9 /* ImageView.swift in Sources */,
 				FACCBC4D1BC444E900C074B9 /* TimerFormatter.swift in Sources */,
 				FA597ED01BC47F170061F9B1 /* Localizable.swift in Sources */,
+				FA475B161BC6720000DBB478 /* Logger.swift in Sources */,
 				FACCBC5E1BC44B8A00C074B9 /* UIImage+Transformations.swift in Sources */,
 				FACCBC5A1BC44B7400C074B9 /* GoldenSpiralMetalFilter.swift in Sources */,
 				FA597ED41BC580610061F9B1 /* Rdar23011575Checker.swift in Sources */,
