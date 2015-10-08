@@ -186,7 +186,7 @@ class ViewController: UIViewController, UIScrollViewDelegate, Rdar23011575Checke
         scrollView.zoomScale = scrollView.minimumZoomScale
 
         if let duration = duration {
-          self?.timerButton.title = self?.timerFormatter.stringFromTimer(duration, unit: .Millisecond)
+          self?.timerButton.title = self?.timerFormatter.stringFromTimer(duration)
         }
       }
     }
