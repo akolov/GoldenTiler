@@ -104,7 +104,6 @@
 		FACCBC311BC42D5D00C074B9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FACCBC381BC42D8800C074B9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		FACCBC3A1BC42E8800C074B9 /* Localizable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Localizable.swift; sourceTree = "<group>"; };
-		FACCBC3F1BC4422900C074B9 /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyPlayground.playground; sourceTree = "<group>"; };
 		FACCBC451BC4441D00C074B9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/TimerFormatter.strings; sourceTree = "<group>"; };
 		FACCBC481BC444E900C074B9 /* Timer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Timer.swift; sourceTree = "<group>"; };
 		FACCBC491BC444E900C074B9 /* TimerFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerFormatter.swift; sourceTree = "<group>"; };
@@ -259,7 +258,6 @@
 				FACCBC3A1BC42E8800C074B9 /* Localizable.swift */,
 				FAEDBE9D1BC1722600FDBC15 /* ViewController.swift */,
 				FA597ED21BC580610061F9B1 /* Rdar23011575Checker.swift */,
-				FACCBC3F1BC4422900C074B9 /* MyPlayground.playground */,
 				FAEDBEA71BC1722600FDBC15 /* Info.plist */,
 			);
 			path = GoldenTiler;
