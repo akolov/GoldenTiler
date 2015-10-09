@@ -9,12 +9,15 @@
 /* Begin PBXBuildFile section */
 		FA3440061BC8099F001C3DBD /* GoldenSpiralFilter.h in Headers */ = {isa = PBXBuildFile; fileRef = FA3440051BC8099F001C3DBD /* GoldenSpiralFilter.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		FA34400D1BC8099F001C3DBD /* GoldenSpiralFilter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA3440021BC8099F001C3DBD /* GoldenSpiralFilter.framework */; settings = {ASSET_TAGS = (); }; };
-		FA3440121BC8099F001C3DBD /* GoldenSpiralFilterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3440111BC8099F001C3DBD /* GoldenSpiralFilterTests.swift */; };
+		FA3440121BC8099F001C3DBD /* GoldenSpiralMetalFilterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3440111BC8099F001C3DBD /* GoldenSpiralMetalFilterTests.swift */; };
 		FA34402A1BC809B9001C3DBD /* GoldenSpiralCGFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3440251BC809B9001C3DBD /* GoldenSpiralCGFilter.swift */; settings = {ASSET_TAGS = (); }; };
 		FA34402B1BC809B9001C3DBD /* GoldenSpiralFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3440261BC809B9001C3DBD /* GoldenSpiralFilter.swift */; settings = {ASSET_TAGS = (); }; };
 		FA34402C1BC809B9001C3DBD /* GoldenSpiralMetalFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3440271BC809B9001C3DBD /* GoldenSpiralMetalFilter.swift */; settings = {ASSET_TAGS = (); }; };
 		FA34402D1BC809B9001C3DBD /* UIImage+Metal.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3440281BC809B9001C3DBD /* UIImage+Metal.swift */; settings = {ASSET_TAGS = (); }; };
 		FA34402E1BC809B9001C3DBD /* UIImage+Transformations.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3440291BC809B9001C3DBD /* UIImage+Transformations.swift */; settings = {ASSET_TAGS = (); }; };
+		FA34403C1BC833E4001C3DBD /* testPortrait.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FA34403B1BC833E4001C3DBD /* testPortrait.jpg */; settings = {ASSET_TAGS = (); }; };
+		FA34403E1BC8346E001C3DBD /* testLandscape.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FA34403D1BC8346E001C3DBD /* testLandscape.jpg */; settings = {ASSET_TAGS = (); }; };
+		FA3440401BC8354B001C3DBD /* GoldenSpiralCoreGraphicsFilterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA34403F1BC8354B001C3DBD /* GoldenSpiralCoreGraphicsFilterTests.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,13 +35,16 @@
 		FA3440051BC8099F001C3DBD /* GoldenSpiralFilter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GoldenSpiralFilter.h; sourceTree = "<group>"; };
 		FA3440071BC8099F001C3DBD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FA34400C1BC8099F001C3DBD /* GoldenSpiralFilterTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GoldenSpiralFilterTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		FA3440111BC8099F001C3DBD /* GoldenSpiralFilterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoldenSpiralFilterTests.swift; sourceTree = "<group>"; };
+		FA3440111BC8099F001C3DBD /* GoldenSpiralMetalFilterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoldenSpiralMetalFilterTests.swift; sourceTree = "<group>"; };
 		FA3440131BC8099F001C3DBD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FA3440251BC809B9001C3DBD /* GoldenSpiralCGFilter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoldenSpiralCGFilter.swift; sourceTree = "<group>"; };
 		FA3440261BC809B9001C3DBD /* GoldenSpiralFilter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoldenSpiralFilter.swift; sourceTree = "<group>"; };
 		FA3440271BC809B9001C3DBD /* GoldenSpiralMetalFilter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoldenSpiralMetalFilter.swift; sourceTree = "<group>"; };
 		FA3440281BC809B9001C3DBD /* UIImage+Metal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Metal.swift"; sourceTree = "<group>"; };
 		FA3440291BC809B9001C3DBD /* UIImage+Transformations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Transformations.swift"; sourceTree = "<group>"; };
+		FA34403B1BC833E4001C3DBD /* testPortrait.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = testPortrait.jpg; sourceTree = "<group>"; };
+		FA34403D1BC8346E001C3DBD /* testLandscape.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = testLandscape.jpg; sourceTree = "<group>"; };
+		FA34403F1BC8354B001C3DBD /* GoldenSpiralCoreGraphicsFilterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoldenSpiralCoreGraphicsFilterTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,10 +101,21 @@
 		FA3440101BC8099F001C3DBD /* GoldenSpiralFilterTests */ = {
 			isa = PBXGroup;
 			children = (
-				FA3440111BC8099F001C3DBD /* GoldenSpiralFilterTests.swift */,
+				FA34403A1BC833E4001C3DBD /* Resources */,
+				FA3440111BC8099F001C3DBD /* GoldenSpiralMetalFilterTests.swift */,
+				FA34403F1BC8354B001C3DBD /* GoldenSpiralCoreGraphicsFilterTests.swift */,
 				FA3440131BC8099F001C3DBD /* Info.plist */,
 			);
 			path = GoldenSpiralFilterTests;
+			sourceTree = "<group>";
+		};
+		FA34403A1BC833E4001C3DBD /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				FA34403D1BC8346E001C3DBD /* testLandscape.jpg */,
+				FA34403B1BC833E4001C3DBD /* testPortrait.jpg */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -199,6 +216,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA34403C1BC833E4001C3DBD /* testPortrait.jpg in Resources */,
+				FA34403E1BC8346E001C3DBD /* testLandscape.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -221,7 +240,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FA3440121BC8099F001C3DBD /* GoldenSpiralFilterTests.swift in Sources */,
+				FA3440121BC8099F001C3DBD /* GoldenSpiralMetalFilterTests.swift in Sources */,
+				FA3440401BC8354B001C3DBD /* GoldenSpiralCoreGraphicsFilterTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -9,9 +9,9 @@
 import XCTest
 @testable import GoldenSpiralFilter
 
-class GoldenSpiralMetalFilterTests: XCTestCase {
+class GoldenSpiralCoreGraphicsFilterTests: XCTestCase {
 
-  var filter: GoldenSpiralMetalFilter!
+  var filter: GoldenSpiralCGFilter!
 
   let portraitPath: String! = NSBundle.mainBundle().pathForResource("testPortrait", ofType: "jpg")
   let landscapePath: String! = NSBundle.mainBundle().pathForResource("testLandscape", ofType: "jpg")
@@ -21,7 +21,7 @@ class GoldenSpiralMetalFilterTests: XCTestCase {
 
   override func setUp() {
     super.setUp()
-    filter = GoldenSpiralMetalFilter()
+    filter = GoldenSpiralCGFilter()
   }
 
   override func tearDown() {
@@ -33,9 +33,9 @@ class GoldenSpiralMetalFilterTests: XCTestCase {
     XCTAssertTrue(filter.canProcessImage, "Test image must be processable by this filter")
   }
 
-  func testThatProducedImageIsCIBacked() {
+  func testThatProducedImageIsCGBacked() {
     filter.inputImage = portraitImage
-    XCTAssertNotNil(filter.outputImage?.CIImage)
+    XCTAssertNotNil(filter.outputImage?.CGImage)
   }
 
   func testThatPortraitInputImageProducesPortraitOutput() {
@@ -64,5 +64,5 @@ class GoldenSpiralMetalFilterTests: XCTestCase {
       let _ = self.filter.outputImage
     }
   }
-  
+
 }
