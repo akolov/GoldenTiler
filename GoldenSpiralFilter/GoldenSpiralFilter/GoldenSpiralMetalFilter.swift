@@ -31,10 +31,10 @@ public class GoldenSpiralMetalFilter: NSObject, GoldenSpiralFilter {
 
       let dimension = round(min(inputImage.size.width, inputImage.size.height))
       if inputImage.size.height > inputImage.size.width {
-        outputImageSize = CGSize(width: dimension, height: dimension * φ)
+        outputImageSize = CGSize(width: dimension, height: round(dimension * φ))
       }
       else {
-        outputImageSize = CGSize(width: dimension * φ, height: dimension)
+        outputImageSize = CGSize(width: round(dimension * φ), height: dimension)
       }
     }
   }
