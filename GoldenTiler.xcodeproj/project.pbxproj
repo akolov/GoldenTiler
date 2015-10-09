@@ -39,7 +39,6 @@
 		FACFD8DB1BC4668900FF4249 /* BusyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACFD8D91BC4668900FF4249 /* BusyView.swift */; settings = {ASSET_TAGS = (); }; };
 		FAEDBE9C1BC1722600FDBC15 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEDBE9B1BC1722600FDBC15 /* AppDelegate.swift */; };
 		FAEDBE9E1BC1722600FDBC15 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEDBE9D1BC1722600FDBC15 /* ViewController.swift */; };
-		FAEDBEB11BC1722600FDBC15 /* GoldenTilerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEDBEB01BC1722600FDBC15 /* GoldenTilerTests.swift */; };
 		FAEDBEBC1BC1722600FDBC15 /* GoldenTilerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEDBEBB1BC1722600FDBC15 /* GoldenTilerUITests.swift */; };
 		FAEDBEDE1BC1FCC400FDBC15 /* PhotosUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAEDBEDD1BC1FCC400FDBC15 /* PhotosUI.framework */; settings = {ASSET_TAGS = (); }; };
 		FAEDBEE01BC1FCC400FDBC15 /* Photos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAEDBEDF1BC1FCC400FDBC15 /* Photos.framework */; settings = {ASSET_TAGS = (); }; };
@@ -85,13 +84,6 @@
 			proxyType = 1;
 			remoteGlobalIDString = FA3440011BC8099F001C3DBD;
 			remoteInfo = GoldenSpiralFilter;
-		};
-		FAEDBEAD1BC1722600FDBC15 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = FAEDBE901BC1722600FDBC15 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = FAEDBE971BC1722600FDBC15;
-			remoteInfo = GoldenTiler;
 		};
 		FAEDBEB81BC1722600FDBC15 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -155,9 +147,6 @@
 		FAEDBE9B1BC1722600FDBC15 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FAEDBE9D1BC1722600FDBC15 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		FAEDBEA71BC1722600FDBC15 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		FAEDBEAC1BC1722600FDBC15 /* GoldenTilerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GoldenTilerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		FAEDBEB01BC1722600FDBC15 /* GoldenTilerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoldenTilerTests.swift; sourceTree = "<group>"; };
-		FAEDBEB21BC1722600FDBC15 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FAEDBEB71BC1722600FDBC15 /* GoldenTilerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GoldenTilerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAEDBEBB1BC1722600FDBC15 /* GoldenTilerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoldenTilerUITests.swift; sourceTree = "<group>"; };
 		FAEDBEBD1BC1722600FDBC15 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -176,13 +165,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				FA3440341BC809EE001C3DBD /* GoldenSpiralFilter.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		FAEDBEA91BC1722600FDBC15 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -252,7 +234,6 @@
 			children = (
 				FA34401C1BC8099F001C3DBD /* GoldenSpiralFilter.xcodeproj */,
 				FAEDBE9A1BC1722600FDBC15 /* GoldenTiler */,
-				FAEDBEAF1BC1722600FDBC15 /* GoldenTilerTests */,
 				FAEDBEBA1BC1722600FDBC15 /* GoldenTilerUITests */,
 				FAEDBEE11BC1FCC400FDBC15 /* Extension */,
 				FAEDBEDC1BC1FCC400FDBC15 /* Frameworks */,
@@ -264,7 +245,6 @@
 			isa = PBXGroup;
 			children = (
 				FAEDBE981BC1722600FDBC15 /* GoldenTiler.app */,
-				FAEDBEAC1BC1722600FDBC15 /* GoldenTilerTests.xctest */,
 				FAEDBEB71BC1722600FDBC15 /* GoldenTilerUITests.xctest */,
 				FAEDBEDB1BC1FCC400FDBC15 /* Extension.appex */,
 			);
@@ -287,15 +267,6 @@
 				FAEDBEA71BC1722600FDBC15 /* Info.plist */,
 			);
 			path = GoldenTiler;
-			sourceTree = "<group>";
-		};
-		FAEDBEAF1BC1722600FDBC15 /* GoldenTilerTests */ = {
-			isa = PBXGroup;
-			children = (
-				FAEDBEB01BC1722600FDBC15 /* GoldenTilerTests.swift */,
-				FAEDBEB21BC1722600FDBC15 /* Info.plist */,
-			);
-			path = GoldenTilerTests;
 			sourceTree = "<group>";
 		};
 		FAEDBEBA1BC1722600FDBC15 /* GoldenTilerUITests */ = {
@@ -351,24 +322,6 @@
 			productReference = FAEDBE981BC1722600FDBC15 /* GoldenTiler.app */;
 			productType = "com.apple.product-type.application";
 		};
-		FAEDBEAB1BC1722600FDBC15 /* GoldenTilerTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = FAEDBEC31BC1722600FDBC15 /* Build configuration list for PBXNativeTarget "GoldenTilerTests" */;
-			buildPhases = (
-				FAEDBEA81BC1722600FDBC15 /* Sources */,
-				FAEDBEA91BC1722600FDBC15 /* Frameworks */,
-				FAEDBEAA1BC1722600FDBC15 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				FAEDBEAE1BC1722600FDBC15 /* PBXTargetDependency */,
-			);
-			name = GoldenTilerTests;
-			productName = GoldenTilerTests;
-			productReference = FAEDBEAC1BC1722600FDBC15 /* GoldenTilerTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 		FAEDBEB61BC1722600FDBC15 /* GoldenTilerUITests */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = FAEDBEC61BC1722600FDBC15 /* Build configuration list for PBXNativeTarget "GoldenTilerUITests" */;
@@ -418,10 +371,6 @@
 					FAEDBE971BC1722600FDBC15 = {
 						CreatedOnToolsVersion = 7.0.1;
 					};
-					FAEDBEAB1BC1722600FDBC15 = {
-						CreatedOnToolsVersion = 7.0.1;
-						TestTargetID = FAEDBE971BC1722600FDBC15;
-					};
 					FAEDBEB61BC1722600FDBC15 = {
 						CreatedOnToolsVersion = 7.0.1;
 						TestTargetID = FAEDBE971BC1722600FDBC15;
@@ -452,7 +401,6 @@
 			targets = (
 				FAEDBE971BC1722600FDBC15 /* GoldenTiler */,
 				FAEDBEDA1BC1FCC400FDBC15 /* Extension */,
-				FAEDBEAB1BC1722600FDBC15 /* GoldenTilerTests */,
 				FAEDBEB61BC1722600FDBC15 /* GoldenTilerUITests */,
 			);
 		};
@@ -485,13 +433,6 @@
 				FACCBC341BC42D5D00C074B9 /* Main.storyboard in Resources */,
 				FACCBC321BC42D5D00C074B9 /* Assets.xcassets in Resources */,
 				FACCBC331BC42D5D00C074B9 /* LaunchScreen.storyboard in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		FAEDBEAA1BC1722600FDBC15 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -532,14 +473,6 @@
 				FA475B151BC6720000DBB478 /* Logger.swift in Sources */,
 				FACCBC4C1BC444E900C074B9 /* TimerFormatter.swift in Sources */,
 				FAEDBE9C1BC1722600FDBC15 /* AppDelegate.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		FAEDBEA81BC1722600FDBC15 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				FAEDBEB11BC1722600FDBC15 /* GoldenTilerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -587,11 +520,6 @@
 			isa = PBXTargetDependency;
 			name = GoldenSpiralFilter;
 			targetProxy = FA3440371BC809F7001C3DBD /* PBXContainerItemProxy */;
-		};
-		FAEDBEAE1BC1722600FDBC15 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = FAEDBE971BC1722600FDBC15 /* GoldenTiler */;
-			targetProxy = FAEDBEAD1BC1722600FDBC15 /* PBXContainerItemProxy */;
 		};
 		FAEDBEB91BC1722600FDBC15 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -756,30 +684,6 @@
 			};
 			name = Release;
 		};
-		FAEDBEC41BC1722600FDBC15 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				INFOPLIST_FILE = GoldenTilerTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.alexkolov.GoldenTilerTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GoldenTiler.app/GoldenTiler";
-			};
-			name = Debug;
-		};
-		FAEDBEC51BC1722600FDBC15 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				INFOPLIST_FILE = GoldenTilerTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.alexkolov.GoldenTilerTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GoldenTiler.app/GoldenTiler";
-			};
-			name = Release;
-		};
 		FAEDBEC71BC1722600FDBC15 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -843,15 +747,6 @@
 			buildConfigurations = (
 				FAEDBEC11BC1722600FDBC15 /* Debug */,
 				FAEDBEC21BC1722600FDBC15 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		FAEDBEC31BC1722600FDBC15 /* Build configuration list for PBXNativeTarget "GoldenTilerTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				FAEDBEC41BC1722600FDBC15 /* Debug */,
-				FAEDBEC51BC1722600FDBC15 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
