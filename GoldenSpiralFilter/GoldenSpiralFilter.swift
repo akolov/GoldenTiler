@@ -12,7 +12,7 @@ import UIKit
 
 let φ: CGFloat = (1 + sqrt(5.0)) / 2.0
 
-protocol GoldenSpiralFilter {
+public protocol GoldenSpiralFilter: NSObjectProtocol {
 
   init()
 
@@ -28,9 +28,9 @@ protocol GoldenSpiralFilter {
 
 }
 
-extension GoldenSpiralFilter {
+public extension GoldenSpiralFilter {
 
-  func tiles() -> AnyGenerator<CGRect> {
+  public func tiles() -> AnyGenerator<CGRect> {
     let dimension = outputImageSize.height
     var x: CGFloat = 0, y: CGFloat = 0, counter = 0
 

@@ -6,6 +6,7 @@
 //  Copyright © 2015 Alexander Kolov. All rights reserved.
 //
 
+import GoldenSpiralFilter
 import Metal
 import UIKit
 
@@ -139,7 +140,7 @@ class ViewController: UIViewController, UIScrollViewDelegate, Rdar23011575Checke
 
     dispatch_async(dispatch_get_global_queue(CLong(DISPATCH_QUEUE_PRIORITY_DEFAULT), 0)) { [weak self] in
       let duration = Timer.run {
-        var filter = filterClass.init()
+        let filter = filterClass.init()
         filter.inputImage = sourceImage
         if filter.canProcessImage {
           self?.processedImage = filter.outputImage

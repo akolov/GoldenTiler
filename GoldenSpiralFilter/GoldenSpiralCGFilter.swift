@@ -11,13 +11,13 @@ import CoreGraphics
 import CoreImage
 import UIKit
 
-class GoldenSpiralCGFilter: NSObject, GoldenSpiralFilter {
+public class GoldenSpiralCGFilter: NSObject, GoldenSpiralFilter {
 
-  required override init() {
+  public required override init() {
     super.init()
   }
 
-  var inputImage: UIImage? {
+  public var inputImage: UIImage? {
     didSet {
       _outputImage = nil
 
@@ -32,11 +32,11 @@ class GoldenSpiralCGFilter: NSObject, GoldenSpiralFilter {
     }
   }
 
-  var colorSpace: CGColorSpaceRef?
-  private(set) var outputImageSize: CGSize = CGSizeZero
+  private(set) public var colorSpace: CGColorSpaceRef?
+  private(set) public var outputImageSize: CGSize = CGSizeZero
 
   private var _outputImage: UIImage?
-  var outputImage: UIImage? {
+  public var outputImage: UIImage? {
     if _outputImage != nil {
       return _outputImage
     }
@@ -49,11 +49,11 @@ class GoldenSpiralCGFilter: NSObject, GoldenSpiralFilter {
     return _outputImage
   }
 
-  var canProcessImage: Bool {
+  public var canProcessImage: Bool {
     return true
   }
 
-  private(set) lazy var context: CIContext = {
+  private(set) public lazy var context: CIContext = {
     return CIContext()
   }()
 

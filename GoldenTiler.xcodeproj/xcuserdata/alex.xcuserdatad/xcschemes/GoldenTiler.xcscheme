@@ -48,6 +48,26 @@
                ReferencedContainer = "container:GoldenTiler.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "FA343F761BC805CE001C3DBD"
+               BuildableName = "GoldenSpiraFilterTests.xctest"
+               BlueprintName = "GoldenSpiraFilterTests"
+               ReferencedContainer = "container:GoldenTiler.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "FA343F991BC80634001C3DBD"
+               BuildableName = "GoldenSpiralFilterTests.xctest"
+               BlueprintName = "GoldenSpiralFilterTests"
+               ReferencedContainer = "container:GoldenTiler.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference

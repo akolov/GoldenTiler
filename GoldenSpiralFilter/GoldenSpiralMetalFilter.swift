@@ -14,13 +14,13 @@ import MetalKit
 import MetalPerformanceShaders
 import UIKit
 
-class GoldenSpiralMetalFilter: NSObject, GoldenSpiralFilter {
+public class GoldenSpiralMetalFilter: NSObject, GoldenSpiralFilter {
 
-  required override init() {
+  public required override init() {
     super.init()
   }
 
-  var inputImage: UIImage? {
+  public var inputImage: UIImage? {
     didSet {
       _outputImage = nil
 
@@ -35,10 +35,10 @@ class GoldenSpiralMetalFilter: NSObject, GoldenSpiralFilter {
     }
   }
 
-  var colorSpace: CGColorSpaceRef?
+  private(set) public var colorSpace: CGColorSpaceRef?
 
   private var _outputImage: UIImage?
-  var outputImage: UIImage? {
+  public var outputImage: UIImage? {
     if _outputImage != nil {
       return _outputImage
     }
@@ -51,7 +51,7 @@ class GoldenSpiralMetalFilter: NSObject, GoldenSpiralFilter {
     return _outputImage
   }
 
-  var canProcessImage: Bool {
+  public var canProcessImage: Bool {
     guard let inputImage = inputImage else {
       return false
     }
@@ -65,15 +65,15 @@ class GoldenSpiralMetalFilter: NSObject, GoldenSpiralFilter {
     return canProcessInput && canProcessOutput
   }
 
-  private(set) var outputImageSize = CGSizeZero
+  private(set) public var outputImageSize = CGSizeZero
 
-  let device: MTLDevice! = MTLCreateSystemDefaultDevice()
+  public let device: MTLDevice! = MTLCreateSystemDefaultDevice()
 
   private lazy var commandQueue: MTLCommandQueue = {
     return self.device.newCommandQueueWithMaxCommandBufferCount(5)
   }()
 
-  private(set) lazy var context: CIContext = {
+  private(set) public lazy var context: CIContext = {
     return CIContext(MTLDevice: self.device)
   }()
 
@@ -200,7 +200,7 @@ class GoldenSpiralMetalFilter: NSObject, GoldenSpiralFilter {
     outputRect.origin.x = inputRect.maxX + spacing
     if portrait {
       outputRect.size.width = inputRect.width
-      outputRect.size.height = ceil(inputRect.height / φ)
+      outputRect.size.height = ceil(inputRect.width * φ)
     }
     else {
       outputRect.size.height = inputRect.height
@@ -208,6 +208,7 @@ class GoldenSpiralMetalFilter: NSObject, GoldenSpiralFilter {
     }
 
     let canvasRect = CGRectUnion(inputRect, outputRect)
+    print(canvasRect)
     UIGraphicsBeginImageContextWithOptions(canvasRect.size, false, 0)
     inputImage.drawInRect(inputRect)
 
@@ -226,12 +227,11 @@ class GoldenSpiralMetalFilter: NSObject, GoldenSpiralFilter {
       if portrait {
         CGContextSaveGState(bitmapContext)
 
-        let dt = outputRect.height / outputImageSize.height
+        let dt = outputRect.width / outputImageSize.width
         var contextTransform = CGAffineTransformIdentity
         contextTransform = CGAffineTransformScale(contextTransform, dt, dt)
-
         contextTransform = CGAffineTransformRotate(contextTransform, CGFloat(M_PI_2))
-        contextTransform = CGAffineTransformTranslate(contextTransform, 0, -outputImageSize.width * CGFloat(M_PI_2))
+        contextTransform = CGAffineTransformTranslate(contextTransform, 0, -5000)
         CGContextConcatCTM(bitmapContext, contextTransform)
       }
 

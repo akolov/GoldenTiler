@@ -7,10 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FA343F941BC80634001C3DBD /* GoldenSpiralFilter.h in Headers */ = {isa = PBXBuildFile; fileRef = FA343F931BC80634001C3DBD /* GoldenSpiralFilter.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		FA343F9B1BC80634001C3DBD /* GoldenSpiralFilter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA343F911BC80634001C3DBD /* GoldenSpiralFilter.framework */; settings = {ASSET_TAGS = (); }; };
+		FA343FA21BC80634001C3DBD /* GoldenSpiralFilterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA343FA11BC80634001C3DBD /* GoldenSpiralFilterTests.swift */; };
+		FA343FA61BC80634001C3DBD /* GoldenSpiralFilter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA343F911BC80634001C3DBD /* GoldenSpiralFilter.framework */; };
+		FA343FA71BC80634001C3DBD /* GoldenSpiralFilter.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FA343F911BC80634001C3DBD /* GoldenSpiralFilter.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		FA343FB11BC8065A001C3DBD /* GoldenSpiralCGFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA343FAE1BC8065A001C3DBD /* GoldenSpiralCGFilter.swift */; settings = {ASSET_TAGS = (); }; };
+		FA343FB21BC8065A001C3DBD /* GoldenSpiralFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA343FAF1BC8065A001C3DBD /* GoldenSpiralFilter.swift */; settings = {ASSET_TAGS = (); }; };
+		FA343FB31BC8065A001C3DBD /* GoldenSpiralMetalFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA343FB01BC8065A001C3DBD /* GoldenSpiralMetalFilter.swift */; settings = {ASSET_TAGS = (); }; };
+		FA343FB61BC80685001C3DBD /* GoldenSpiralFilter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA343F911BC80634001C3DBD /* GoldenSpiralFilter.framework */; };
+		FA343FB91BC806C6001C3DBD /* UIImage+Metal.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA343FB71BC806C6001C3DBD /* UIImage+Metal.swift */; settings = {ASSET_TAGS = (); }; };
+		FA343FBA1BC806C6001C3DBD /* UIImage+Transformations.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA343FB81BC806C6001C3DBD /* UIImage+Transformations.swift */; settings = {ASSET_TAGS = (); }; };
 		FA475B151BC6720000DBB478 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA475B141BC6720000DBB478 /* Logger.swift */; settings = {ASSET_TAGS = (); }; };
 		FA475B161BC6720000DBB478 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA475B141BC6720000DBB478 /* Logger.swift */; settings = {ASSET_TAGS = (); }; };
-		FA597ECE1BC4797F0061F9B1 /* UIImage+Metal.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA597ECD1BC4797F0061F9B1 /* UIImage+Metal.swift */; settings = {ASSET_TAGS = (); }; };
-		FA597ECF1BC4797F0061F9B1 /* UIImage+Metal.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA597ECD1BC4797F0061F9B1 /* UIImage+Metal.swift */; settings = {ASSET_TAGS = (); }; };
 		FA597ED01BC47F170061F9B1 /* Localizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACCBC3A1BC42E8800C074B9 /* Localizable.swift */; settings = {ASSET_TAGS = (); }; };
 		FA597ED11BC47FC20061F9B1 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = FACCBC391BC42D8800C074B9 /* Localizable.strings */; settings = {ASSET_TAGS = (); }; };
 		FA597ED31BC580610061F9B1 /* Rdar23011575Checker.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA597ED21BC580610061F9B1 /* Rdar23011575Checker.swift */; settings = {ASSET_TAGS = (); }; };
@@ -28,14 +37,6 @@
 		FACCBC4D1BC444E900C074B9 /* TimerFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACCBC491BC444E900C074B9 /* TimerFormatter.swift */; settings = {ASSET_TAGS = (); }; };
 		FACCBC4F1BC4450700C074B9 /* TimerFormatterLocalizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACCBC4E1BC4450700C074B9 /* TimerFormatterLocalizable.swift */; settings = {ASSET_TAGS = (); }; };
 		FACCBC501BC4450700C074B9 /* TimerFormatterLocalizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACCBC4E1BC4450700C074B9 /* TimerFormatterLocalizable.swift */; settings = {ASSET_TAGS = (); }; };
-		FACCBC551BC44B7400C074B9 /* GoldenSpiralCGFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACCBC521BC44B7400C074B9 /* GoldenSpiralCGFilter.swift */; settings = {ASSET_TAGS = (); }; };
-		FACCBC561BC44B7400C074B9 /* GoldenSpiralCGFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACCBC521BC44B7400C074B9 /* GoldenSpiralCGFilter.swift */; settings = {ASSET_TAGS = (); }; };
-		FACCBC571BC44B7400C074B9 /* GoldenSpiralFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACCBC531BC44B7400C074B9 /* GoldenSpiralFilter.swift */; settings = {ASSET_TAGS = (); }; };
-		FACCBC581BC44B7400C074B9 /* GoldenSpiralFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACCBC531BC44B7400C074B9 /* GoldenSpiralFilter.swift */; settings = {ASSET_TAGS = (); }; };
-		FACCBC591BC44B7400C074B9 /* GoldenSpiralMetalFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACCBC541BC44B7400C074B9 /* GoldenSpiralMetalFilter.swift */; settings = {ASSET_TAGS = (); }; };
-		FACCBC5A1BC44B7400C074B9 /* GoldenSpiralMetalFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACCBC541BC44B7400C074B9 /* GoldenSpiralMetalFilter.swift */; settings = {ASSET_TAGS = (); }; };
-		FACCBC5D1BC44B8A00C074B9 /* UIImage+Transformations.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACCBC5C1BC44B8A00C074B9 /* UIImage+Transformations.swift */; settings = {ASSET_TAGS = (); }; };
-		FACCBC5E1BC44B8A00C074B9 /* UIImage+Transformations.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACCBC5C1BC44B8A00C074B9 /* UIImage+Transformations.swift */; settings = {ASSET_TAGS = (); }; };
 		FACCBC611BC44CE100C074B9 /* ImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACCBC601BC44CE100C074B9 /* ImageView.swift */; settings = {ASSET_TAGS = (); }; };
 		FACCBC621BC44CE100C074B9 /* ImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACCBC601BC44CE100C074B9 /* ImageView.swift */; settings = {ASSET_TAGS = (); }; };
 		FACCBC641BC44D2F00C074B9 /* MetalImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACCBC631BC44D2F00C074B9 /* MetalImageView.swift */; settings = {ASSET_TAGS = (); }; };
@@ -58,6 +59,34 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		FA343F9C1BC80634001C3DBD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FAEDBE901BC1722600FDBC15 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FA343F901BC80634001C3DBD;
+			remoteInfo = GoldenSpiralFilter;
+		};
+		FA343F9E1BC80634001C3DBD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FAEDBE901BC1722600FDBC15 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FAEDBE971BC1722600FDBC15;
+			remoteInfo = GoldenTiler;
+		};
+		FA343FA41BC80634001C3DBD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FAEDBE901BC1722600FDBC15 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FA343F901BC80634001C3DBD;
+			remoteInfo = GoldenSpiralFilter;
+		};
+		FA343FB41BC8067C001C3DBD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FAEDBE901BC1722600FDBC15 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FA343F901BC80634001C3DBD;
+			remoteInfo = GoldenSpiralFilter;
+		};
 		FAEDBEAD1BC1722600FDBC15 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = FAEDBE901BC1722600FDBC15 /* Project object */;
@@ -82,6 +111,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		FA343F881BC805CE001C3DBD /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				FA343FA71BC80634001C3DBD /* GoldenSpiralFilter.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		FAEDBEEE1BC1FCC400FDBC15 /* Embed App Extensions */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -96,8 +136,19 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		FA343F681BC80352001C3DBD /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyPlayground.playground; sourceTree = "<group>"; };
+		FA343F911BC80634001C3DBD /* GoldenSpiralFilter.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GoldenSpiralFilter.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FA343F931BC80634001C3DBD /* GoldenSpiralFilter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GoldenSpiralFilter.h; sourceTree = "<group>"; };
+		FA343F951BC80634001C3DBD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FA343F9A1BC80634001C3DBD /* GoldenSpiralFilterTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GoldenSpiralFilterTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		FA343FA11BC80634001C3DBD /* GoldenSpiralFilterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoldenSpiralFilterTests.swift; sourceTree = "<group>"; };
+		FA343FA31BC80634001C3DBD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FA343FAE1BC8065A001C3DBD /* GoldenSpiralCGFilter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoldenSpiralCGFilter.swift; sourceTree = "<group>"; };
+		FA343FAF1BC8065A001C3DBD /* GoldenSpiralFilter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoldenSpiralFilter.swift; sourceTree = "<group>"; };
+		FA343FB01BC8065A001C3DBD /* GoldenSpiralMetalFilter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoldenSpiralMetalFilter.swift; sourceTree = "<group>"; };
+		FA343FB71BC806C6001C3DBD /* UIImage+Metal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Metal.swift"; sourceTree = "<group>"; };
+		FA343FB81BC806C6001C3DBD /* UIImage+Transformations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Transformations.swift"; sourceTree = "<group>"; };
 		FA475B141BC6720000DBB478 /* Logger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
-		FA597ECD1BC4797F0061F9B1 /* UIImage+Metal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Metal.swift"; sourceTree = "<group>"; };
 		FA597ED21BC580610061F9B1 /* Rdar23011575Checker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Rdar23011575Checker.swift; sourceTree = "<group>"; };
 		FACCBC2D1BC42D5D00C074B9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FACCBC2F1BC42D5D00C074B9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -108,10 +159,6 @@
 		FACCBC481BC444E900C074B9 /* Timer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Timer.swift; sourceTree = "<group>"; };
 		FACCBC491BC444E900C074B9 /* TimerFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerFormatter.swift; sourceTree = "<group>"; };
 		FACCBC4E1BC4450700C074B9 /* TimerFormatterLocalizable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerFormatterLocalizable.swift; sourceTree = "<group>"; };
-		FACCBC521BC44B7400C074B9 /* GoldenSpiralCGFilter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoldenSpiralCGFilter.swift; sourceTree = "<group>"; };
-		FACCBC531BC44B7400C074B9 /* GoldenSpiralFilter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoldenSpiralFilter.swift; sourceTree = "<group>"; };
-		FACCBC541BC44B7400C074B9 /* GoldenSpiralMetalFilter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoldenSpiralMetalFilter.swift; sourceTree = "<group>"; };
-		FACCBC5C1BC44B8A00C074B9 /* UIImage+Transformations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Transformations.swift"; sourceTree = "<group>"; };
 		FACCBC601BC44CE100C074B9 /* ImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageView.swift; sourceTree = "<group>"; };
 		FACCBC631BC44D2F00C074B9 /* MetalImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MetalImageView.swift; sourceTree = "<group>"; };
 		FACCBC661BC44DA900C074B9 /* UIImageView+ImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImageView+ImageView.swift"; sourceTree = "<group>"; };
@@ -136,10 +183,26 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		FA343F8D1BC80634001C3DBD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FA343F971BC80634001C3DBD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FA343F9B1BC80634001C3DBD /* GoldenSpiralFilter.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		FAEDBE951BC1722600FDBC15 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA343FA61BC80634001C3DBD /* GoldenSpiralFilter.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -161,6 +224,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA343FB61BC80685001C3DBD /* GoldenSpiralFilter.framework in Frameworks */,
 				FAEDBEDE1BC1FCC400FDBC15 /* PhotosUI.framework in Frameworks */,
 				FAEDBEE01BC1FCC400FDBC15 /* Photos.framework in Frameworks */,
 			);
@@ -169,6 +233,29 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		FA343F921BC80634001C3DBD /* GoldenSpiralFilter */ = {
+			isa = PBXGroup;
+			children = (
+				FA343F931BC80634001C3DBD /* GoldenSpiralFilter.h */,
+				FA343FAE1BC8065A001C3DBD /* GoldenSpiralCGFilter.swift */,
+				FA343FAF1BC8065A001C3DBD /* GoldenSpiralFilter.swift */,
+				FA343FB01BC8065A001C3DBD /* GoldenSpiralMetalFilter.swift */,
+				FA343FB71BC806C6001C3DBD /* UIImage+Metal.swift */,
+				FA343FB81BC806C6001C3DBD /* UIImage+Transformations.swift */,
+				FA343F951BC80634001C3DBD /* Info.plist */,
+			);
+			path = GoldenSpiralFilter;
+			sourceTree = "<group>";
+		};
+		FA343FA01BC80634001C3DBD /* GoldenSpiralFilterTests */ = {
+			isa = PBXGroup;
+			children = (
+				FA343FA11BC80634001C3DBD /* GoldenSpiralFilterTests.swift */,
+				FA343FA31BC80634001C3DBD /* Info.plist */,
+			);
+			path = GoldenSpiralFilterTests;
+			sourceTree = "<group>";
+		};
 		FACCBC2C1BC42D5D00C074B9 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -191,25 +278,6 @@
 			path = Timer;
 			sourceTree = "<group>";
 		};
-		FACCBC511BC44B7400C074B9 /* Filter */ = {
-			isa = PBXGroup;
-			children = (
-				FACCBC531BC44B7400C074B9 /* GoldenSpiralFilter.swift */,
-				FACCBC521BC44B7400C074B9 /* GoldenSpiralCGFilter.swift */,
-				FACCBC541BC44B7400C074B9 /* GoldenSpiralMetalFilter.swift */,
-			);
-			path = Filter;
-			sourceTree = "<group>";
-		};
-		FACCBC5B1BC44B8A00C074B9 /* Class Extensions */ = {
-			isa = PBXGroup;
-			children = (
-				FACCBC5C1BC44B8A00C074B9 /* UIImage+Transformations.swift */,
-				FA597ECD1BC4797F0061F9B1 /* UIImage+Metal.swift */,
-			);
-			path = "Class Extensions";
-			sourceTree = "<group>";
-		};
 		FACCBC5F1BC44CD500C074B9 /* ImageView */ = {
 			isa = PBXGroup;
 			children = (
@@ -227,6 +295,8 @@
 				FAEDBEAF1BC1722600FDBC15 /* GoldenTilerTests */,
 				FAEDBEBA1BC1722600FDBC15 /* GoldenTilerUITests */,
 				FAEDBEE11BC1FCC400FDBC15 /* Extension */,
+				FA343F921BC80634001C3DBD /* GoldenSpiralFilter */,
+				FA343FA01BC80634001C3DBD /* GoldenSpiralFilterTests */,
 				FAEDBEDC1BC1FCC400FDBC15 /* Frameworks */,
 				FAEDBE991BC1722600FDBC15 /* Products */,
 			);
@@ -239,6 +309,8 @@
 				FAEDBEAC1BC1722600FDBC15 /* GoldenTilerTests.xctest */,
 				FAEDBEB71BC1722600FDBC15 /* GoldenTilerUITests.xctest */,
 				FAEDBEDB1BC1FCC400FDBC15 /* Extension.appex */,
+				FA343F911BC80634001C3DBD /* GoldenSpiralFilter.framework */,
+				FA343F9A1BC80634001C3DBD /* GoldenSpiralFilterTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -246,8 +318,6 @@
 		FAEDBE9A1BC1722600FDBC15 /* GoldenTiler */ = {
 			isa = PBXGroup;
 			children = (
-				FACCBC5B1BC44B8A00C074B9 /* Class Extensions */,
-				FACCBC511BC44B7400C074B9 /* Filter */,
 				FACCBC471BC444E900C074B9 /* Timer */,
 				FACCBC5F1BC44CD500C074B9 /* ImageView */,
 				FACCBC2C1BC42D5D00C074B9 /* Resources */,
@@ -259,6 +329,7 @@
 				FAEDBE9D1BC1722600FDBC15 /* ViewController.swift */,
 				FA597ED21BC580610061F9B1 /* Rdar23011575Checker.swift */,
 				FAEDBEA71BC1722600FDBC15 /* Info.plist */,
+				FA343F681BC80352001C3DBD /* MyPlayground.playground */,
 			);
 			path = GoldenTiler;
 			sourceTree = "<group>";
@@ -302,7 +373,55 @@
 		};
 /* End PBXGroup section */
 
+/* Begin PBXHeadersBuildPhase section */
+		FA343F8E1BC80634001C3DBD /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FA343F941BC80634001C3DBD /* GoldenSpiralFilter.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
 /* Begin PBXNativeTarget section */
+		FA343F901BC80634001C3DBD /* GoldenSpiralFilter */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FA343FA81BC80634001C3DBD /* Build configuration list for PBXNativeTarget "GoldenSpiralFilter" */;
+			buildPhases = (
+				FA343F8C1BC80634001C3DBD /* Sources */,
+				FA343F8D1BC80634001C3DBD /* Frameworks */,
+				FA343F8E1BC80634001C3DBD /* Headers */,
+				FA343F8F1BC80634001C3DBD /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = GoldenSpiralFilter;
+			productName = GoldenSpiralFilter;
+			productReference = FA343F911BC80634001C3DBD /* GoldenSpiralFilter.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		FA343F991BC80634001C3DBD /* GoldenSpiralFilterTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FA343FAB1BC80634001C3DBD /* Build configuration list for PBXNativeTarget "GoldenSpiralFilterTests" */;
+			buildPhases = (
+				FA343F961BC80634001C3DBD /* Sources */,
+				FA343F971BC80634001C3DBD /* Frameworks */,
+				FA343F981BC80634001C3DBD /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				FA343F9D1BC80634001C3DBD /* PBXTargetDependency */,
+				FA343F9F1BC80634001C3DBD /* PBXTargetDependency */,
+			);
+			name = GoldenSpiralFilterTests;
+			productName = GoldenSpiralFilterTests;
+			productReference = FA343F9A1BC80634001C3DBD /* GoldenSpiralFilterTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		FAEDBE971BC1722600FDBC15 /* GoldenTiler */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = FAEDBEC01BC1722600FDBC15 /* Build configuration list for PBXNativeTarget "GoldenTiler" */;
@@ -311,11 +430,13 @@
 				FAEDBE951BC1722600FDBC15 /* Frameworks */,
 				FAEDBE961BC1722600FDBC15 /* Resources */,
 				FAEDBEEE1BC1FCC400FDBC15 /* Embed App Extensions */,
+				FA343F881BC805CE001C3DBD /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 				FAEDBEE91BC1FCC400FDBC15 /* PBXTargetDependency */,
+				FA343FA51BC80634001C3DBD /* PBXTargetDependency */,
 			);
 			name = GoldenTiler;
 			productName = GoldenTiler;
@@ -369,6 +490,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				FA343FB51BC8067C001C3DBD /* PBXTargetDependency */,
 			);
 			name = Extension;
 			productName = Extension;
@@ -381,9 +503,17 @@
 		FAEDBE901BC1722600FDBC15 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 0700;
 				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = "Alexander Kolov";
 				TargetAttributes = {
+					FA343F901BC80634001C3DBD = {
+						CreatedOnToolsVersion = 7.0.1;
+					};
+					FA343F991BC80634001C3DBD = {
+						CreatedOnToolsVersion = 7.0.1;
+						TestTargetID = FAEDBE971BC1722600FDBC15;
+					};
 					FAEDBE971BC1722600FDBC15 = {
 						CreatedOnToolsVersion = 7.0.1;
 					};
@@ -414,14 +544,30 @@
 			projectRoot = "";
 			targets = (
 				FAEDBE971BC1722600FDBC15 /* GoldenTiler */,
+				FAEDBEDA1BC1FCC400FDBC15 /* Extension */,
+				FA343F901BC80634001C3DBD /* GoldenSpiralFilter */,
 				FAEDBEAB1BC1722600FDBC15 /* GoldenTilerTests */,
 				FAEDBEB61BC1722600FDBC15 /* GoldenTilerUITests */,
-				FAEDBEDA1BC1FCC400FDBC15 /* Extension */,
+				FA343F991BC80634001C3DBD /* GoldenSpiralFilterTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		FA343F8F1BC80634001C3DBD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FA343F981BC80634001C3DBD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		FAEDBE961BC1722600FDBC15 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -461,6 +607,26 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		FA343F8C1BC80634001C3DBD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FA343FB11BC8065A001C3DBD /* GoldenSpiralCGFilter.swift in Sources */,
+				FA343FB91BC806C6001C3DBD /* UIImage+Metal.swift in Sources */,
+				FA343FBA1BC806C6001C3DBD /* UIImage+Transformations.swift in Sources */,
+				FA343FB31BC8065A001C3DBD /* GoldenSpiralMetalFilter.swift in Sources */,
+				FA343FB21BC8065A001C3DBD /* GoldenSpiralFilter.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FA343F961BC80634001C3DBD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FA343FA21BC80634001C3DBD /* GoldenSpiralFilterTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		FAEDBE941BC1722600FDBC15 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -470,18 +636,13 @@
 				FAEDBE9E1BC1722600FDBC15 /* ViewController.swift in Sources */,
 				FACCBC4A1BC444E900C074B9 /* Timer.swift in Sources */,
 				FACCBC611BC44CE100C074B9 /* ImageView.swift in Sources */,
-				FACCBC591BC44B7400C074B9 /* GoldenSpiralMetalFilter.swift in Sources */,
 				FACCBC671BC44DA900C074B9 /* UIImageView+ImageView.swift in Sources */,
-				FACCBC571BC44B7400C074B9 /* GoldenSpiralFilter.swift in Sources */,
 				FACFD8DA1BC4668900FF4249 /* BusyView.swift in Sources */,
 				FACCBC3B1BC42E8800C074B9 /* Localizable.swift in Sources */,
-				FACCBC551BC44B7400C074B9 /* GoldenSpiralCGFilter.swift in Sources */,
 				FACCBC641BC44D2F00C074B9 /* MetalImageView.swift in Sources */,
 				FACCBC4F1BC4450700C074B9 /* TimerFormatterLocalizable.swift in Sources */,
 				FA475B151BC6720000DBB478 /* Logger.swift in Sources */,
 				FACCBC4C1BC444E900C074B9 /* TimerFormatter.swift in Sources */,
-				FA597ECE1BC4797F0061F9B1 /* UIImage+Metal.swift in Sources */,
-				FACCBC5D1BC44B8A00C074B9 /* UIImage+Transformations.swift in Sources */,
 				FAEDBE9C1BC1722600FDBC15 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -506,7 +667,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FACCBC581BC44B7400C074B9 /* GoldenSpiralFilter.swift in Sources */,
 				FAEDBEF31BC1FFFB00FDBC15 /* ViewController.swift in Sources */,
 				FAEDBEE31BC1FCC400FDBC15 /* PhotoEditingViewController.swift in Sources */,
 				FACCBC681BC44DA900C074B9 /* UIImageView+ImageView.swift in Sources */,
@@ -515,20 +675,36 @@
 				FACCBC4D1BC444E900C074B9 /* TimerFormatter.swift in Sources */,
 				FA597ED01BC47F170061F9B1 /* Localizable.swift in Sources */,
 				FA475B161BC6720000DBB478 /* Logger.swift in Sources */,
-				FACCBC5E1BC44B8A00C074B9 /* UIImage+Transformations.swift in Sources */,
-				FACCBC5A1BC44B7400C074B9 /* GoldenSpiralMetalFilter.swift in Sources */,
 				FA597ED41BC580610061F9B1 /* Rdar23011575Checker.swift in Sources */,
 				FACCBC501BC4450700C074B9 /* TimerFormatterLocalizable.swift in Sources */,
 				FACCBC651BC44D2F00C074B9 /* MetalImageView.swift in Sources */,
-				FACCBC561BC44B7400C074B9 /* GoldenSpiralCGFilter.swift in Sources */,
 				FACCBC4B1BC444E900C074B9 /* Timer.swift in Sources */,
-				FA597ECF1BC4797F0061F9B1 /* UIImage+Metal.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		FA343F9D1BC80634001C3DBD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FA343F901BC80634001C3DBD /* GoldenSpiralFilter */;
+			targetProxy = FA343F9C1BC80634001C3DBD /* PBXContainerItemProxy */;
+		};
+		FA343F9F1BC80634001C3DBD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FAEDBE971BC1722600FDBC15 /* GoldenTiler */;
+			targetProxy = FA343F9E1BC80634001C3DBD /* PBXContainerItemProxy */;
+		};
+		FA343FA51BC80634001C3DBD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FA343F901BC80634001C3DBD /* GoldenSpiralFilter */;
+			targetProxy = FA343FA41BC80634001C3DBD /* PBXContainerItemProxy */;
+		};
+		FA343FB51BC8067C001C3DBD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FA343F901BC80634001C3DBD /* GoldenSpiralFilter */;
+			targetProxy = FA343FB41BC8067C001C3DBD /* PBXContainerItemProxy */;
+		};
 		FAEDBEAE1BC1722600FDBC15 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = FAEDBE971BC1722600FDBC15 /* GoldenTiler */;
@@ -590,6 +766,71 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		FA343FA91BC80634001C3DBD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CLANG_ENABLE_MODULES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = GoldenSpiralFilter/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.alexkolov.GoldenSpiralFilter;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		FA343FAA1BC80634001C3DBD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CLANG_ENABLE_MODULES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = GoldenSpiralFilter/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.alexkolov.GoldenSpiralFilter;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		FA343FAC1BC80634001C3DBD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = GoldenSpiralFilterTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.alexkolov.GoldenSpiralFilterTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GoldenTiler.app/GoldenTiler";
+			};
+			name = Debug;
+		};
+		FA343FAD1BC80634001C3DBD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = GoldenSpiralFilterTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.alexkolov.GoldenSpiralFilterTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GoldenTiler.app/GoldenTiler";
+			};
+			name = Release;
+		};
 		FAEDBEBE1BC1722600FDBC15 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -770,6 +1011,22 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		FA343FA81BC80634001C3DBD /* Build configuration list for PBXNativeTarget "GoldenSpiralFilter" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FA343FA91BC80634001C3DBD /* Debug */,
+				FA343FAA1BC80634001C3DBD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		FA343FAB1BC80634001C3DBD /* Build configuration list for PBXNativeTarget "GoldenSpiralFilterTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FA343FAC1BC80634001C3DBD /* Debug */,
+				FA343FAD1BC80634001C3DBD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		FAEDBE931BC1722600FDBC15 /* Build configuration list for PBXProject "GoldenTiler" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

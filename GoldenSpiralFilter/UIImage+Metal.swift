@@ -9,9 +9,9 @@
 import Metal
 import UIKit
 
-extension UIImage {
+public extension UIImage {
 
-  func imageByConvertingFromCIImage(device device: MTLDevice? = nil, context: CIContext? = nil) -> UIImage? {
+  public func imageByConvertingFromCIImage(device device: MTLDevice? = nil, context: CIContext? = nil) -> UIImage? {
     if CGImage != nil {
       return self
     }

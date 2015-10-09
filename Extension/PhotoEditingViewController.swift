@@ -6,6 +6,7 @@
 //  Copyright © 2015 Alexander Kolov. All rights reserved.
 //
 
+import GoldenSpiralFilter
 import Metal
 import Photos
 import PhotosUI

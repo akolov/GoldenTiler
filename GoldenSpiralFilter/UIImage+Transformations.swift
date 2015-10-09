@@ -8,9 +8,9 @@
 
 import UIKit
 
-extension UIImage {
+public extension UIImage {
 
-  func imageByFixingOrientation() -> UIImage? {
+  public func imageByFixingOrientation() -> UIImage? {
     if imageOrientation == .Up {
       return self
     }
@@ -68,7 +68,7 @@ extension UIImage {
     return UIImage(CGImage: image)
   }
 
-  var EXIFOrientation: Int32 {
+  public var EXIFOrientation: Int32 {
     switch imageOrientation {
     case .Up:
       return 1
