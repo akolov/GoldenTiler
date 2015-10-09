@@ -129,6 +129,9 @@ class ViewController: UIViewController, UIScrollViewDelegate, Rdar23011575Checke
   }
 
   func applyFiltersAndDisplay<T: GoldenSpiralFilter, V: ImageView where V: UIView>(image sourceImage: UIImage, filterClass: T.Type, viewClass: V.Type) {
+
+    // QuickLook for filter doesn't work here. See rdar://23053159
+
     toggleInterface(enabled: false)
 
     var rdar23011575Checker: Rdar23011575Checker?

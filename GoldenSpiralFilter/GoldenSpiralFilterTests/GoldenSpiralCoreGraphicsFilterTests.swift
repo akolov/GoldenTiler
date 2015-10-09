@@ -11,6 +11,8 @@ import XCTest
 
 class GoldenSpiralCoreGraphicsFilterTests: XCTestCase {
 
+  // Tests are not working, unfortunately. See rdar://23053275
+
   var filter: GoldenSpiralCGFilter!
 
   let portraitPath: String! = NSBundle.mainBundle().pathForResource("testPortrait", ofType: "jpg")
