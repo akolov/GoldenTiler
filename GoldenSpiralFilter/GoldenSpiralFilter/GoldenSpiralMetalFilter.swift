@@ -10,7 +10,6 @@ import Foundation
 import CoreImage
 import ImageIO
 import Metal
-import MetalKit
 import MetalPerformanceShaders
 import UIKit
 
@@ -30,8 +29,13 @@ public class GoldenSpiralMetalFilter: NSObject, GoldenSpiralFilter {
 
       colorSpace = CGImageGetColorSpace(inputImage.CGImage) ?? CGColorSpaceCreateDeviceRGB()
 
-      let dimension = ceil(min(inputImage.size.width, inputImage.size.height))
-      outputImageSize = CGSize(width: dimension * φ, height: dimension)
+      let dimension = round(min(inputImage.size.width, inputImage.size.height))
+      if inputImage.size.height > inputImage.size.width {
+        outputImageSize = CGSize(width: dimension, height: dimension * φ)
+      }
+      else {
+        outputImageSize = CGSize(width: dimension * φ, height: dimension)
+      }
     }
   }
 
@@ -59,8 +63,8 @@ public class GoldenSpiralMetalFilter: NSObject, GoldenSpiralFilter {
     let maxInputSize = context.inputImageMaximumSize()
     let maxOutputSize = context.outputImageMaximumSize()
 
-    let canProcessInput = min(maxInputSize.width, maxInputSize.height) >= max(inputImage.size.width, inputImage.size.height)
-    let canProcessOutput = min(maxOutputSize.width, maxOutputSize.height) >= outputImageSize.width
+    let canProcessInput = maxInputSize.width >= inputImage.size.width && maxInputSize.height >= inputImage.size.height
+    let canProcessOutput = maxOutputSize.width >= outputImageSize.width && maxOutputSize.height >= outputImageSize.height
 
     return canProcessInput && canProcessOutput
   }
@@ -82,11 +86,11 @@ public class GoldenSpiralMetalFilter: NSObject, GoldenSpiralFilter {
       return nil
     }
 
-    guard let (image, portrait) = imagedPreparedForTiling(image: sourceImage) else {
+    guard let image = imagedPreparedForTiling(image: sourceImage) else {
       return nil
     }
 
-    let canvasRect = CGRect(x: 0, y: 0, width: ceil(outputImageSize.width), height: image.extent.height)
+    let canvasRect = CGRect(x: 0, y: 0, width: outputImageSize.width, height: outputImageSize.height)
     let canvasTexture = createTexture(width: Int(canvasRect.width), height: Int(canvasRect.height))
 
     let sourceOrigin = MTLOrigin(x: 0, y: 0, z: 0)
@@ -118,14 +122,7 @@ public class GoldenSpiralMetalFilter: NSObject, GoldenSpiralFilter {
 
     commandBuffer.commit()
 
-    var tiledImage = CIImage(MTLTexture: canvasTexture, options: [kCIImageColorSpace: colorSpace])
-    if portrait {
-      tiledImage = tiledImage.imageByApplyingOrientation(5)
-    }
-    else {
-      tiledImage = tiledImage.imageByApplyingOrientation(4)
-    }
-
+    let tiledImage = CIImage(MTLTexture: canvasTexture, options: [kCIImageColorSpace: colorSpace])
     return UIImage(CIImage: tiledImage)
   }
 
@@ -154,26 +151,19 @@ public class GoldenSpiralMetalFilter: NSObject, GoldenSpiralFilter {
     return texture
   }
 
-  private func imagedPreparedForTiling(image sourceImage: UIImage) -> (image: CIImage, portrait: Bool)? {
+  private func imagedPreparedForTiling(image sourceImage: UIImage) -> CIImage? {
     let sourceOrientation = sourceImage.EXIFOrientation
     guard let image = CIImage(image: sourceImage)?.imageByApplyingOrientation(sourceOrientation) else {
       return nil
     }
 
-    let portrait = image.extent.height > image.extent.width
     let width = image.extent.width
     let height = image.extent.height
-    let dimension = ceil(min(width, height))
+    let dimension = min(width, height)
     let cropRect = imageCropRect(image: image, toDimension: dimension)
 
     let preparedImage = image.imageByCroppingToRect(cropRect)
-
-    if portrait {
-      return (preparedImage.imageByApplyingOrientation(5), portrait)
-    }
-    else {
-      return (preparedImage.imageByApplyingOrientation(4), portrait)
-    }
+    return preparedImage
   }
 
   // MARK: - Debugging support
@@ -200,15 +190,14 @@ public class GoldenSpiralMetalFilter: NSObject, GoldenSpiralFilter {
     outputRect.origin.x = inputRect.maxX + spacing
     if portrait {
       outputRect.size.width = inputRect.width
-      outputRect.size.height = ceil(inputRect.width * φ)
+      outputRect.size.height = round(inputRect.width * φ)
     }
     else {
       outputRect.size.height = inputRect.height
-      outputRect.size.width = ceil(inputRect.height * φ)
+      outputRect.size.width = round(inputRect.height * φ)
     }
 
     let canvasRect = CGRectUnion(inputRect, outputRect)
-    print(canvasRect)
     UIGraphicsBeginImageContextWithOptions(canvasRect.size, false, 0)
     inputImage.drawInRect(inputRect)
 
@@ -222,27 +211,10 @@ public class GoldenSpiralMetalFilter: NSObject, GoldenSpiralFilter {
         paths.append(path)
       }
 
-      let bitmapContext = UIGraphicsGetCurrentContext()
-
-      if portrait {
-        CGContextSaveGState(bitmapContext)
-
-        let dt = outputRect.width / outputImageSize.width
-        var contextTransform = CGAffineTransformIdentity
-        contextTransform = CGAffineTransformScale(contextTransform, dt, dt)
-        contextTransform = CGAffineTransformRotate(contextTransform, CGFloat(M_PI_2))
-        contextTransform = CGAffineTransformTranslate(contextTransform, 0, -5000)
-        CGContextConcatCTM(bitmapContext, contextTransform)
-      }
-
       let colorShift = 0.7 / CGFloat(paths.count)
       for (index, path) in paths.enumerate() {
         UIColor(white: 0.2 + colorShift * CGFloat(index), alpha: 1).setFill()
         path.fill()
-      }
-
-      if portrait {
-        CGContextRestoreGState(bitmapContext)
       }
 
       let string: NSString = "Output image has not been processed yet"

@@ -31,12 +31,26 @@ public protocol GoldenSpiralFilter: NSObjectProtocol {
 public extension GoldenSpiralFilter {
 
   public func tiles() -> AnyGenerator<CGRect> {
-    let dimension = outputImageSize.height
+    let dimension = min(outputImageSize.width, outputImageSize.height)
+    let portrait = outputImageSize.height > outputImageSize.width
+    var transform = CGAffineTransformIdentity
+
+    // Transformations needed because context origin is (bottom, left)
+
+    if portrait {
+      transform = CGAffineTransformRotate(transform, CGFloat(-M_PI_2))
+      transform = CGAffineTransformTranslate(transform, -outputImageSize.height, 0)
+    }
+    else {
+      transform = CGAffineTransformTranslate(transform, 0, outputImageSize.height)
+      transform = CGAffineTransformScale(transform, 1, -1)
+    }
+
     var x: CGFloat = 0, y: CGFloat = 0, counter = 0
 
     return anyGenerator {
-      let a = ceil(CGFloat(dimension) / pow(φ, CGFloat(counter)))
-      let b = ceil(CGFloat(dimension) / pow(φ, CGFloat(counter) + 1))
+      let a = round(CGFloat(dimension) / pow(φ, CGFloat(counter)))
+      let b = round(CGFloat(dimension) / pow(φ, CGFloat(counter) + 1))
 
       // Bail out when significant part is less than 2 pixels
       if a < 2 {
@@ -48,19 +62,19 @@ public extension GoldenSpiralFilter {
       switch counter % 4 {
       case 0:
         origin = CGPoint(x: x, y: y)
-        x += ceil(a + b)
+        x += round(a + b)
 
       case 1:
         origin = CGPoint(x: x - a, y: y)
-        y += ceil(a + b)
+        y += round(a + b)
 
       case 2:
         origin = CGPoint(x: x - a, y: y - a)
-        x -= ceil(a + b)
+        x -= round(a + b)
 
       case 3:
         origin = CGPoint(x: x, y: y - a)
-        y -= ceil(a + b)
+        y -= round(a + b)
 
       default:
         break
@@ -68,7 +82,8 @@ public extension GoldenSpiralFilter {
 
       counter++
 
-      return CGRect(origin: origin, size: CGSize(width: a, height: a))
+      let rect = CGRect(origin: origin, size: CGSize(width: a, height: a))
+      return CGRectApplyAffineTransform(rect, transform)
     }
   }
 
