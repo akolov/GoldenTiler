@@ -16,32 +16,18 @@ class PhotoEditingViewController: ViewController, PHContentEditingController {
 
   var input: PHContentEditingInput?
 
-  override func viewDidLoad() {
-    super.viewDidLoad()
-  }
-
   override func viewDidLayoutSubviews() {
     super.viewDidLayoutSubviews()
     scrollView.contentInset.top = topLayoutGuide.length
   }
 
-  override func didReceiveMemoryWarning() {
-    super.didReceiveMemoryWarning()
-    // Dispose of any resources that can be recreated.
-  }
-
   // MARK: - PHContentEditingController
 
   func canHandleAdjustmentData(adjustmentData: PHAdjustmentData?) -> Bool {
-    // Inspect the adjustmentData to determine whether your extension can work with past edits.
-    // (Typically, you use its formatIdentifier and formatVersion properties to do this.)
     return false
   }
 
   func startContentEditingWithInput(contentEditingInput: PHContentEditingInput?, placeholderImage: UIImage) {
-    // Present content for editing, and keep the contentEditingInput for use when closing the edit session.
-    // If you returned true from canHandleAdjustmentData:, contentEditingInput has the original image and adjustment data.
-    // If you returned false, the contentEditingInput has past edits "baked in".
     input = contentEditingInput
 
     guard let image = input?.displaySizeImage else {
@@ -137,14 +123,11 @@ class PhotoEditingViewController: ViewController, PHContentEditingController {
   }
 
   var shouldShowCancelConfirmation: Bool {
-    // Determines whether a confirmation to discard changes should be shown to the user on cancel.
-    // (Typically, this should be "true" if there are any unsaved changes.)
     return false
   }
 
   func cancelContentEditing() {
-    // Clean up temporary files, etc.
-    // May be called after finishContentEditingWithCompletionHandler: while you prepare output.
+    // noop
   }
 
   // MARK: -

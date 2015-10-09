@@ -100,7 +100,76 @@ public class GoldenSpiralCGFilter: NSObject, GoldenSpiralFilter {
   // MARK: - Debugging support
 
   func debugQuickLookObject() -> AnyObject? {
-    return nil
+    guard let inputImage = inputImage else {
+      return "GoldenSpiralMetalFilter with no images set"
+    }
+
+    let spacing: CGFloat = 30
+    let portrait = inputImage.size.height > inputImage.size.width
+
+    let inputAspectRatio = inputImage.size.width / inputImage.size.height
+    let outputAspectRatio = outputImageSize.width / outputImageSize.height
+
+    var inputRect = CGRectZero, outputRect = CGRectZero
+    if portrait {
+      inputRect.size.width = 400
+      inputRect.size.height = round(inputRect.width / inputAspectRatio)
+      outputRect.size.width = 400
+      outputRect.size.height = round(outputRect.width / outputAspectRatio)
+      inputRect.origin.y = (outputRect.size.height - inputRect.size.height) / 2.0
+    }
+    else {
+      inputRect.size.height = 400
+      inputRect.size.width = round(inputRect.height * inputAspectRatio)
+      outputRect.size.height = 400
+      outputRect.size.width = round(outputRect.height * outputAspectRatio)
+    }
+
+    outputRect.origin.x += inputRect.maxX + spacing
+
+    let canvasRect = CGRectUnion(inputRect, outputRect)
+    UIGraphicsBeginImageContextWithOptions(canvasRect.size, false, 0)
+    inputImage.drawInRect(inputRect)
+
+    if let _outputImage = _outputImage {
+      _outputImage.drawInRect(outputRect)
+    }
+    else {
+      var transform = CGAffineTransformIdentity
+      transform = CGAffineTransformTranslate(transform, outputRect.origin.x, outputImageSize.height * outputRect.height / outputImageSize.height)
+      transform = CGAffineTransformScale(transform, outputRect.width / outputImageSize.width, -outputRect.height / outputImageSize.height)
+
+      var paths = [UIBezierPath]()
+      for rect in tiles() {
+        let path = UIBezierPath(rect: CGRectApplyAffineTransform(rect, transform))
+        paths.append(path)
+      }
+
+      let colorShift = 0.7 / CGFloat(paths.count)
+      for (index, path) in paths.enumerate() {
+        UIColor(white: 0.2 + colorShift * CGFloat(index), alpha: 1).setFill()
+        path.fill()
+      }
+
+      let string: NSString = "Output image has not been processed yet"
+      let paragraph = NSMutableParagraphStyle()
+      paragraph.alignment = .Center
+      paragraph.lineBreakMode = .ByWordWrapping
+      let attributes = [NSParagraphStyleAttributeName: paragraph, NSForegroundColorAttributeName: UIColor.whiteColor()]
+      let textBoxSize = outputRect.insetBy(dx: 10, dy: 10).size
+      var textRect = string.boundingRectWithSize(textBoxSize, options: .UsesLineFragmentOrigin, attributes: attributes, context: nil)
+      textRect.origin.x = outputRect.minX + (outputRect.width - textRect.width) / 2.0
+      textRect.origin.y = outputRect.minY + (outputRect.height - textRect.height) / 2.0
+      string.drawInRect(textRect, withAttributes: attributes)
+    }
+
+    let arrow: NSString = "➡︎"
+    var arrowRect = arrow.boundingRectWithSize(canvasRect.size, options: .UsesLineFragmentOrigin, attributes: nil, context: nil)
+    arrowRect.origin.x = canvasRect.midX - arrowRect.midX
+    arrowRect.origin.y = canvasRect.midY - arrowRect.midY
+    arrow.drawInRect(arrowRect, withAttributes: nil)
+
+    return UIGraphicsGetImageFromCurrentImageContext()
   }
 
 }

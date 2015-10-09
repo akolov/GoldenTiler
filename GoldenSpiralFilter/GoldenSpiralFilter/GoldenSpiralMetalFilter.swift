@@ -174,28 +174,27 @@ public class GoldenSpiralMetalFilter: NSObject, GoldenSpiralFilter {
     }
 
     let spacing: CGFloat = 30
-    var inputRect = CGRectZero
     let portrait = inputImage.size.height > inputImage.size.width
 
+    let inputAspectRatio = inputImage.size.width / inputImage.size.height
+    let outputAspectRatio = outputImageSize.width / outputImageSize.height
+
+    var inputRect = CGRectZero, outputRect = CGRectZero
     if portrait {
-      inputRect.size.height = 400
-      inputRect.size.width = inputImage.size.width / inputImage.size.height * inputRect.height
+      inputRect.size.width = 400
+      inputRect.size.height = round(inputRect.width / inputAspectRatio)
+      outputRect.size.width = 400
+      outputRect.size.height = round(outputRect.width / outputAspectRatio)
+      inputRect.origin.y = (outputRect.size.height - inputRect.size.height) / 2.0
     }
     else {
-      inputRect.size.width = 400
-      inputRect.size.height = inputImage.size.height / inputImage.size.width * inputRect.width
+      inputRect.size.height = 400
+      inputRect.size.width = round(inputRect.height * inputAspectRatio)
+      outputRect.size.height = 400
+      outputRect.size.width = round(outputRect.height * outputAspectRatio)
     }
 
-    var outputRect = CGRectZero
-    outputRect.origin.x = inputRect.maxX + spacing
-    if portrait {
-      outputRect.size.width = inputRect.width
-      outputRect.size.height = round(inputRect.width * φ)
-    }
-    else {
-      outputRect.size.height = inputRect.height
-      outputRect.size.width = round(inputRect.height * φ)
-    }
+    outputRect.origin.x += inputRect.maxX + spacing
 
     let canvasRect = CGRectUnion(inputRect, outputRect)
     UIGraphicsBeginImageContextWithOptions(canvasRect.size, false, 0)
@@ -205,9 +204,13 @@ public class GoldenSpiralMetalFilter: NSObject, GoldenSpiralFilter {
       _outputImage.imageByConvertingFromCIImage(device: device, context: context)?.drawInRect(outputRect)
     }
     else {
+      var transform = CGAffineTransformIdentity
+      transform = CGAffineTransformTranslate(transform, outputRect.origin.x, outputImageSize.height * outputRect.height / outputImageSize.height)
+      transform = CGAffineTransformScale(transform, outputRect.width / outputImageSize.width, -outputRect.height / outputImageSize.height)
+
       var paths = [UIBezierPath]()
       for rect in tiles() {
-        let path = UIBezierPath(rect: rect)
+        let path = UIBezierPath(rect: CGRectApplyAffineTransform(rect, transform))
         paths.append(path)
       }
 
@@ -228,6 +231,12 @@ public class GoldenSpiralMetalFilter: NSObject, GoldenSpiralFilter {
       textRect.origin.y = outputRect.minY + (outputRect.height - textRect.height) / 2.0
       string.drawInRect(textRect, withAttributes: attributes)
     }
+
+    let arrow: NSString = "➡︎"
+    var arrowRect = arrow.boundingRectWithSize(canvasRect.size, options: .UsesLineFragmentOrigin, attributes: nil, context: nil)
+    arrowRect.origin.x = canvasRect.midX - arrowRect.midX
+    arrowRect.origin.y = canvasRect.midY - arrowRect.midY
+    arrow.drawInRect(arrowRect, withAttributes: nil)
 
     return UIGraphicsGetImageFromCurrentImageContext()
   }
