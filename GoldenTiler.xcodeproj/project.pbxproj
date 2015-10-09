@@ -39,7 +39,6 @@
 		FACFD8DB1BC4668900FF4249 /* BusyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACFD8D91BC4668900FF4249 /* BusyView.swift */; settings = {ASSET_TAGS = (); }; };
 		FAEDBE9C1BC1722600FDBC15 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEDBE9B1BC1722600FDBC15 /* AppDelegate.swift */; };
 		FAEDBE9E1BC1722600FDBC15 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEDBE9D1BC1722600FDBC15 /* ViewController.swift */; };
-		FAEDBEBC1BC1722600FDBC15 /* GoldenTilerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEDBEBB1BC1722600FDBC15 /* GoldenTilerUITests.swift */; };
 		FAEDBEDE1BC1FCC400FDBC15 /* PhotosUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAEDBEDD1BC1FCC400FDBC15 /* PhotosUI.framework */; settings = {ASSET_TAGS = (); }; };
 		FAEDBEE01BC1FCC400FDBC15 /* Photos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAEDBEDF1BC1FCC400FDBC15 /* Photos.framework */; settings = {ASSET_TAGS = (); }; };
 		FAEDBEE31BC1FCC400FDBC15 /* PhotoEditingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEDBEE21BC1FCC400FDBC15 /* PhotoEditingViewController.swift */; };
@@ -148,8 +147,6 @@
 		FAEDBE9D1BC1722600FDBC15 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		FAEDBEA71BC1722600FDBC15 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FAEDBEB71BC1722600FDBC15 /* GoldenTilerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GoldenTilerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		FAEDBEBB1BC1722600FDBC15 /* GoldenTilerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoldenTilerUITests.swift; sourceTree = "<group>"; };
-		FAEDBEBD1BC1722600FDBC15 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FAEDBEDB1BC1FCC400FDBC15 /* Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = Extension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAEDBEDD1BC1FCC400FDBC15 /* PhotosUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PhotosUI.framework; path = System/Library/Frameworks/PhotosUI.framework; sourceTree = SDKROOT; };
 		FAEDBEDF1BC1FCC400FDBC15 /* Photos.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Photos.framework; path = System/Library/Frameworks/Photos.framework; sourceTree = SDKROOT; };
@@ -234,7 +231,6 @@
 			children = (
 				FA34401C1BC8099F001C3DBD /* GoldenSpiralFilter.xcodeproj */,
 				FAEDBE9A1BC1722600FDBC15 /* GoldenTiler */,
-				FAEDBEBA1BC1722600FDBC15 /* GoldenTilerUITests */,
 				FAEDBEE11BC1FCC400FDBC15 /* Extension */,
 				FAEDBEDC1BC1FCC400FDBC15 /* Frameworks */,
 				FAEDBE991BC1722600FDBC15 /* Products */,
@@ -267,15 +263,6 @@
 				FAEDBEA71BC1722600FDBC15 /* Info.plist */,
 			);
 			path = GoldenTiler;
-			sourceTree = "<group>";
-		};
-		FAEDBEBA1BC1722600FDBC15 /* GoldenTilerUITests */ = {
-			isa = PBXGroup;
-			children = (
-				FAEDBEBB1BC1722600FDBC15 /* GoldenTilerUITests.swift */,
-				FAEDBEBD1BC1722600FDBC15 /* Info.plist */,
-			);
-			path = GoldenTilerUITests;
 			sourceTree = "<group>";
 		};
 		FAEDBEDC1BC1FCC400FDBC15 /* Frameworks */ = {
@@ -480,7 +467,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FAEDBEBC1BC1722600FDBC15 /* GoldenTilerUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
