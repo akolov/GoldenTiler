@@ -101,6 +101,7 @@ public extension GoldenSpiralFilter {
       var facesRect = features.map { $0.bounds }.reduce(features.first!.bounds, combine: CGRectUnion)
       facesRect.insetInPlace(dx: (dimension - facesRect.width) / -2.0, dy: (dimension - facesRect.height) / -2.0)
       facesRect.offsetInPlace(dx: facesRect.minX < 0 ? -facesRect.minX : 0, dy: facesRect.minY < 0 ? -facesRect.minY : 0)
+      facesRect.offsetInPlace(dx: dimension - facesRect.maxX, dy: dimension - facesRect.maxY)
       cropRect = facesRect
     }
 
