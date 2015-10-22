@@ -10,42 +10,42 @@
 		FA3440331BC809E7001C3DBD /* GoldenSpiralFilter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA3440221BC809A0001C3DBD /* GoldenSpiralFilter.framework */; };
 		FA3440341BC809EE001C3DBD /* GoldenSpiralFilter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA3440221BC809A0001C3DBD /* GoldenSpiralFilter.framework */; };
 		FA3440361BC809F7001C3DBD /* GoldenSpiralFilter.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FA3440221BC809A0001C3DBD /* GoldenSpiralFilter.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		FA475B151BC6720000DBB478 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA475B141BC6720000DBB478 /* Logger.swift */; settings = {ASSET_TAGS = (); }; };
-		FA475B161BC6720000DBB478 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA475B141BC6720000DBB478 /* Logger.swift */; settings = {ASSET_TAGS = (); }; };
-		FA597ED01BC47F170061F9B1 /* Localizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACCBC3A1BC42E8800C074B9 /* Localizable.swift */; settings = {ASSET_TAGS = (); }; };
-		FA597ED11BC47FC20061F9B1 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = FACCBC391BC42D8800C074B9 /* Localizable.strings */; settings = {ASSET_TAGS = (); }; };
-		FA597ED31BC580610061F9B1 /* Rdar23011575Checker.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA597ED21BC580610061F9B1 /* Rdar23011575Checker.swift */; settings = {ASSET_TAGS = (); }; };
-		FA597ED41BC580610061F9B1 /* Rdar23011575Checker.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA597ED21BC580610061F9B1 /* Rdar23011575Checker.swift */; settings = {ASSET_TAGS = (); }; };
-		FACCBC321BC42D5D00C074B9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FACCBC2D1BC42D5D00C074B9 /* Assets.xcassets */; settings = {ASSET_TAGS = (); }; };
-		FACCBC331BC42D5D00C074B9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FACCBC2E1BC42D5D00C074B9 /* LaunchScreen.storyboard */; settings = {ASSET_TAGS = (); }; };
-		FACCBC341BC42D5D00C074B9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FACCBC301BC42D5D00C074B9 /* Main.storyboard */; settings = {ASSET_TAGS = (); }; };
+		FA475B151BC6720000DBB478 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA475B141BC6720000DBB478 /* Logger.swift */; };
+		FA475B161BC6720000DBB478 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA475B141BC6720000DBB478 /* Logger.swift */; };
+		FA597ED01BC47F170061F9B1 /* Localizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACCBC3A1BC42E8800C074B9 /* Localizable.swift */; };
+		FA597ED11BC47FC20061F9B1 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = FACCBC391BC42D8800C074B9 /* Localizable.strings */; };
+		FA597ED31BC580610061F9B1 /* Rdar23011575Checker.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA597ED21BC580610061F9B1 /* Rdar23011575Checker.swift */; };
+		FA597ED41BC580610061F9B1 /* Rdar23011575Checker.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA597ED21BC580610061F9B1 /* Rdar23011575Checker.swift */; };
+		FACCBC321BC42D5D00C074B9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FACCBC2D1BC42D5D00C074B9 /* Assets.xcassets */; };
+		FACCBC331BC42D5D00C074B9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FACCBC2E1BC42D5D00C074B9 /* LaunchScreen.storyboard */; };
+		FACCBC341BC42D5D00C074B9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FACCBC301BC42D5D00C074B9 /* Main.storyboard */; };
 		FACCBC371BC42D8800C074B9 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = FACCBC391BC42D8800C074B9 /* Localizable.strings */; };
-		FACCBC3B1BC42E8800C074B9 /* Localizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACCBC3A1BC42E8800C074B9 /* Localizable.swift */; settings = {ASSET_TAGS = (); }; };
+		FACCBC3B1BC42E8800C074B9 /* Localizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACCBC3A1BC42E8800C074B9 /* Localizable.swift */; };
 		FACCBC431BC4441D00C074B9 /* TimerFormatter.strings in Resources */ = {isa = PBXBuildFile; fileRef = FACCBC461BC4441D00C074B9 /* TimerFormatter.strings */; };
 		FACCBC441BC4441D00C074B9 /* TimerFormatter.strings in Resources */ = {isa = PBXBuildFile; fileRef = FACCBC461BC4441D00C074B9 /* TimerFormatter.strings */; };
-		FACCBC4A1BC444E900C074B9 /* Timer.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACCBC481BC444E900C074B9 /* Timer.swift */; settings = {ASSET_TAGS = (); }; };
-		FACCBC4B1BC444E900C074B9 /* Timer.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACCBC481BC444E900C074B9 /* Timer.swift */; settings = {ASSET_TAGS = (); }; };
-		FACCBC4C1BC444E900C074B9 /* TimerFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACCBC491BC444E900C074B9 /* TimerFormatter.swift */; settings = {ASSET_TAGS = (); }; };
-		FACCBC4D1BC444E900C074B9 /* TimerFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACCBC491BC444E900C074B9 /* TimerFormatter.swift */; settings = {ASSET_TAGS = (); }; };
-		FACCBC4F1BC4450700C074B9 /* TimerFormatterLocalizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACCBC4E1BC4450700C074B9 /* TimerFormatterLocalizable.swift */; settings = {ASSET_TAGS = (); }; };
-		FACCBC501BC4450700C074B9 /* TimerFormatterLocalizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACCBC4E1BC4450700C074B9 /* TimerFormatterLocalizable.swift */; settings = {ASSET_TAGS = (); }; };
-		FACCBC611BC44CE100C074B9 /* ImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACCBC601BC44CE100C074B9 /* ImageView.swift */; settings = {ASSET_TAGS = (); }; };
-		FACCBC621BC44CE100C074B9 /* ImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACCBC601BC44CE100C074B9 /* ImageView.swift */; settings = {ASSET_TAGS = (); }; };
-		FACCBC641BC44D2F00C074B9 /* MetalImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACCBC631BC44D2F00C074B9 /* MetalImageView.swift */; settings = {ASSET_TAGS = (); }; };
-		FACCBC651BC44D2F00C074B9 /* MetalImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACCBC631BC44D2F00C074B9 /* MetalImageView.swift */; settings = {ASSET_TAGS = (); }; };
-		FACCBC671BC44DA900C074B9 /* UIImageView+ImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACCBC661BC44DA900C074B9 /* UIImageView+ImageView.swift */; settings = {ASSET_TAGS = (); }; };
-		FACCBC681BC44DA900C074B9 /* UIImageView+ImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACCBC661BC44DA900C074B9 /* UIImageView+ImageView.swift */; settings = {ASSET_TAGS = (); }; };
-		FACFD8DA1BC4668900FF4249 /* BusyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACFD8D91BC4668900FF4249 /* BusyView.swift */; settings = {ASSET_TAGS = (); }; };
-		FACFD8DB1BC4668900FF4249 /* BusyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACFD8D91BC4668900FF4249 /* BusyView.swift */; settings = {ASSET_TAGS = (); }; };
+		FACCBC4A1BC444E900C074B9 /* Timer.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACCBC481BC444E900C074B9 /* Timer.swift */; };
+		FACCBC4B1BC444E900C074B9 /* Timer.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACCBC481BC444E900C074B9 /* Timer.swift */; };
+		FACCBC4C1BC444E900C074B9 /* TimerFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACCBC491BC444E900C074B9 /* TimerFormatter.swift */; };
+		FACCBC4D1BC444E900C074B9 /* TimerFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACCBC491BC444E900C074B9 /* TimerFormatter.swift */; };
+		FACCBC4F1BC4450700C074B9 /* TimerFormatterLocalizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACCBC4E1BC4450700C074B9 /* TimerFormatterLocalizable.swift */; };
+		FACCBC501BC4450700C074B9 /* TimerFormatterLocalizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACCBC4E1BC4450700C074B9 /* TimerFormatterLocalizable.swift */; };
+		FACCBC611BC44CE100C074B9 /* ImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACCBC601BC44CE100C074B9 /* ImageView.swift */; };
+		FACCBC621BC44CE100C074B9 /* ImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACCBC601BC44CE100C074B9 /* ImageView.swift */; };
+		FACCBC641BC44D2F00C074B9 /* MetalImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACCBC631BC44D2F00C074B9 /* MetalImageView.swift */; };
+		FACCBC651BC44D2F00C074B9 /* MetalImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACCBC631BC44D2F00C074B9 /* MetalImageView.swift */; };
+		FACCBC671BC44DA900C074B9 /* UIImageView+ImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACCBC661BC44DA900C074B9 /* UIImageView+ImageView.swift */; };
+		FACCBC681BC44DA900C074B9 /* UIImageView+ImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACCBC661BC44DA900C074B9 /* UIImageView+ImageView.swift */; };
+		FACFD8DA1BC4668900FF4249 /* BusyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACFD8D91BC4668900FF4249 /* BusyView.swift */; };
+		FACFD8DB1BC4668900FF4249 /* BusyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACFD8D91BC4668900FF4249 /* BusyView.swift */; };
 		FAEDBE9C1BC1722600FDBC15 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEDBE9B1BC1722600FDBC15 /* AppDelegate.swift */; };
 		FAEDBE9E1BC1722600FDBC15 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEDBE9D1BC1722600FDBC15 /* ViewController.swift */; };
-		FAEDBEDE1BC1FCC400FDBC15 /* PhotosUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAEDBEDD1BC1FCC400FDBC15 /* PhotosUI.framework */; settings = {ASSET_TAGS = (); }; };
-		FAEDBEE01BC1FCC400FDBC15 /* Photos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAEDBEDF1BC1FCC400FDBC15 /* Photos.framework */; settings = {ASSET_TAGS = (); }; };
+		FAEDBEDE1BC1FCC400FDBC15 /* PhotosUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAEDBEDD1BC1FCC400FDBC15 /* PhotosUI.framework */; };
+		FAEDBEE01BC1FCC400FDBC15 /* Photos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAEDBEDF1BC1FCC400FDBC15 /* Photos.framework */; };
 		FAEDBEE31BC1FCC400FDBC15 /* PhotoEditingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEDBEE21BC1FCC400FDBC15 /* PhotoEditingViewController.swift */; };
 		FAEDBEE61BC1FCC400FDBC15 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAEDBEE41BC1FCC400FDBC15 /* MainInterface.storyboard */; };
 		FAEDBEEA1BC1FCC400FDBC15 /* Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = FAEDBEDB1BC1FCC400FDBC15 /* Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		FAEDBEF21BC1FE5C00FDBC15 /* ApplicationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEDBEF11BC1FE5C00FDBC15 /* ApplicationViewController.swift */; settings = {ASSET_TAGS = (); }; };
-		FAEDBEF31BC1FFFB00FDBC15 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEDBE9D1BC1722600FDBC15 /* ViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		FAEDBEF21BC1FE5C00FDBC15 /* ApplicationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEDBEF11BC1FE5C00FDBC15 /* ApplicationViewController.swift */; };
+		FAEDBEF31BC1FFFB00FDBC15 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEDBE9D1BC1722600FDBC15 /* ViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -650,6 +650,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = GoldenTiler/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -662,6 +663,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = GoldenTiler/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -697,6 +699,7 @@
 		FAEDBEEC1BC1FCC400FDBC15 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = Extension/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.alexkolov.GoldenTiler.Extension;
@@ -708,6 +711,7 @@
 		FAEDBEED1BC1FCC400FDBC15 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = Extension/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.alexkolov.GoldenTiler.Extension;
